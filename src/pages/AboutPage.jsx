@@ -19,8 +19,8 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
-import authorPhoto from "../../assets/author-photo.jpg";
-import missionIllustration from "../../assets/mission-illustration.jpg";
+import authorPhoto from "../assets/author-photo.jpg";
+import missionIllustration from "../assets/mission-illustration.jpg";
 
 export default function AboutPage() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
