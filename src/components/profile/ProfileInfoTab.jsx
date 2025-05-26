@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaEdit, FaSave, FaTimes } from "react-icons/fa";
 import { updateProfile } from "../../store/authSlice";
-import userService from "../../services/userService";
+import authService from "../../services/authService";
 
 export default function ProfileInfoTab({ onMessage }) {
   const { user } = useSelector((state) => state.auth);
@@ -23,7 +23,7 @@ export default function ProfileInfoTab({ onMessage }) {
     e.preventDefault();
 
     try {
-      const updatedUser = await userService.updateProfile(profileData);
+      const updatedUser = await authService.updateProfile(profileData);
       dispatch(updateProfile(updatedUser));
       setEditMode(false);
       onMessage({ text: "Профіль успішно оновлено", type: "success" });

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaKey } from "react-icons/fa";
-import userService from "../../services/userService";
+import authService from "../../services/authService";
 
 export default function PasswordTab({ onMessage }) {
   const [passwordData, setPasswordData] = useState({
@@ -23,7 +23,7 @@ export default function PasswordTab({ onMessage }) {
     }
 
     try {
-      await userService.changePassword(
+      await authService.changePassword(
         passwordData.currentPassword,
         passwordData.newPassword
       );
