@@ -45,7 +45,7 @@ export default function ProfileInfoTab({ onMessage }) {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-6 font-medium">
+      <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Налаштування профілю</h2>
         {!editMode && (
           <button
@@ -58,7 +58,7 @@ export default function ProfileInfoTab({ onMessage }) {
       </div>
 
       <form onSubmit={handleSaveProfile}>
-        <div className="space-y-4">
+        <div className="space-y-4 font-medium">
           <div>
             <label className="block text-gray-700 mb-2">Логін</label>
             <input

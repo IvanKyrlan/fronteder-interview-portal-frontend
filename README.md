@@ -1,12 +1,71 @@
-# React + Vite
+# Frontender Interview Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Опис
 
-Currently, two official plugins are available:
+**Frontender Interview Portal** — це веб-платформа для всебічної підготовки до співбесід на frontend-позицію.  
+Проект поєднує тестування, практичні завдання, базу корисних статей, перегляд реальних співбесід та форум для спілкування з іншими кандидатами.  
+Всі ключові функції створені для того, щоб допомогти студентам, новачкам та іншим розробникам успішно пройти співбесіду в IT-компаніях.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Функціонал
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Аутентифікація та реєстрація** (JWT, реєстрація нових користувачів)
+- **Тестування з основних технологій:**  
+  HTML, CSS, JavaScript, React, SQL, Django — зберігається прогрес, можна готуватись інтерактивно.
+- **Практичні завдання** (кодинг, задачі з автоматичними перевірками)
+- **База статей** — добірка корисних матеріалів, гайдів, порад
+- **Технічні співбесіди** — відео співбесід з досвідченими фахівцями
+- **Форум** — для питань, обговорень, підтримки інших користувачів
+- **Адмін-панель** (через Django Admin)
+- **Сучасний UI:**
+  - Vite + React + TailwindCSS
+  - Мобільна адаптивність
+  - Зручна навігація, швидкий доступ до розділів
+  - Анімації, інтерактивні ілюстрації
+
+---
+
+## Демо
+
+[Frontend на Render](https://fronteder-interview-portal-frontend.onrender.com/)
+
+---
+
+## Як долучитись до розвитку
+
+Хочете зробити свій внесок?  
+Покращуйте код, додавайте новий контент, пропонуйте ідеї або вдосконалюйте існуючі розділи!  
+Ваш внесок допоможе зробити портал ще кориснішим для спільноти.
+
+---
+
+## Інсталяція локально
+
+1. Клонувати репозиторій:
+   git clone https://github.com/IvanKyrlan/fronteder-interview-portal-frontend.git
+
+2. Перейти в папку:
+   cd fronteder-interview-portal-frontend
+
+3. Встановити залежності:
+   npm install
+
+4. Створити файл `.env` з рядком:
+   VITE*API_URL=адреса*вашого_бекенду/api/
+
+5. Запустити dev-сервер:
+   npm run dev
+
+## Бекенд-репозиторій
+
+Репозиторій з Django-бекендом:  
+[https://github.com/IvanKyrlan/fronteder-interview-portal-backend.git](https://github.com/IvanKyrlan/fronteder-interview-portal-backend.git)
+
+---
+
+## Автор
+
+Ivan Kyrlan та всі учасники проєкту
+
+---

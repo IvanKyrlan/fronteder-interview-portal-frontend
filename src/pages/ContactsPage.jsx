@@ -307,8 +307,8 @@ export default function ContactsPage() {
       </section>
 
       <section className="py-16 bg-gradient-to-r from-amber-500 to-amber-600 text-white">
-        <div className="max-w-2xl mx-auto px-4 flex flex-col items-center">
-          <h2 className="text-3xl font-bold mb-4 w-full text-center">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
+          <h2 className="text-4xl font-bold mb-4 w-full text-center">
             Зробіть свій внесок у розвиток проекту
           </h2>
           <p className="text-lg text-gray-100 mb-8 w-full text-justify">
