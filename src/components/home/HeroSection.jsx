@@ -6,6 +6,7 @@ import {
   FaBookOpen,
   FaChevronDown,
 } from "react-icons/fa";
+import heroIllustration from "../../assets/hero-illustration.svg";
 
 export default function HeroSection() {
   const illustrationRef = useRef(null);
@@ -122,7 +123,7 @@ export default function HeroSection() {
                 className="w-full"
               >
                 <img
-                  src="/src/assets/hero-illustration.svg"
+                  src={heroIllustration}
                   alt="Головна Ілюстрація"
                   className="w-full h-auto max-h-none object-contain max-w-[150%] ml-auto mr-0 lg:mr-[-5%] drop-shadow-xl"
                 />

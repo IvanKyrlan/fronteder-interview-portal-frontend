@@ -19,6 +19,8 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { toast } from "react-toastify";
+import authorPhoto from "../../assets/author-photo.jpg";
+import missionIllustration from "../../assets/mission-illustration.jpg";
 
 export default function AboutPage() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -79,7 +81,7 @@ export default function AboutPage() {
               <div className="md:w-1/3 flex justify-center">
                 <div className="w-64 h-64 rounded-full overflow-hidden border-6 border-amber-500">
                   <img
-                    src="/src/assets/author-photo.jpg"
+                    src={authorPhoto}
                     alt="Фото автора"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -144,7 +146,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/2 text-justify">
+            <div className="md:w-2/3 text-justify">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Мета порталу
               </h2>
@@ -176,7 +178,7 @@ export default function AboutPage() {
             </div>
             <div className="md:w-1/2">
               <img
-                src="/src/assets/mission-illustration.jpg"
+                src={missionIllustration}
                 alt="Місія Frontender"
                 className="max-w-full h-auto rounded-lg shadow-lg"
                 onError={(e) => {

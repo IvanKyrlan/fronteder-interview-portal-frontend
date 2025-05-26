@@ -311,39 +311,25 @@ export default function ContactsPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-2/3">
               <h2 className="text-3xl font-bold mb-4">
-                Приєднуйтесь до нашої спільноти
+                Зробіть свій внесок у розвиток проекту
               </h2>
               <p className="text-lg text-gray-100">
-                Слідкуйте за нами в соціальних мережах, щоб бути в курсі
-                останніх новин, оновлень та корисних матеріалів для підготовки
-                до Frontend співбесід.
+                Допоможіть зробити портал кращим! Ви можете долучитися до
+                покращення платформи: оновлюйте код, додавайте новий контент,
+                пропонуйте ідеї або вдосконалюйте існуючі розділи. Разом ми
+                зможемо створити ще ефективніше середовище для підготовки до
+                Frontend співбесід.
               </p>
             </div>
             <div className="md:w-1/3 flex justify-center md:justify-end">
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/frontender"
+                  href="https://github.com/IvanKyrlan/fronteder-interview-portal-frontend"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-white text-neutral-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-colors"
                 >
                   <FaGithub size={24} />
-                </a>
-                <a
-                  href="https://facebook.com/frontender"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white text-neutral-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-colors"
-                >
-                  <FaFacebook size={24} />
-                </a>
-                <a
-                  href="https://t.me/frontender"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white text-neutral-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-colors"
-                >
-                  <FaTelegram size={24} />
                 </a>
               </div>
             </div>

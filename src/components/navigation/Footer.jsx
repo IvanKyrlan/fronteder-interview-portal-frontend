@@ -8,6 +8,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import logo from "../../assets/frontender-logo.svg";
 
 export default function Footer() {
   const sections = [
@@ -30,11 +31,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <Link to="/" className="flex items-center mb-6">
-              <img
-                src="/src/assets/frontender-logo.svg"
-                alt="Frontender Logo"
-                className="w-8 h-8"
-              />
+              <img src={logo} alt="Frontender Logo" className="w-8 h-8" />
               <span className="text-4xl font-bold text-white">rontender</span>
             </Link>
             <p className="text-gray-300 mb-6">
@@ -44,28 +41,12 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/IvanKyrlan/fronteder-interview-portal-frontend"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 <FaGithub size={22} />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaFacebook size={22} />
-              </a>
-              <a
-                href="https://t.me"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaTelegram size={22} />
               </a>
             </div>
           </div>

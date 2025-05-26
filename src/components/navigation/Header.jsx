@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaTimes, FaBars, FaUserCircle } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/authSlice";
+import logo from "../../assets/frontender-logo.svg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,11 +64,7 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <img
-              src="/src/assets/frontender-logo.svg"
-              alt="Frontender Logo"
-              className="w-8 h-8"
-            />
+            <img src={logo} alt="Frontender Logo" className="w-8 h-8" />
             <span className="text-4xl font-bold text-white">rontender</span>
           </Link>
 
@@ -151,11 +148,7 @@ export default function Header() {
             {isScrolled && (
               <li className="mr-4">
                 <Link to="/">
-                  <img
-                    src="/src/assets/frontender-logo.svg"
-                    alt="Frontender Logo"
-                    className="w-6 h-6"
-                  />
+                  <img src={logo} alt="Frontender Logo" className="w-6 h-6" />
                 </Link>
               </li>
             )}
@@ -190,11 +183,7 @@ export default function Header() {
         >
           <div className="px-4 py-3 flex justify-between items-center">
             <Link to="/" className="flex items-center">
-              <img
-                src="/src/assets/frontender-logo.svg"
-                alt="Frontender Logo"
-                className="w-8 h-8"
-              />
+              <img src={logo} alt="Frontender Logo" className="w-8 h-8" />
               <span className="text-4xl font-bold text-white">rontender</span>
             </Link>
             <button
