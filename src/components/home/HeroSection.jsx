@@ -6,7 +6,7 @@ import {
   FaBookOpen,
   FaChevronDown,
 } from "react-icons/fa";
-import heroIllustration from "../assets/hero-illustration.svg";
+import heroIllustration from "../../assets/hero-illustration.svg";
 
 export default function HeroSection() {
   const illustrationRef = useRef(null);
