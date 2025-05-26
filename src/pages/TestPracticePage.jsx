@@ -315,16 +315,16 @@ export default function TestPracticePage() {
               </button>
             </div>
 
-            <div className="md:w-1/2">
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-                <div className="h-64 bg-gradient-to-r from-gray-200 to-gray-300 flex items-center justify-center">
-                  <FaChartLine className="text-gray-400" size={80} />
+            <div className="w-full md:w-1/2">
+              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md flex flex-col">
+                <div className="h-48 sm:h-56 md:h-64 bg-gradient-to-r from-gray-200 to-gray-300 flex items-center justify-center">
+                  <FaChartLine className="text-gray-400" size={48} />
                 </div>
-                <div className="p-6 bg-white">
-                  <div className="h-5 bg-gray-200 rounded w-2/3 mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                <div className="p-4 sm:p-6 bg-white flex-1 flex flex-col justify-center">
+                  <div className="h-4 sm:h-5 bg-gray-200 rounded w-3/4 sm:w-2/3 mb-3 sm:mb-4"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded w-4/5 sm:w-5/6 mb-2"></div>
+                  <div className="h-3 sm:h-4 bg-gray-200 rounded w-2/3 sm:w-3/4"></div>
                 </div>
               </div>
             </div>

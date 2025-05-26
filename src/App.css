@@ -133,3 +133,24 @@ body {
 .Toastify__progress-bar-theme--light.Toastify__progress-bar--info {
   background-color: #d97706 !important;
 }
+
+@keyframes float-hero {
+  0% {
+    transform: translateY(0) scale(1) rotate(-2deg);
+  }
+  20% {
+    transform: translateY(-12px) scale(1.04) rotate(2deg);
+  }
+  50% {
+    transform: translateY(6px) scale(1.01) rotate(-1deg);
+  }
+  80% {
+    transform: translateY(-8px) scale(1.03) rotate(1.5deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(-2deg);
+  }
+}
+.animate-float-hero {
+  animation: float-hero 7s ease-in-out infinite;
+}

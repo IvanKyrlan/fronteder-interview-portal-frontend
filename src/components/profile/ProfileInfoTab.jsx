@@ -45,7 +45,7 @@ export default function ProfileInfoTab({ onMessage }) {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 font-medium">
         <h2 className="text-2xl font-bold">Налаштування профілю</h2>
         {!editMode && (
           <button
@@ -66,7 +66,7 @@ export default function ProfileInfoTab({ onMessage }) {
               name="username"
               value={profileData.username}
               onChange={handleProfileChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-600"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
               disabled={!editMode}
             />
           </div>
@@ -78,7 +78,7 @@ export default function ProfileInfoTab({ onMessage }) {
               name="email"
               value={profileData.email}
               onChange={handleProfileChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-600"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
               disabled={!editMode}
             />
           </div>

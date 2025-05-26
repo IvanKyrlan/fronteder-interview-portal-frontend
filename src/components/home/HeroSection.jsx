@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   FaCode,
@@ -9,9 +9,6 @@ import {
 import heroIllustration from "../../assets/hero-illustration.png";
 
 export default function HeroSection() {
-  const illustrationRef = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
   const scrollToNextSection = () => {
     const nextSection = document.querySelector(
       ".scroll-snap-section:nth-child(2)"
@@ -26,29 +23,6 @@ export default function HeroSection() {
     }
   };
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!illustrationRef.current) return;
-
-      const rect = illustrationRef.current.getBoundingClientRect();
-
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  const transform = `translate(${mousePosition.x * 15}px, ${
-    mousePosition.y * 15
-  }px) rotate(${mousePosition.x * 1.5}deg)`;
-
   return (
     <div className="relative min-h-[calc(100vh-64px)] flex items-center justify-center bg-gray-50 overflow-hidden">
       <div className="absolute w-96 h-96 rounded-full bg-amber-100 opacity-40 top-20 -right-48 z-0"></div>
@@ -58,7 +32,7 @@ export default function HeroSection() {
       <div className="max-w-7xl w-full mx-auto px-4 md:px-6 py-6 md:py-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-center">
           <div className="flex flex-col justify-center text-center lg:text-left">
-            <div className="">
+            <div>
               <span className="inline-block px-3 py-1 md:px-4 md:py-2 rounded-full bg-amber-100 text-amber-600 font-medium mb-3 md:mb-4 text-sm md:text-base">
                 Веб-портал для підготовки до співбесід
               </span>
@@ -66,7 +40,7 @@ export default function HeroSection() {
                 Стань спроможним
                 <span className="text-amber-600"> Frontend розробником</span>
               </h1>
-              <p className="text-xl mb-4 md:mb-6 text-gray-600 max-w-lg mx-auto lg:mx-0">
+              <p className="text-xl md:text-lg mb-4 md:mb-6 text-gray-600 max-w-lg mx-auto lg:mx-0">
                 Вивчайте теорію, розв'язуйте практичні завдання, проходьте тести
                 та підготуйтесь до співбесіди у провідних IT компаніях!
               </p>
@@ -113,22 +87,14 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="order-first lg:order-last overflow-hidden">
-            <div className="relative" ref={illustrationRef}>
-              <div
-                style={{
-                  transform,
-                  transition: "transform 0.1s ease-out",
-                }}
-                className="w-full"
-              >
-                <img
-                  src={heroIllustration}
-                  alt="Головна Ілюстрація"
-                  className="w-full h-auto max-h-none object-contain max-w-[150%] ml-auto mr-0 lg:mr-[-5%] drop-shadow-xl"
-                />
-              </div>
-
+          <div className="order-first lg:order-last overflow-hidden flex justify-center">
+            <div className="relative animate-float-hero w-72 h-72 md:w-[32rem] md:h-[32rem] flex items-center justify-center">
+              <img
+                src={heroIllustration}
+                alt="Головна Ілюстрація"
+                className="w-full h-full object-contain drop-shadow-xl"
+              />
+              {/* Плаваючі підписи */}
               <div className="hidden md:block absolute top-10 right-16 px-3 md:px-4 py-1 md:py-2 bg-white shadow-md rounded-lg text-xs md:text-sm font-medium text-gray-800 animate-float">
                 HTML5 & CSS3
               </div>

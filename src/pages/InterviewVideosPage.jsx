@@ -287,8 +287,8 @@ export default function InterviewVideosPage() {
               ) : (
                 <div className="bg-white p-8 rounded-lg shadow-md flex flex-col items-center justify-center min-h-[400px]">
                   <FaVideo className="text-amber-300 text-5xl mb-4" />
-                  <p className="text-gray-500 text-xl mb-6">
-                    Виберіть відео зі списку справа
+                  <p className="text-gray-500 text-lg mb-6">
+                    Виберіть відео зі списку
                   </p>
                   <FaChevronDown className="text-gray-400 animate-bounce lg:hidden" />
                 </div>

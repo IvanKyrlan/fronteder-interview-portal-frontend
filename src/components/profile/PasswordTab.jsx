@@ -48,7 +48,7 @@ export default function PasswordTab({ onMessage }) {
       <h2 className="text-2xl font-bold mb-6">Змінити пароль</h2>
 
       <form onSubmit={handleChangePassword}>
-        <div className="space-y-4">
+        <div className="space-y-4 font-medium">
           <div>
             <label className="block text-gray-700 mb-2">Поточний пароль</label>
             <input
@@ -56,7 +56,7 @@ export default function PasswordTab({ onMessage }) {
               name="currentPassword"
               value={passwordData.currentPassword}
               onChange={handlePasswordChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-600"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
               required
             />
           </div>
@@ -68,7 +68,7 @@ export default function PasswordTab({ onMessage }) {
               name="newPassword"
               value={passwordData.newPassword}
               onChange={handlePasswordChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-600"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
               required
             />
           </div>
@@ -82,13 +82,13 @@ export default function PasswordTab({ onMessage }) {
               name="confirmPassword"
               value={passwordData.confirmPassword}
               onChange={handlePasswordChange}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-amber-600"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
               required
             />
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 text-center">
           <button
             type="submit"
             className="px-6 py-3 flex items-center bg-amber-600 text-white rounded-md hover:bg-amber-700"

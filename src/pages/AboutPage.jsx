@@ -76,67 +76,65 @@ export default function AboutPage() {
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="md:w-1/3 flex justify-center">
-                <div className="w-64 h-64 rounded-full overflow-hidden border-6 border-amber-500">
-                  <img
-                    src={authorPhoto}
-                    alt="Фото автора"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src =
-                        "https://placehold.co/400x400/gray/white?text=Author+Photo";
-                    }}
-                  />
-                </div>
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="md:w-1/3 flex justify-center">
+              <div className="w-64 h-64 rounded-full overflow-hidden border-6 border-amber-500">
+                <img
+                  src={authorPhoto}
+                  alt="Фото автора"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://placehold.co/400x400/gray/white?text=Author+Photo";
+                  }}
+                />
               </div>
+            </div>
 
-              <div className="md:w-2/3 text-justify">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  Про автора
-                </h2>
-                <p className="text-lg text-gray-600 mb-4">
-                  Веб-портал «Frontender» було створено студентом 4 курсу{" "}
-                  <strong>Кирланом Іваном</strong> в рамках дипломної
-                  кваліфікаційної роботи для здобуття ступеня Бакалавр по
-                  спеціальності Системний Аналіз.
-                </p>
-                <p className="text-lg text-gray-600 mb-6">
-                  Проект розроблено з використанням сучасних технологій
-                  веб-розробки, включаючи React, Redux, Django REST Framework та
-                  інші. Мета проекту — надати студентам IT-спеціальностей
-                  зручний інструмент для підготовки до технічних співбесід та
-                  успішного старту в кар'єрі Frontend розробника.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://github.com/IvanKyrlan"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
-                  >
-                    <FaGithub className="mr-2" size={20} />
-                    GitHub
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/ivan-kyrlan-356203365/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
-                  >
-                    <FaLinkedin className="mr-2" size={20} />
-                    LinkedIn
-                  </a>
-                  <a
-                    href="mailto:ivan.kyrlan2004@gmail.com"
-                    className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
-                  >
-                    <FaEnvelope className="mr-2" size={20} />
-                    Email
-                  </a>
-                </div>
+            <div className="md:w-2/3 text-justify">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Про автора
+              </h2>
+              <p className="text-lg text-gray-600 mb-4">
+                Веб-портал «Frontender» було створено студентом 4 курсу{" "}
+                <strong>Кирланом Іваном</strong> в рамках дипломної
+                кваліфікаційної роботи для здобуття ступеня Бакалавр по
+                спеціальності Системний Аналіз.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                Проект розроблено з використанням сучасних технологій
+                веб-розробки, включаючи React, Redux, Django REST Framework та
+                інші. Мета проекту — надати студентам IT-спеціальностей зручний
+                інструмент для підготовки до технічних співбесід та успішного
+                старту в кар'єрі Frontend розробника.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://github.com/IvanKyrlan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
+                >
+                  <FaGithub className="mr-2" size={20} />
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/ivan-kyrlan-356203365/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
+                >
+                  <FaLinkedin className="mr-2" size={20} />
+                  LinkedIn
+                </a>
+                <a
+                  href="mailto:ivan.kyrlan2004@gmail.com"
+                  className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
+                >
+                  <FaEnvelope className="mr-2" size={20} />
+                  Email
+                </a>
               </div>
             </div>
           </div>
