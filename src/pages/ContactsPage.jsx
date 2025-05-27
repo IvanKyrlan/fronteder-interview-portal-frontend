@@ -4,8 +4,6 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaGithub,
-  FaFacebook,
-  FaTelegram,
   FaPaperPlane,
   FaSyncAlt,
   FaCheck,
