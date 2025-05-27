@@ -69,7 +69,7 @@ const EmptyState = ({
       {onAction && actionLabel && (
         <button
           onClick={onAction}
-          className={`inline-flex items-center px-5 py-3 rounded-md transition-all duration-200 text-md font-medium ${
+          className={`inline-flex items-center px-5 py-3 rounded-md transition-all duration-200 text-md  ${
             type === "error"
               ? "bg-red-600 hover:bg-red-700 text-white"
               : "bg-amber-600 hover:bg-amber-700 text-white"

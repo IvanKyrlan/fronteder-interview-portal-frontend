@@ -63,7 +63,7 @@ const SavedTopics = ({ refreshTrigger = 0 }) => {
           <FaBookmark className="mr-2 text-amber-500" />
           Збережені теми
         </h3>
-        <p className="text-gray-500 text-center py-4 font-medium">
+        <p className="text-gray-500 text-center py-4 ">
           У вас немає збережених тем
         </p>
       </div>
@@ -86,7 +86,7 @@ const SavedTopics = ({ refreshTrigger = 0 }) => {
               to={`/forum/topics/${topic.id}`}
               className="block hover:text-amber-600 transition-colors"
             >
-              <h4 className="font-medium text-gray-800 mb-1 line-clamp-2">
+              <h4 className=" text-gray-800 mb-1 line-clamp-2">
                 {topic.title}
               </h4>
               <div className="flex justify-between text-sm text-gray-500">
@@ -100,7 +100,7 @@ const SavedTopics = ({ refreshTrigger = 0 }) => {
           <div className="text-center pt-2">
             <Link
               to="/forum/bookmarks"
-              className="text-amber-600 hover:text-amber-700 font-medium text-sm"
+              className="text-amber-600 hover:text-amber-700  text-sm"
             >
               Показати всі ({savedTopics.length})
             </Link>

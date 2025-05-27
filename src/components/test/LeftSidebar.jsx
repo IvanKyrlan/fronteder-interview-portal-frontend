@@ -20,13 +20,11 @@ export default function LeftSidebar({ test, otherTests, onSelectTest }) {
         <div className="flex items-center mt-4">
           <FaRegClock className="mr-2" size={18} />
           <span className="font-semibold mr-2"> Час:</span>
-          <span className="font-medium text-gray-600">
-            {test.duration} хвилин
-          </span>
+          <span className=" text-gray-600">{test.duration} хвилин</span>
         </div>
         <div className="flex items-center">
           <span className="font-semibold mr-2">Кількість питань:</span>
-          <span className="font-medium text-gray-600">{test.questions}</span>
+          <span className=" text-gray-600">{test.questions}</span>
         </div>
       </div>
 
@@ -45,7 +43,7 @@ export default function LeftSidebar({ test, otherTests, onSelectTest }) {
                 <div className={`mr-2 ${otherTest.color}`}>
                   <OtherTestIcon size={36} />
                 </div>
-                <span className="font-medium text-lg">{otherTest.title}</span>
+                <span className=" text-lg">{otherTest.title}</span>
               </div>
             );
           })}

@@ -186,7 +186,7 @@ export default function TaskResultContent({
         </div>
         <button
           onClick={onBackToTests}
-          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-medium  transition-colors"
+          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white   transition-colors"
         >
           До списку тестів
         </button>
@@ -228,7 +228,7 @@ export default function TaskResultContent({
             <span className="text-gray-300">/{totalTasks}</span>
           </div>
 
-          <div className="text-xl mb-2 font-medium">
+          <div className="text-xl mb-2 ">
             <span
               className={`font-bold ${
                 isPassed ? "text-green-500" : "text-amber-600"
@@ -239,14 +239,14 @@ export default function TaskResultContent({
             - {isPassed ? "Відмінний результат!" : "Є над чим попрацювати"}
           </div>
 
-          <p className="text-gray-600 mb-4 font-medium">
+          <p className="text-gray-600 mb-4 ">
             {isPassed
               ? "Вітаємо! Ви успішно виконали більшість практичних завдань. Продовжуйте вдосконалювати свої навички!"
               : "Практика - шлях до досконалості. Спробуйте повторити завдання, які викликали труднощі."}
           </p>
         </div>
 
-        <div className="mb-10 max-w-2xl mx-auto bg-blue-50 rounded-lg p-6 border border-blue-100 font-medium">
+        <div className="mb-10 max-w-2xl mx-auto bg-blue-50 rounded-lg p-6 border border-blue-100 ">
           <h3 className="text-xl font-bold mb-4 text-gray-800">Що далі?</h3>
           <ul className="space-y-3 text-gray-700 text-left">
             <li className="flex items-start">
@@ -273,7 +273,7 @@ export default function TaskResultContent({
         <div className="flex flex-wrap justify-center space-x-4 mb-8">
           <button
             onClick={onRetakeTasks}
-            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-medium transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  transition-colors flex items-center"
           >
             <FaRedo className="mr-2" />
             Почати знову
@@ -281,7 +281,7 @@ export default function TaskResultContent({
 
           <button
             onClick={onBackToTests}
-            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white font-medium  transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white   transition-colors flex items-center"
           >
             <FaList className="mr-2" />
             Пройти тест
@@ -289,7 +289,7 @@ export default function TaskResultContent({
 
           <button
             onClick={() => setShowSolutions(!showSolutions)}
-            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium  transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white   transition-colors flex items-center"
           >
             {showSolutions ? (
               <>
@@ -312,7 +312,7 @@ export default function TaskResultContent({
             <h3 className="text-2xl font-bold text-gray-800">
               Рішення завдань
             </h3>
-            <div className="flex space-x-2 font-medium">
+            <div className="flex space-x-2 ">
               <button
                 onClick={() => setFilter("all")}
                 className={`px-3 py-1 rounded-md flex items-center ${
@@ -420,7 +420,7 @@ export default function TaskResultContent({
                       ) : (
                         <FaTimes className="mr-1" size={16} />
                       )}
-                      <span className="font-medium">
+                      <span className="">
                         {isCorrect ? "Виконано" : "Не виконано"}
                       </span>
                     </div>
@@ -536,7 +536,7 @@ export default function TaskResultContent({
           <div className="mt-8 text-center">
             <button
               onClick={onRetakeTasks}
-              className="px-8 py-4 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-medium  transition-colors"
+              className="px-8 py-4 rounded-md bg-amber-600 hover:bg-amber-700 text-white   transition-colors"
             >
               Спробувати ще раз
             </button>

@@ -147,7 +147,7 @@ export default function LatestArticlesSection() {
                           {formatDateLocale(article.published_at)}
                         </span>
 
-                        <span className="text-amber-600 group-hover:text-amber-700 font-medium text-sm flex items-center">
+                        <span className="text-amber-600 group-hover:text-amber-700  text-sm flex items-center">
                           Читати далі
                           <FaArrowRight
                             size={12}
@@ -172,7 +172,7 @@ export default function LatestArticlesSection() {
         <div className="text-center mt-12">
           <Link
             to="/articles"
-            className="inline-flex items-center text-lg font-medium text-amber-600 hover:text-amber-700 transition-colors"
+            className="inline-flex items-center text-lg  text-amber-600 hover:text-amber-700 transition-colors"
           >
             Переглянути всі статті
             <FaArrowRight className="ml-2" />

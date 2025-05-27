@@ -104,7 +104,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
         </p>
         <button
           onClick={() => navigate("/tests")}
-          className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md font-medium"
+          className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md "
         >
           Перейти до завдань
         </button>
@@ -152,7 +152,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                   </h3>
 
                   <div
-                    className={`px-4 py-1 rounded-full text-base font-medium ${
+                    className={`px-4 py-1 rounded-full text-base  ${
                       completionPercentage >= 80
                         ? "bg-gradient-to-r from-green-50 to-green-100 text-green-700"
                         : completionPercentage >= 60
@@ -166,7 +166,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
 
                 <div className="mb-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-gray-700 font-medium">
+                    <span className="text-gray-700 ">
                       {taskProg.completed_tasks} / {taskProg.total_tasks}{" "}
                       завдань виконано
                     </span>
@@ -184,7 +184,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                 <div className="flex justify-end items-center">
                   <div className="flex items-center gap-3">
                     <button
-                      className="px-4 py-2 rounded-md bg-amber-50 text-amber-600 font-medium hover:bg-amber-100 transition-all"
+                      className="px-4 py-2 rounded-md bg-amber-50 text-amber-600  hover:bg-amber-100 transition-all"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleGoToTasks(taskProg.test);
@@ -201,7 +201,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
 
               {isExpanded && (
                 <div className="border-t border-gray-100 p-5 bg-gray-50">
-                  <h4 className="text-lg font-medium mb-4 text-gray-700">
+                  <h4 className="text-lg  mb-4 text-gray-700">
                     Історія виконання завдань
                   </h4>
 
@@ -243,7 +243,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                               >
                                 <div>
                                   <span
-                                    className={`font-medium text-lg ${
+                                    className={` text-lg ${
                                       latestAttempt.is_correct
                                         ? "text-green-700"
                                         : "text-gray-800"
@@ -256,7 +256,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                       latestAttempt.is_correct
                                         ? "text-green-600"
                                         : "text-amber-600"
-                                    } font-medium`}
+                                    } `}
                                   >
                                     {latestAttempt.is_correct
                                       ? "Виконано успішно"
@@ -282,7 +282,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                 <div className="border-t border-gray-100 p-4">
                                   {latestAttempt.submitted_code && (
                                     <div className="mb-5">
-                                      <h5 className="text-base font-medium mb-3 text-gray-700">
+                                      <h5 className="text-base  mb-3 text-gray-700">
                                         <FaCode className="inline mr-2 text-amber-600" />
                                         Ваш код:
                                       </h5>
@@ -310,7 +310,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                         e.stopPropagation();
                                         handleGoToTasks(taskProg.test);
                                       }}
-                                      className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-sm font-medium"
+                                      className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-sm "
                                     >
                                       {latestAttempt.is_correct
                                         ? "Переглянути завдання"

@@ -87,7 +87,7 @@ export default function TestResultContent({
         </div>
         <button
           onClick={onBackToTests}
-          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-md transition-colors"
+          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md transition-colors"
         >
           До списку тестів
         </button>
@@ -143,20 +143,20 @@ export default function TestResultContent({
 
           <div className="text-xl mb-4">
             {isPassed ? (
-              <div className="text-green-600 font-medium">Тест пройдено!</div>
+              <div className="text-green-600 ">Тест пройдено!</div>
             ) : (
-              <div className="text-amber-600 font-medium">Спробуйте ще раз</div>
+              <div className="text-amber-600 ">Спробуйте ще раз</div>
             )}
           </div>
 
-          <p className="text-gray-600 mb-4 font-medium">
+          <p className="text-gray-600 mb-4 ">
             {isPassed
               ? "Вітаємо з успішним проходженням тесту! Ви продемонстрували хороші знання з теми."
               : "Не засмучуйтесь! Кожна спроба - це крок до покращення ваших знань."}
           </p>
         </div>
 
-        <div className="mb-10 max-w-2xl mx-auto bg-blue-50 rounded-lg p-6 border border-blue-100 font-medium">
+        <div className="mb-10 max-w-2xl mx-auto bg-blue-50 rounded-lg p-6 border border-blue-100 ">
           <h3 className="text-xl font-bold mb-4 text-gray-800">Що далі?</h3>
           <ul className="space-y-3 text-gray-700 text-left">
             <li className="flex items-start">
@@ -179,21 +179,21 @@ export default function TestResultContent({
         <div className="flex flex-wrap justify-center gap-4">
           <button
             onClick={onRetakeTest}
-            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-md transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md transition-colors flex items-center"
           >
             <FaRedo className="mr-2" />
             Пройти ще раз
           </button>
           <button
             onClick={onBackToTests}
-            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white font-medium shadow-md transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white  shadow-md transition-colors flex items-center"
           >
             <FaList className="mr-2" />
             До списку тестів
           </button>
           <button
             onClick={toggleShowAnswers}
-            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-md transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white  shadow-md transition-colors flex items-center"
           >
             {showAnswers ? (
               <>
@@ -255,14 +255,14 @@ export default function TestResultContent({
                       ) : (
                         <FaTimes className="mr-2" size={18} />
                       )}
-                      <span className="font-medium">
+                      <span className="">
                         {isUserAnswerCorrect ? "Правильно!" : "Неправильно!"}
                       </span>
                     </div>
                   </div>
 
                   <div className="p-6">
-                    <div className="mb-6 text-lg text-gray-800 font-medium">
+                    <div className="mb-6 text-lg text-gray-800 ">
                       {renderQuestionText(questionText)}
                     </div>
 
@@ -284,7 +284,7 @@ export default function TestResultContent({
                                   : "border-gray-200"
                               }`}
                             >
-                              <div className="flex items-center font-medium">
+                              <div className="flex items-center ">
                                 <div className="relative mr-4 w-6 h-6 flex-shrink-0">
                                   <div
                                     className={`w-6 h-6 rounded-full border-2 ${
@@ -315,7 +315,7 @@ export default function TestResultContent({
                                   {answer}
                                 </span>
                                 {isCorrectAnswer && !isUserChoice && (
-                                  <span className="ml-3 text-green-600 font-medium text-sm">
+                                  <span className="ml-3 text-green-600  text-sm">
                                     (Правильна відповідь)
                                   </span>
                                 )}
@@ -338,7 +338,7 @@ export default function TestResultContent({
           <div className="mt-8 text-center">
             <button
               onClick={onRetakeTest}
-              className="px-8 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-medium shadow-md transition-colors"
+              className="px-8 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md transition-colors"
             >
               Спробувати ще раз
             </button>

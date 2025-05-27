@@ -389,7 +389,7 @@ export default function TaskContent({
           <button
             onClick={onPrevTask}
             disabled={currentTaskIndex === 0}
-            className={`px-3 py-2 rounded-md text-white font-medium flex items-center transition-colors ${
+            className={`px-3 py-2 rounded-md text-white  flex items-center transition-colors ${
               currentTaskIndex === 0
                 ? "bg-gray-300 cursor-not-allowed"
                 : "bg-gray-600 hover:bg-gray-700"
@@ -400,7 +400,7 @@ export default function TaskContent({
 
           <button
             onClick={onNextTask}
-            className="px-3 py-2 rounded-md bg-gray-600 hover:bg-gray-700 text-white font-medium flex items-center  transition-colors"
+            className="px-3 py-2 rounded-md bg-gray-600 hover:bg-gray-700 text-white  flex items-center  transition-colors"
           >
             {isLastTask ? (
               <>
@@ -418,7 +418,7 @@ export default function TaskContent({
           <button
             onClick={toggleSolution}
             disabled={!showSolutionEnabled || !solutionCode}
-            className={`px-3 py-2 rounded-md text-white font-medium transition-colors ${
+            className={`px-3 py-2 rounded-md text-white  transition-colors ${
               !showSolutionEnabled || !solutionCode
                 ? "bg-gray-300 cursor-not-allowed"
                 : "bg-amber-600 hover:bg-amber-700"
@@ -435,13 +435,13 @@ export default function TaskContent({
             <FaRegFileCode className="text-amber-600 mr-3" size={24} />
             {task.title}
           </h2>
-          <p className="text-gray-700 mb-6 font-medium">{task.description}</p>
+          <p className="text-gray-700 mb-6 ">{task.description}</p>
 
           {shouldShowHintButton && (result?.hint || solutionHint) && (
             <div>
               <button
                 onClick={() => setShowHint(!showHint)}
-                className="flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors"
+                className="flex items-center text-amber-600 hover:text-amber-700  transition-colors"
               >
                 <FaLightbulb className="mr-2" />{" "}
                 {showHint ? "Сховати підказку" : "Показати підказку"}

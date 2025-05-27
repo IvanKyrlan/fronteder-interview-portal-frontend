@@ -49,7 +49,7 @@ export default function ProfilePage() {
         <div className="bg-white rounded-lg border border-gray-100 shadow-md">
           <div className="flex overflow-x-auto border-b border-gray-100">
             <button
-              className={`px-4 py-3 text-base md:text-lg whitespace-nowrap font-medium ${
+              className={`px-4 py-3 text-base md:text-lg whitespace-nowrap  ${
                 activeTab === "progress"
                   ? "text-amber-600 border-b-2 border-amber-600"
                   : "text-gray-600 hover:text-amber-600"
@@ -59,7 +59,7 @@ export default function ProfilePage() {
               Мій прогрес
             </button>
             <button
-              className={`px-4 py-3 text-base md:text-lg whitespace-nowrap font-medium ${
+              className={`px-4 py-3 text-base md:text-lg whitespace-nowrap  ${
                 activeTab === "profile"
                   ? "text-amber-600 border-b-2 border-amber-600"
                   : "text-gray-600 hover:text-amber-600"
@@ -69,7 +69,7 @@ export default function ProfilePage() {
               Налаштування профілю
             </button>
             <button
-              className={`px-4 py-3 text-base md:text-lg whitespace-nowrap font-medium ${
+              className={`px-4 py-3 text-base md:text-lg whitespace-nowrap  ${
                 activeTab === "password"
                   ? "text-amber-600 border-b-2 border-amber-600"
                   : "text-gray-600 hover:text-amber-600"

@@ -226,7 +226,7 @@ const CreateTopicModal = ({
             <div className="mb-4">
               <label
                 htmlFor="title"
-                className="block text-gray-700 font-medium mb-2 text-md"
+                className="block text-gray-700  mb-2 text-md"
               >
                 Заголовок теми <span className="text-red-500">*</span>
               </label>
@@ -252,7 +252,7 @@ const CreateTopicModal = ({
             <div className="mb-4">
               <label
                 htmlFor="category"
-                className="block text-gray-700 font-medium mb-2 text-md"
+                className="block text-gray-700  mb-2 text-md"
               >
                 Категорія <span className="text-red-500">*</span>
               </label>
@@ -286,12 +286,12 @@ const CreateTopicModal = ({
               <div className="flex justify-between items-center mb-2">
                 <label
                   htmlFor="content"
-                  className="block text-gray-700 font-medium text-md"
+                  className="block text-gray-700  text-md"
                 >
                   Вміст теми <span className="text-red-500">*</span>
                 </label>
 
-                <div className="flex items-center space-x-2 font-medium text-sm">
+                <div className="flex items-center space-x-2  text-sm">
                   <button
                     type="button"
                     onClick={() => setShowCodeEditor(true)}
@@ -361,14 +361,14 @@ const CreateTopicModal = ({
             {showCodeEditor && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
                 <div className="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-[80vh] overflow-hidden p-5">
-                  <h3 className="text-lg font-medium text-gray-800 mb-3">
+                  <h3 className="text-lg  text-gray-800 mb-3">
                     Додавання блоку коду
                   </h3>
 
                   <div className="mb-3">
                     <label
                       htmlFor="codeLanguage"
-                      className="block text-gray-700 text-md font-medium mb-1"
+                      className="block text-gray-700 text-md  mb-1"
                     >
                       Мова програмування
                     </label>
@@ -389,7 +389,7 @@ const CreateTopicModal = ({
                   <div className="mb-4">
                     <label
                       htmlFor="codeContent"
-                      className="block text-gray-700 text-md font-medium mb-1"
+                      className="block text-gray-700 text-md  mb-1"
                     >
                       Код
                     </label>
@@ -403,7 +403,7 @@ const CreateTopicModal = ({
                     ></textarea>
                   </div>
 
-                  <div className="flex justify-end space-x-3 font-medium">
+                  <div className="flex justify-end space-x-3 ">
                     <button
                       type="button"
                       onClick={() => setShowCodeEditor(false)}
@@ -424,7 +424,7 @@ const CreateTopicModal = ({
               </div>
             )}
 
-            <div className="flex justify-end font-medium">
+            <div className="flex justify-end ">
               <button
                 type="button"
                 onClick={onClose}

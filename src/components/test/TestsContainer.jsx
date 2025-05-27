@@ -84,7 +84,7 @@ export default function TestsContainer({ tests }) {
                   <h3 className="text-2xl font-bold text-gray-800 group-hover:text-white ">
                     {test.title}
                   </h3>
-                  <p className="text-gray-800 group-hover:text-white/90  mt-1 text-lg font-medium">
+                  <p className="text-gray-800 group-hover:text-white/90  mt-1 text-lg ">
                     Питання до співбесід
                   </p>
                 </div>

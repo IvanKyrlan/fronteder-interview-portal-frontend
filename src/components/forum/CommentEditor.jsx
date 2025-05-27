@@ -81,7 +81,7 @@ const CommentEditor = ({
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
-        <div className="flex justify-end mb-2 font-medium text-sm">
+        <div className="flex justify-end mb-2 text-sm">
           <button
             type="button"
             onClick={() => setShowCodeEditor(true)}
@@ -142,7 +142,7 @@ const CommentEditor = ({
         <button
           type="submit"
           disabled={isSubmitting || !value.trim()}
-          className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center text-md font-medium"
+          className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center text-md"
         >
           {isSubmitting ? (
             <>
@@ -161,14 +161,12 @@ const CommentEditor = ({
       {showCodeEditor && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
           <div className="bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-[80vh] overflow-hidden p-5">
-            <h3 className="text-lg font-medium text-gray-800 mb-3">
-              Додавання блоку коду
-            </h3>
+            <h3 className="text-lg text-gray-800 mb-3">Додавання блоку коду</h3>
 
             <div className="mb-3">
               <label
                 htmlFor="codeLanguage"
-                className="block text-gray-700 text-md font-medium mb-1"
+                className="block text-gray-700 text-md mb-1"
               >
                 Мова програмування
               </label>
@@ -189,7 +187,7 @@ const CommentEditor = ({
             <div className="mb-4">
               <label
                 htmlFor="codeContent"
-                className="block text-gray-700 text-md font-medium mb-1"
+                className="block text-gray-700 text-md mb-1"
               >
                 Код
               </label>
@@ -203,7 +201,7 @@ const CommentEditor = ({
               ></textarea>
             </div>
 
-            <div className="flex justify-end space-x-3 font-medium">
+            <div className="flex justify-end space-x-3">
               <button
                 type="button"
                 onClick={() => setShowCodeEditor(false)}

@@ -24,7 +24,7 @@ const CopyCodeButton = ({
 
   return (
     <button
-      className={`absolute ${position} z-10 p-2 rounded-md text-sm font-medium transition-all border border-gray-200
+      className={`absolute ${position} z-10 p-2 rounded-md text-sm transition-all border border-gray-200
         ${
           copied
             ? "bg-white text-gray-800"

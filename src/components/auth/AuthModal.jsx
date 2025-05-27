@@ -34,7 +34,7 @@ export default function AuthModal({ isOpen, onClose, initialMode = "login" }) {
           <RegisterForm onClose={onClose} />
         )}
 
-        <div className="mt-6 text-center font-medium">
+        <div className="mt-6 text-center">
           {mode === "login" ? (
             <p>
               Немає облікового запису?{" "}

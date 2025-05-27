@@ -132,7 +132,7 @@ export default function ArticleDetail({ article }) {
           {article.title}
         </h1>
 
-        <div className="flex items-center mb-6 text-gray-500 text-sm font-medium">
+        <div className="flex items-center mb-6 text-gray-500 text-sm">
           <FaRegClock className="mr-1" />
           <span>{formatDateLocale(article.published_at)}</span>
         </div>

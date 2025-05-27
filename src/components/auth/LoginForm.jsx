@@ -38,7 +38,7 @@ export default function LoginForm({ onClose }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="font-medium">
+    <form onSubmit={handleSubmit}>
       {error && (
         <div className="bg-red-50 text-red-600 p-3 rounded-md mb-4">
           {error}
@@ -118,7 +118,7 @@ export default function LoginForm({ onClose }) {
 
       <button
         type="submit"
-        className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-4 rounded-lg transition-colors"
+        className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-4 rounded-lg transition-colors"
         disabled={loading}
       >
         {loading ? "Обробка..." : "Увійти"}

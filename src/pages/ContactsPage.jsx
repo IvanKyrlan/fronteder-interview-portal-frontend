@@ -98,7 +98,7 @@ export default function ContactsPage() {
                   Контактна інформація
                 </h2>
 
-                <div className="space-y-6">
+                <div className="space-y-6 ">
                   <div className="flex items-start">
                     <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-4 flex-shrink-0">
                       <FaEnvelope size={20} />
@@ -133,7 +133,7 @@ export default function ContactsPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start font-medium ">
+                  <div className="flex items-start  ">
                     <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-4 flex-shrink-0">
                       <FaMapMarkerAlt size={20} />
                     </div>
@@ -172,10 +172,7 @@ export default function ContactsPage() {
                     </div>
                   </div>
                 ) : (
-                  <form
-                    onSubmit={handleSubmit}
-                    className="space-y-6 font-medium"
-                  >
+                  <form onSubmit={handleSubmit} className="space-y-6 ">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label
@@ -198,7 +195,7 @@ export default function ContactsPage() {
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-gray-700 font-medium mb-2"
+                          className="block text-gray-700  mb-2"
                         >
                           Email
                         </label>
@@ -218,7 +215,7 @@ export default function ContactsPage() {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-gray-700 font-medium mb-2"
+                        className="block text-gray-700  mb-2"
                       >
                         Тема
                       </label>
@@ -237,7 +234,7 @@ export default function ContactsPage() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-gray-700 font-medium mb-2"
+                        className="block text-gray-700  mb-2"
                       >
                         Повідомлення
                       </label>
@@ -265,7 +262,7 @@ export default function ContactsPage() {
                           className="w-4 h-4 text-amber-600 rounded focus:ring-amber-500 border-gray-300"
                         />
                       </div>
-                      <div className="ml-3 text-sm font-medium">
+                      <div className="ml-3 text-sm ">
                         <label htmlFor="agreement" className="text-gray-600">
                           Я погоджуюсь з{" "}
                           <a
@@ -282,7 +279,7 @@ export default function ContactsPage() {
                     <div>
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors"
+                        className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base  rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors"
                         disabled={formStatus.loading}
                       >
                         {formStatus.loading ? (

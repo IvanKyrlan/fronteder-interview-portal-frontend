@@ -246,7 +246,7 @@ export default function TestPracticePage() {
                 key={index}
                 className="bg-white py-12 px-4 rounded-lg shadow-sm flex flex-col h-full"
               >
-                <div className="w-18 h-18 text-lg rounded-full bg-amber-600 text-white font-bold flex items-center justify-center mb-4 mx-auto">
+                <div className="w-18 h-18 text-xl rounded-full bg-amber-600 text-white font-bold flex items-center justify-center mb-4 mx-auto">
                   {step.number}
                 </div>
                 <div className="h-16 flex items-center justify-center">
@@ -308,7 +308,7 @@ export default function TestPracticePage() {
 
               <button
                 onClick={handleRegisterClick}
-                className="inline-flex font-medium items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors shadow-md"
+                className="inline-flex text-lg  items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors shadow-md"
               >
                 Зареєструватися
                 <FaChevronRight className="ml-2" />
@@ -317,8 +317,8 @@ export default function TestPracticePage() {
 
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md flex flex-col">
-                <div className="h-48 sm:h-56 md:h-64 bg-gradient-to-r from-gray-200 to-gray-300 flex items-center justify-center">
-                  <FaChartLine className="text-gray-400" size={48} />
+                <div className="h-56 sm:h-56 md:h-64 bg-gradient-to-r from-gray-200 to-gray-300 flex items-center justify-center">
+                  <FaChartLine className="text-gray-400" size={56} />
                 </div>
                 <div className="p-4 sm:p-6 bg-white flex-1 flex flex-col justify-center">
                   <div className="h-4 sm:h-5 bg-gray-200 rounded w-3/4 sm:w-2/3 mb-3 sm:mb-4"></div>
@@ -350,13 +350,13 @@ export default function TestPracticePage() {
                   behavior: "smooth",
                 })
               }
-              className="bg-white text-amber-600 font-medium text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
             >
               Почати тестування
             </button>
             <Link
               to="/interviews"
-              className="bg-transparent text-white border-2 border-white font-medium text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
             >
               Перейти до відео співбесід
             </Link>

@@ -120,7 +120,7 @@ export default function ArticlePage() {
               <h2 className="text-2xl font-bold text-gray-800">Публікації</h2>
             </div>
 
-            <div className="flex flex-wrap gap-3 font-medium">
+            <div className="flex flex-wrap gap-3 ">
               {Object.entries(filterTypes).map(([key, label]) => (
                 <button
                   key={key}
@@ -157,7 +157,7 @@ export default function ArticlePage() {
               </button>
             </div>
           ) : articles.length === 0 ? (
-            <div className="text-center py-16 bg-white rounded-lg shadow-md font-medium">
+            <div className="text-center py-16 bg-white rounded-lg shadow-md ">
               <div className="text-lg text-gray-600 mb-6">
                 {`Немає статей у категорії "${filterTypes[activeTab]}"`}
               </div>
@@ -196,7 +196,7 @@ export default function ArticlePage() {
           </p>
           <Link
             to="/contacts"
-            className="inline-flex items-center px-8 py-4 bg-white text-amber-600 font-medium text-lg rounded-md hover:bg-gray-100 transition-colors shadow-md"
+            className="inline-flex items-center px-8 py-4 bg-white text-amber-600  text-lg rounded-md hover:bg-gray-100 transition-colors shadow-md"
           >
             Стати автором
             <FaArrowRight className="ml-2" />

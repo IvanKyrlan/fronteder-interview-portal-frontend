@@ -177,7 +177,7 @@ export default function ProgressTab() {
   if (error) {
     return (
       <div className="bg-red-50 text-red-600 p-4 rounded-lg">
-        <p className="font-medium">{error}</p>
+        <p className="">{error}</p>
       </div>
     );
   }
@@ -232,9 +232,7 @@ export default function ProgressTab() {
                       {rec.icon}
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-800 mb-1">
-                        {rec.title}
-                      </h4>
+                      <h4 className=" text-gray-800 mb-1">{rec.title}</h4>
                       <p className="text-gray-600 text-md">{rec.description}</p>
 
                       {rec.type === "test_retry" && rec.tests && (
@@ -290,7 +288,7 @@ export default function ProgressTab() {
       <div className="mb-4 border-b border-gray-200">
         <div className="flex flex-wrap text-lg">
           <button
-            className={`px-4 py-2 font-medium text-md mr-2 -mb-px rounded-t focus:outline-none transition-colors ${
+            className={`px-4 py-2  text-md mr-2 -mb-px rounded-t focus:outline-none transition-colors ${
               activeTab === "test"
                 ? "text-amber-600 border-b-2 border-amber-600 bg-white"
                 : "text-gray-600 hover:text-amber-600"
@@ -303,7 +301,7 @@ export default function ProgressTab() {
             </span>
           </button>
           <button
-            className={`px-4 py-2 font-medium text-md -mb-px rounded-t focus:outline-none transition-colors ${
+            className={`px-4 py-2  text-md -mb-px rounded-t focus:outline-none transition-colors ${
               activeTab === "task"
                 ? "text-amber-600 border-b-2 border-amber-600 bg-white"
                 : "text-gray-600 hover:text-amber-600"

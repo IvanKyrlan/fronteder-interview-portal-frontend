@@ -156,7 +156,7 @@ export default function TestContent({
             }`}
             onClick={() => onAnswerSelect(index)}
           >
-            <div className="flex items-center font-medium">
+            <div className="flex items-center ">
               <div className="relative mr-4 w-6 h-6 flex-shrink-0">
                 <input
                   type="radio"
@@ -188,7 +188,7 @@ export default function TestContent({
         <button
           onClick={onNextQuestion}
           disabled={selectedAnswer === null}
-          className={`px-8 py-3 rounded-md text-white text-lg font-medium transition-colors ${
+          className={`px-8 py-3 rounded-md text-white text-lg  transition-colors ${
             selectedAnswer === null
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-amber-600 hover:bg-amber-700 "

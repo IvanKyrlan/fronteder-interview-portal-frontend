@@ -46,9 +46,8 @@ export default function PasswordTab({ onMessage }) {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-6">Змінити пароль</h2>
-
       <form onSubmit={handleChangePassword}>
-        <div className="space-y-4 font-medium">
+        <div className="space-y-4 ">
           <div>
             <label className="block text-gray-700 mb-2">Поточний пароль</label>
             <input
@@ -88,7 +87,7 @@ export default function PasswordTab({ onMessage }) {
           </div>
         </div>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center ">
           <button
             type="submit"
             className="px-6 py-3 flex items-center bg-amber-600 text-white rounded-md hover:bg-amber-700"

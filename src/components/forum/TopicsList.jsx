@@ -32,10 +32,10 @@ const TopicsList = ({
           <div className="w-14 h-14 mx-auto bg-red-50 rounded-full flex items-center justify-center mb-4">
             <FaExclamationTriangle className="text-red-500 text-xl" />
           </div>
-          <div className="text-lg text-red-500 mb-5 font-medium">{error}</div>
+          <div className="text-lg text-red-500 mb-5 ">{error}</div>
           <button
             onClick={() => window.location.reload()}
-            className="inline-flex items-center px-5 py-2.5 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 text-sm font-medium"
+            className="inline-flex items-center px-5 py-2.5 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 text-sm "
           >
             <FaSync className="mr-2" size={14} />
             Спробувати знову

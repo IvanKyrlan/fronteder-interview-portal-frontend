@@ -92,7 +92,7 @@ export default function TestProgress({ userProgress }) {
         </p>
         <button
           onClick={() => navigate("/tests")}
-          className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md font-medium"
+          className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md "
         >
           Перейти до тестів
         </button>
@@ -130,7 +130,7 @@ export default function TestProgress({ userProgress }) {
                   </h3>
 
                   <div
-                    className={`px-4 py-1 rounded-full text-base font-medium ${
+                    className={`px-4 py-1 rounded-full text-base  ${
                       item.score >= 80
                         ? "bg-gradient-to-r from-green-50 to-green-100 text-green-700"
                         : item.score >= 60
@@ -152,7 +152,7 @@ export default function TestProgress({ userProgress }) {
                 <div className="flex justify-between items-center">
                   <div>
                     {showBestScore && (
-                      <div className="text-green-600 font-medium">
+                      <div className="text-green-600 ">
                         <FaStar className="inline mr-1 text-amber-400" />
                         Найкращий: {bestScore}%
                       </div>
@@ -161,7 +161,7 @@ export default function TestProgress({ userProgress }) {
 
                   <div className="flex items-center gap-3">
                     <button
-                      className="px-4 py-2 rounded-md bg-amber-50 text-amber-600 font-medium hover:bg-amber-100 transition-all"
+                      className="px-4 py-2 rounded-md bg-amber-50 text-amber-600  hover:bg-amber-100 transition-all"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleGoToTest(item.test_id);
@@ -178,7 +178,7 @@ export default function TestProgress({ userProgress }) {
 
               {isExpanded && (
                 <div className="border-t border-gray-100 p-5 bg-gray-50">
-                  <h4 className="text-lg font-medium mb-4 text-gray-700">
+                  <h4 className="text-lg  mb-4 text-gray-700">
                     Історія спроб ({item.attempts})
                   </h4>
 
@@ -196,13 +196,11 @@ export default function TestProgress({ userProgress }) {
                       <table className="min-w-full">
                         <thead className="bg-gray-100 text-gray-600">
                           <tr>
-                            <th className="py-3 px-4 text-left font-medium">
-                              Дата
-                            </th>
-                            <th className="py-3 px-4 text-center font-medium">
+                            <th className="py-3 px-4 text-left ">Дата</th>
+                            <th className="py-3 px-4 text-center ">
                               Результат
                             </th>
-                            <th className="py-3 px-4 text-center font-medium">
+                            <th className="py-3 px-4 text-center ">
                               Відповіді
                             </th>
                           </tr>
@@ -227,7 +225,7 @@ export default function TestProgress({ userProgress }) {
                                 </span>
                               </td>
                               <td className="py-3 px-4 text-center">
-                                <span className="text-gray-700 font-medium">
+                                <span className="text-gray-700 ">
                                   {attempt.correct_answers}/
                                   {attempt.total_questions}
                                 </span>

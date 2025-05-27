@@ -74,7 +74,7 @@ const TopicContent = ({
       <div className="border-b border-gray-100 p-6">
         <div className="flex flex-wrap items-center gap-2 mb-3">
           <span
-            className={`text-sm font-medium text-white px-2.5 py-1 rounded-full ${getCategoryColor(
+            className={`text-sm  text-white px-2.5 py-1 rounded-full ${getCategoryColor(
               topic.category
             )}`}
           >
@@ -96,10 +96,10 @@ const TopicContent = ({
           {topic.title}
         </h1>
 
-        <div className="flex flex-wrap items-center gap-3 text-gray-600 text-sm font-medium mb-3">
+        <div className="flex flex-wrap items-center gap-3 text-gray-600 text-sm  mb-3">
           <div className="flex items-center gap-1.5">
             <FaUser size={15} className="opacity-80" />
-            <span className="font-medium">{topic.author_name}</span>
+            <span className="">{topic.author_name}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <FaCalendarAlt size={15} className="opacity-80" />
@@ -107,7 +107,7 @@ const TopicContent = ({
           </div>
         </div>
 
-        <div className="flex gap-5 mt-2 text-gray-400 text-sm font-medium">
+        <div className="flex gap-5 mt-2 text-gray-400 text-sm ">
           <div className="flex items-center gap-1.5">
             <FaEye size={13} />
             <span>{topic.views} переглядів</span>
@@ -124,7 +124,7 @@ const TopicContent = ({
           {renderContent(topic.content)}
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 pt-4 font-medium">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 pt-4 ">
           <div className="flex items-center gap-2 w-full md:w-auto text-sm">
             <button
               onClick={onToggleLike}

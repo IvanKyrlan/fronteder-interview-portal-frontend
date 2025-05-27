@@ -70,7 +70,7 @@ export default function ArticleDetailPage() {
           </div>
           <Link
             to="/articles"
-            className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium"
+            className="inline-flex items-center text-amber-600 hover:text-amber-700 "
           >
             <FaArrowLeft className="mr-2" />
             Повернутися до списку статей
@@ -112,7 +112,7 @@ export default function ArticleDetailPage() {
             IT Статті
           </Link>
           <FaChevronRight className="mx-2" size={12} />
-          <span className="text-gray-800 font-medium truncate max-w-md">
+          <span className="text-gray-800  truncate max-w-md">
             {article.title}
           </span>
         </nav>
@@ -122,11 +122,11 @@ export default function ArticleDetailPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
               <ArticleDetail article={article} />
 
-              <div className="p-6 border-t border-gray-100 font-medium">
+              <div className="p-6 border-t border-gray-100 ">
                 <div className="flex flex-wrap items-center justify-between">
                   <Link
                     to="/articles"
-                    className="flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors text-md"
+                    className="flex items-center text-amber-600 hover:text-amber-700  transition-colors text-md"
                   >
                     <FaArrowLeft className="mr-2" />
                     Назад до списку статей
@@ -134,7 +134,7 @@ export default function ArticleDetailPage() {
                   <div className="relative">
                     <button
                       onClick={handleShare}
-                      className="flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors text-md"
+                      className="flex items-center text-amber-600 hover:text-amber-700  transition-colors text-md"
                     >
                       <FaShareAlt className="mr-2" />
                       Поділитися
@@ -201,7 +201,7 @@ export default function ArticleDetailPage() {
                 </p>
                 <Link
                   to="/tests"
-                  className="inline-block bg-white text-amber-600 font-medium py-2 px-4 rounded hover:bg-gray-100 transition-colors"
+                  className="inline-block bg-white text-amber-600  py-2 px-4 rounded hover:bg-gray-100 transition-colors"
                 >
                   Перейти до тестів
                 </Link>

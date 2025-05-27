@@ -197,12 +197,12 @@ const ForumTopicPage = () => {
       <div className="flex justify-center items-center min-h-screen bg-gray-50 p-4">
         <div className="bg-white p-6 rounded-lg shadow-sm text-center max-w-md w-full">
           <FaExclamationTriangle className="text-red-500 text-3xl mx-auto mb-3" />
-          <div className="text-lg text-red-500 mb-4 font-medium">
+          <div className="text-lg text-red-500 mb-4 ">
             {error || "Тему не знайдено"}
           </div>
           <Link
             to="/forum"
-            className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors"
+            className="inline-flex items-center text-amber-600 hover:text-amber-700  transition-colors"
           >
             <FaArrowLeft className="mr-2" size={14} />
             Повернутися до списку тем
@@ -252,20 +252,20 @@ const ForumTopicPage = () => {
             />
           </div>
         ) : (
-          <div className="bg-white rounded-lg shadow-sm p-6 mb-6 text-center font-medium">
+          <div className="bg-white rounded-lg shadow-sm p-6 mb-6 text-center ">
             <p className="text-gray-500 mb-4">
               Для додавання коментарів необхідно увійти в систему
             </p>
             <Link
               to="/login"
-              className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 inline-block text-md font-medium"
+              className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 inline-block text-md "
             >
               Увійти
             </Link>
           </div>
         )}
 
-        <div className="bg-white rounded-lg p-6 shadow-sm mb-6 font-medium">
+        <div className="bg-white rounded-lg p-6 shadow-sm mb-6 ">
           <h2 className="text-xl font-semibold text-gray-800 mb-5 pb-2 border-b border-gray-100">
             Відповіді ({comments.length})
           </h2>
@@ -287,7 +287,7 @@ const ForumTopicPage = () => {
         <div className="flex justify-between mb-8">
           <Link
             to="/forum"
-            className="flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors text-md"
+            className="flex items-center text-amber-600 hover:text-amber-700  transition-colors text-md"
           >
             <FaArrowLeft className="mr-2" size={14} />
             Повернутися до списку тем

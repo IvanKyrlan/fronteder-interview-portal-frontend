@@ -91,7 +91,7 @@ export default function Header() {
                   <span>{user?.username}</span>
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 py-1 border border-gray-200 text-black font-medium">
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 py-1 border border-gray-200 text-black ">
                     <Link
                       to="/profile"
                       className="block px-4 py-2 hover:bg-gray-100"
@@ -112,13 +112,13 @@ export default function Header() {
               <div className="flex items-center space-x-3">
                 <Link
                   to="/login"
-                  className="px-4 py-2 font-medium bg-white text-gray-800 rounded border-1 border-white hover:bg-transparent hover:text-white"
+                  className="px-4 py-2  bg-white text-gray-800 rounded border-1 border-white hover:bg-transparent hover:text-white"
                 >
                   Увійти
                 </Link>
                 <Link
                   to="/register"
-                  className="px-4 py-2 font-medium bg-amber-600 text-white rounded hover:bg-amber-700"
+                  className="px-4 py-2  bg-amber-600 text-white rounded hover:bg-amber-700"
                 >
                   Реєстрація
                 </Link>
@@ -144,7 +144,7 @@ export default function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 py-2">
-          <ul className="flex flex-row items-center space-x-6 text-gray-500 font-medium text-md justify-between">
+          <ul className="flex flex-row items-center space-x-6 text-gray-500  text-md justify-between">
             {isScrolled && (
               <li className="mr-4">
                 <Link to="/">
@@ -257,13 +257,13 @@ export default function Header() {
                   <Link
                     to="/profile"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full py-3 bg-white text-neutral-800 font-medium text-lg rounded"
+                    className="w-full py-3 bg-white text-neutral-800  text-lg rounded"
                   >
                     Особистий кабінет
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="w-full py-3 bg-neutral-800 text-white border-1 font-medium text-lg rounded"
+                    className="w-full py-3 bg-neutral-800 text-white border-1  text-lg rounded"
                   >
                     Вийти
                   </button>
@@ -275,14 +275,14 @@ export default function Header() {
                   <Link
                     to="/login"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full py-3 bg-white text-neutral-800 font-medium text-lg rounded"
+                    className="w-full py-3 bg-white text-neutral-800  text-lg rounded"
                   >
                     Увійти
                   </Link>
                   <Link
                     to="/register"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="w-full py-3 bg-amber-600 text-white font-medium text-lg rounded"
+                    className="w-full py-3 bg-amber-600 text-white  text-lg rounded"
                   >
                     Реєстрація
                   </Link>

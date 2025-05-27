@@ -68,9 +68,7 @@ const CommentItem = ({ comment }) => (
       <div className="flex-grow min-w-0">
         {" "}
         <div className="flex flex-wrap justify-between mb-1.5">
-          <div className="font-medium text-gray-800 text-md">
-            {comment.author_name}
-          </div>
+          <div className="text-gray-800 text-md">{comment.author_name}</div>
           <div className="text-sm text-gray-500">
             {formatDateLocale(comment.created_at)}
           </div>

@@ -48,7 +48,7 @@ const ForumActionBar = ({
 
   return (
     <div className="flex flex-col md:flex-row justify-between items-center p-5 border-b border-gray-100 gap-4">
-      <div className="flex w-full md:w-auto items-center gap-4 font-medium">
+      <div className="flex w-full md:w-auto items-center gap-4 ">
         <button
           onClick={handleCreateClick}
           className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-all duration-200 shadow-sm flex items-center whitespace-nowrap text-md"
@@ -97,7 +97,7 @@ const ForumActionBar = ({
         <select
           value={sortBy}
           onChange={(e) => handleSortSelect(e.target.value)}
-          className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium text-gray-700"
+          className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent  text-gray-700"
           style={{ minWidth: 140 }}
         >
           {Object.entries(sortOptions).map(([value, label]) => (

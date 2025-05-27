@@ -149,7 +149,7 @@ export default function TestsAndTasksSection() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 mb-6 line-clamp-2 font-medium">
+                    <p className="text-gray-600 mb-6 line-clamp-2 ">
                       Питання до співбесід
                     </p>
 
@@ -178,7 +178,7 @@ export default function TestsAndTasksSection() {
             <div className="text-center">
               <Link
                 to="/tests"
-                className="inline-block bg-white text-amber-600 border-2 border-amber-600 font-medium text-lg py-3 px-8 rounded-md hover:bg-amber-600 hover:text-white transition duration-300"
+                className="inline-block bg-white text-amber-600 border-2 border-amber-600  text-lg py-3 px-8 rounded-md hover:bg-amber-600 hover:text-white transition duration-300"
               >
                 Переглянути всі тести та завдання
               </Link>

@@ -50,7 +50,7 @@ export default function ArticleList({ articles }) {
                 {formatDateLocale(article.published_at)}
               </span>
 
-              <span className="text-amber-600 group-hover:text-amber-700 font-medium text-md flex items-center">
+              <span className="text-amber-600 group-hover:text-amber-700 text-md flex items-center">
                 Читати далі
                 <FaArrowRight
                   size={12}

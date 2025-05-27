@@ -451,7 +451,7 @@ export default function TestPage() {
       )}
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <nav className="flex items-center py-4 mb-6 text-gray-500 font-medium">
+        <nav className="flex items-center py-4 mb-6 text-gray-500 ">
           <Link
             to="/"
             className="flex items-center hover:text-gray-800 transition-colors"
@@ -470,7 +470,7 @@ export default function TestPage() {
           {view !== "info" && (
             <>
               <FaChevronRight className="mx-2" size={12} />
-              <span className="text-amber-600 font-medium">
+              <span className="text-amber-600 ">
                 {view === "test" ? "Проходження тесту" : "Результати"}
               </span>
             </>

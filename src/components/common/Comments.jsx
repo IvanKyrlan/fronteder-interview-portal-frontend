@@ -54,15 +54,14 @@ const CommentForm = ({
   return (
     <div className={`rounded-lg ${isReply ? "ml-4 md:ml-12 mt-4" : "mb-6"}`}>
       {isReply && (
-        <div className="text-sm font-medium text-gray-500 mb-3 px-3 pt-3">
+        <div className="text-sm text-gray-500 mb-3 px-3 pt-3">
           Відповідь на коментар
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="font-medium">
+      <form onSubmit={handleSubmit} className="">
         <div className="mb-2">
           <textarea
-            // className={`w-full p-3 border-1 resize-none bg-gray-50 text-gray-500 ${
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 ${
               errors.comment ? "border-red-500 bg-red-50" : "border-gray-300"
             } rounded-t-lg transition-all duration-300 ease-in-out ${
@@ -90,7 +89,6 @@ const CommentForm = ({
             </div>
             <input
               type="text"
-              // className={`py-2 px-3 w-full border bg-gray-50 text-gray-500  ${
               className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 ${
                 errors.authorName
                   ? "border-amber-600 bg-red-50"
@@ -122,7 +120,7 @@ const CommentForm = ({
             />
             <label
               htmlFor={isReply ? `data-agree-reply-${replyTo}` : "data-agree"}
-              className="ml-3 font-medium text-sm text-gray-500"
+              className="ml-3 text-sm text-gray-500"
             >
               Я погоджуюся на{" "}
               <a
@@ -147,14 +145,14 @@ const CommentForm = ({
             <button
               type="button"
               onClick={onCancel}
-              className="px-4 py-2 mr-2 font-medium text-gray-500 hover:text-gray-400 transition text-base"
+              className="px-4 py-2 mr-2 text-gray-500 hover:text-gray-400 transition text-base"
             >
               Скасувати
             </button>
           )}
           <button
             type="submit"
-            className="px-4 py-2 font-medium bg-amber-600 text-white rounded hover:bg-amber-700 transition text-base"
+            className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition text-base"
           >
             Додати коментар
           </button>
@@ -187,7 +185,7 @@ const CommentItem = ({ comment, contentType, objectId, onNewComment }) => {
 
   return (
     <div className="mb-6 sm:mb-8">
-      <div className="flex items-start gap-2 sm:gap-3 font-medium">
+      <div className="flex items-start gap-2 sm:gap-3 ">
         <div className="bg-gray-200 p-2 rounded-full flex-shrink-0">
           <FaUser className="text-gray-700" size={16} />
         </div>
@@ -201,7 +199,7 @@ const CommentItem = ({ comment, contentType, objectId, onNewComment }) => {
           <p className="mt-1 text-base break-words">{comment.content}</p>
 
           <button
-            className="text-gray-500 text-sm font-medium flex items-center gap-1 mt-2 hover:text-gray-400"
+            className="text-gray-500 text-sm flex items-center gap-1 mt-2 hover:text-gray-400"
             onClick={() => setShowReplyForm(!showReplyForm)}
           >
             <FaReply size={14} className="flex-shrink-0" />
@@ -227,10 +225,7 @@ const CommentItem = ({ comment, contentType, objectId, onNewComment }) => {
             );
 
             return (
-              <div
-                key={reply.id}
-                className="flex items-start gap-2 sm:gap-3 font-medium"
-              >
+              <div key={reply.id} className="flex items-start gap-2 sm:gap-3">
                 <div className="bg-gray-200 p-1.5 sm:p-2 rounded-full flex-shrink-0">
                   <FaUser className="text-gray-700" size={14} />
                 </div>
@@ -335,7 +330,7 @@ const Comments = ({ contentType, objectId }) => {
       ) : error ? (
         <div className="text-amber-600 text-center py-4">{error}</div>
       ) : comments.length === 0 ? (
-        <div className="text-gray-500 py-4 text-center sm:text-left border-t-2 border-gray-300 font-medium">
+        <div className="text-gray-500 py-4 text-center sm:text-left border-t-2 border-gray-300">
           Поки що коментарів немає
         </div>
       ) : (

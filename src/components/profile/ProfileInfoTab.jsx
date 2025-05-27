@@ -21,9 +21,8 @@ export default function ProfileInfoTab({ onMessage }) {
 
   const handleSaveProfile = async (e) => {
     e.preventDefault();
-
     try {
-      const updatedUser = await authService.updateProfile(profileData);
+      const updatedUser = await authService.updateUserProfile(profileData);
       dispatch(updateProfile(updatedUser));
       setEditMode(false);
       onMessage({ text: "Профіль успішно оновлено", type: "success" });
@@ -56,9 +55,8 @@ export default function ProfileInfoTab({ onMessage }) {
           </button>
         )}
       </div>
-
       <form onSubmit={handleSaveProfile}>
-        <div className="space-y-4 font-medium">
+        <div className="space-y-4">
           <div>
             <label className="block text-gray-700 mb-2">Логін</label>
             <input
@@ -70,7 +68,6 @@ export default function ProfileInfoTab({ onMessage }) {
               disabled={!editMode}
             />
           </div>
-
           <div>
             <label className="block text-gray-700 mb-2">Email</label>
             <input
@@ -83,7 +80,6 @@ export default function ProfileInfoTab({ onMessage }) {
             />
           </div>
         </div>
-
         {editMode && (
           <div className="mt-6 flex justify-end space-x-3">
             <button

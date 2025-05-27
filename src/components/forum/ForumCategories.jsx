@@ -25,7 +25,7 @@ const ForumCategories = ({
   if (loading) {
     return (
       <div className="px-5 py-6 border-b border-gray-100">
-        <h2 className="text-base font-medium text-gray-700 mb-4">Категорії</h2>
+        <h2 className="text-base  text-gray-700 mb-4">Категорії</h2>
         <div className="flex flex-wrap gap-2">
           {[1, 2, 3, 4].map((i) => (
             <div
@@ -46,7 +46,7 @@ const ForumCategories = ({
           <button
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+            className={`px-4 py-2 rounded-md text-sm  transition-all duration-200 ${
               activeCategory === category.id
                 ? "bg-amber-600 text-white shadow-sm"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"

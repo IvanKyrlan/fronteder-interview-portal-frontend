@@ -67,7 +67,7 @@ const ShareButtons = ({
           minWidth: 230,
           zIndex: 1100,
         }}
-        className="bg-white rounded-lg shadow-xl p-2 border border-gray-100 font-medium"
+        className="bg-white rounded-lg shadow-xl p-2 border border-gray-100 "
       >
         <button
           onClick={handleCopyLink}
@@ -136,7 +136,7 @@ const ShareButtons = ({
       <button
         ref={btnRef}
         onClick={toggleOptions}
-        className="flex items-center px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all duration-200 font-medium"
+        className="flex items-center px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all duration-200 "
         aria-expanded={showOptions}
         aria-haspopup="true"
       >

@@ -23,7 +23,7 @@ const TopicCard = ({ topic }) => {
         <div className="flex-grow">
           <div className="flex flex-wrap items-center gap-2 mb-2.5">
             <span
-              className={`text-sm font-medium text-white px-3 py-1 rounded-full ${getCategoryColor(
+              className={`text-sm  text-white px-3 py-1 rounded-full ${getCategoryColor(
                 topic.category
               )}`}
             >
@@ -44,16 +44,16 @@ const TopicCard = ({ topic }) => {
             </div>
           </div>
 
-          <h3 className="text-lg font-medium text-gray-800 mb-2 leading-tight">
+          <h3 className="text-lg  text-gray-800 mb-2 leading-tight">
             {topic.title}
           </h3>
 
-          <p className="text-gray-600 mb-3 line-clamp-2 text-md font-medium">
+          <p className="text-gray-600 mb-3 line-clamp-2 text-md ">
             {truncateText(topic.content, 180)}
           </p>
         </div>
 
-        <div className="text-sm font-medium text-gray-500 whitespace-nowrap mb-2 sm:mb-0 sm:ml-4 mt-1">
+        <div className="text-sm  text-gray-500 whitespace-nowrap mb-2 sm:mb-0 sm:ml-4 mt-1">
           {formatDateLocale(topic.created_at)}
         </div>
       </div>

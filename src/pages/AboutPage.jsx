@@ -105,16 +105,14 @@ export default function AboutPage() {
               <p className="text-lg text-gray-600 mb-6">
                 Проект розроблено з використанням сучасних технологій
                 веб-розробки, включаючи React, Redux, Django REST Framework та
-                інші. Мета проекту — надати студентам IT-спеціальностей зручний
-                інструмент для підготовки до технічних співбесід та успішного
-                старту в кар'єрі Frontend розробника.
+                інші.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
                   href="https://github.com/IvanKyrlan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
+                  className="flex items-center text-gray-800  hover:text-amber-600 transition-colors"
                 >
                   <FaGithub className="mr-2" size={20} />
                   GitHub
@@ -123,14 +121,14 @@ export default function AboutPage() {
                   href="https://www.linkedin.com/in/ivan-kyrlan-356203365/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
+                  className="flex items-center text-gray-800  hover:text-amber-600 transition-colors"
                 >
                   <FaLinkedin className="mr-2" size={20} />
                   LinkedIn
                 </a>
                 <a
                   href="mailto:ivan.kyrlan2004@gmail.com"
-                  className="flex items-center text-gray-800 font-medium hover:text-amber-600 transition-colors"
+                  className="flex items-center text-gray-800  hover:text-amber-600 transition-colors"
                 >
                   <FaEnvelope className="mr-2" size={20} />
                   Email
@@ -162,13 +160,13 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4 items-center text-lg">
                 <Link
                   to="/tests"
-                  className="bg-amber-600 text-white font-medium py-3 px-6 rounded-md hover:bg-amber-700 transition-colors"
+                  className="bg-amber-600 text-white py-3 px-6 rounded-md hover:bg-amber-700 transition-colors"
                 >
                   Почати навчання
                 </Link>
                 <Link
                   to="/articles"
-                  className="bg-white text-gray-800 border-2 border-gray-200 font-medium py-3 px-6 rounded-md hover:border-amber-600 hover:text-amber-600 transition-colors"
+                  className="bg-white text-gray-800 border-2 border-gray-200 py-3 px-6 rounded-md hover:border-amber-600 hover:text-amber-600 transition-colors"
                 >
                   Переглянути статті
                 </Link>
@@ -343,14 +341,14 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/tests"
-              className="bg-white text-amber-600 font-medium text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
             >
               Почати підготовку
             </Link>
             <Link
               to="/register"
               onClick={handleRegisterClick}
-              className="bg-transparent text-white border-2 border-white font-medium text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
             >
               Зареєструватися
             </Link>

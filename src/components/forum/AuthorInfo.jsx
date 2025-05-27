@@ -39,7 +39,7 @@ const AuthorInfo = ({
           {canEdit && (
             <button
               onClick={onEditClick}
-              className="text-amber-600 hover:text-amber-700 transition-colors flex items-center mx-auto md:mx-0 font-medium text-md"
+              className="text-amber-600 hover:text-amber-700 transition-colors flex items-center mx-auto md:mx-0 text-md"
             >
               <FaEdit className="mr-1.5" size={14} />
               <span>Редагувати</span>

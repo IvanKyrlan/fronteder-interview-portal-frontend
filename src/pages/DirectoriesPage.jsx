@@ -148,7 +148,7 @@ export default function DirectoriesPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 ">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -178,7 +178,7 @@ export default function DirectoriesPage() {
                     <h3 className="text-2xl font-bold text-gray-800 mb-2">
                       {directory.title}
                     </h3>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-gray-600 mb-6 text-md">
                       {directory.description}
                     </p>
                   </div>
@@ -188,7 +188,7 @@ export default function DirectoriesPage() {
                       href={directory.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center font-medium px-6 py-3 rounded-md text-white bg-amber-600 hover:bg-amber-700 transition-colors shadow-sm"
+                      className="inline-flex items-center  px-6 py-3 rounded-md text-white bg-amber-600 hover:bg-amber-700 transition-colors shadow-sm"
                     >
                       Відкрити довідник
                       <FaExternalLinkAlt className="ml-2" size={14} />
@@ -201,7 +201,7 @@ export default function DirectoriesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white text-lg">
+      <section className="py-16 bg-white ">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -249,13 +249,13 @@ export default function DirectoriesPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/tests"
-              className="bg-white text-amber-600 font-medium text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
             >
               Пройти тести
             </Link>
             <Link
               to="/articles"
-              className="bg-transparent text-white border-2 border-white font-medium text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
             >
               Читати статті
             </Link>

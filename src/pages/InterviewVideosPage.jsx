@@ -135,7 +135,7 @@ export default function InterviewVideosPage() {
                   onChange={(e) =>
                     handleFilterChange("category", e.target.value)
                   }
-                  className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium text-gray-700"
+                  className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent  text-gray-700"
                 >
                   <option value="">Всі категорії</option>
                   <option value="frontend">Frontend</option>
@@ -149,7 +149,7 @@ export default function InterviewVideosPage() {
                 <select
                   value={filters.level}
                   onChange={(e) => handleFilterChange("level", e.target.value)}
-                  className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent font-medium text-gray-700"
+                  className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent  text-gray-700"
                 >
                   <option value="">Всі рівні</option>
                   <option value="junior">Junior</option>
@@ -184,7 +184,7 @@ export default function InterviewVideosPage() {
 
                       <div className="flex flex-wrap gap-2 mb-4">
                         <span
-                          className={`px-3 py-1 rounded-full text-sm font-medium ${getLevelBadgeClass(
+                          className={`px-3 py-1 rounded-full text-sm  ${getLevelBadgeClass(
                             selectedVideo.level
                           )}`}
                         >
@@ -196,7 +196,7 @@ export default function InterviewVideosPage() {
                         </span>
 
                         <span
-                          className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryBadgeClass(
+                          className={`px-3 py-1 rounded-full text-sm  ${getCategoryBadgeClass(
                             selectedVideo.category
                           )}`}
                         >
@@ -212,7 +212,7 @@ export default function InterviewVideosPage() {
                         href={`https://www.youtube.com/watch?v=${selectedVideo.youtube_id}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-700  transition-colors"
                       >
                         <FaYoutube className="mr-2 text-xl" />
                         Дивитися на YouTube
@@ -276,7 +276,7 @@ export default function InterviewVideosPage() {
                     <div className="mt-6 pt-4 border-t border-gray-100">
                       <Link
                         to="/tests"
-                        className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium transition-colors"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-700  transition-colors"
                       >
                         Пройти тести для підготовки до співбесіди
                         <FaArrowRight className="ml-2" />
@@ -334,7 +334,7 @@ export default function InterviewVideosPage() {
                         </div>
 
                         <div className="ml-3 flex-grow">
-                          <h4 className="font-medium text-lg line-clamp-3 group-hover:text-amber-600">
+                          <h4 className=" text-lg line-clamp-3 group-hover:text-amber-600">
                             {video.title}
                           </h4>
                           <div className="flex mt-1 space-x-1">
@@ -365,7 +365,7 @@ export default function InterviewVideosPage() {
                       </p>
                       <button
                         onClick={() => setFilters({ category: "", level: "" })}
-                        className="text-amber-600 hover:text-amber-700 font-medium"
+                        className="text-amber-600 hover:text-amber-700 "
                       >
                         Скинути фільтри
                       </button>
@@ -378,7 +378,7 @@ export default function InterviewVideosPage() {
                 <h3 className="font-bold text-lg mb-4 pb-2 border-b border-gray-100">
                   Ресурси для підготовки
                 </h3>
-                <ul className="space-y-3 font-medium">
+                <ul className="space-y-3 ">
                   <li>
                     <a
                       href="https://www.frontendmentor.io/"
@@ -450,7 +450,7 @@ export default function InterviewVideosPage() {
                 <div className="mt-4 text-center">
                   <Link
                     to="/articles"
-                    className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium"
+                    className="inline-flex items-center text-amber-600 hover:text-amber-700 "
                   >
                     Переглянути всі статті
                     <FaArrowRight className="ml-2 text-sm" />
@@ -474,13 +474,13 @@ export default function InterviewVideosPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/tests"
-              className="bg-white text-amber-600 font-medium text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
             >
               Пройти тести
             </Link>
             <Link
               to="/articles"
-              className="bg-transparent text-white border-2 border-white font-medium text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
             >
               Читати статті
             </Link>

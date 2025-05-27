@@ -447,7 +447,7 @@ export default function TaskPage() {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <nav className="flex items-center py-4 mb-6 text-gray-600 font-medium">
+        <nav className="flex items-center py-4 mb-6 text-gray-600 ">
           <Link
             to="/"
             className="flex items-center hover:text-gray-800 transition-colors"
@@ -468,7 +468,7 @@ export default function TaskPage() {
           </Link>
           <FaChevronRight className="mx-2" size={12} />
           <span
-            className={`font-medium ${
+            className={` ${
               view === "result" ? "text-amber-600" : "text-amber-600"
             }`}
           >
