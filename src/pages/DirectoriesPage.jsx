@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   DiHtml5,
   DiCss3,
@@ -7,7 +7,7 @@ import {
   DiReact,
   DiDatabase,
   DiDjango,
-} from "react-icons/di";
+} from 'react-icons/di';
 import {
   FaExternalLinkAlt,
   FaBook,
@@ -15,124 +15,125 @@ import {
   FaCodeBranch,
   FaLightbulb,
   FaCode,
-} from "react-icons/fa";
+  FaComments,
+} from 'react-icons/fa';
 
 export default function DirectoriesPage() {
   useEffect(() => {
-    document.title = "Довідники | Frontender - Підготовка до співбесід";
+    document.title = 'Довідники | Frontender - Підготовка до співбесід';
 
     window.scrollTo(0, 0);
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, []);
 
   const directories = [
     {
-      id: "html",
-      title: "HTML5",
+      id: 'html',
+      title: 'HTML5',
       icon: DiHtml5,
-      color: "text-orange-500",
-      bgColor: "bg-orange-100",
+      color: 'text-orange-500',
+      bgColor: 'bg-orange-100',
       description:
-        "Повний довідник з HTML тегів, атрибутів та найкращих практик розмітки.",
-      url: "https://w3schoolsua.github.io/tags/index.html#gsc.tab=0",
+        'Повний довідник з HTML тегів, атрибутів та найкращих практик розмітки.',
+      url: 'https://w3schoolsua.github.io/tags/index.html#gsc.tab=0',
     },
     {
-      id: "css",
-      title: "CSS3",
+      id: 'css',
+      title: 'CSS3',
       icon: DiCss3,
-      color: "text-blue-500",
-      bgColor: "bg-blue-100",
+      color: 'text-blue-500',
+      bgColor: 'bg-blue-100',
       description:
-        "Детальний посібник із CSS властивостей, селекторів та сучасних технік стилізації.",
-      url: "https://w3schoolsua.github.io/css/index.html",
+        'Детальний посібник із CSS властивостей, селекторів та сучасних технік стилізації.',
+      url: 'https://w3schoolsua.github.io/css/index.html',
     },
     {
-      id: "javascript",
-      title: "JavaScript",
+      id: 'javascript',
+      title: 'JavaScript',
       icon: DiJsBadge,
-      color: "text-yellow-400",
-      bgColor: "bg-yellow-200",
+      color: 'text-yellow-400',
+      bgColor: 'bg-yellow-200',
       description:
-        "Вичерпний довідник з JavaScript, включаючи основи мови, DOM API та ES6+ можливості.",
-      url: "https://w3schoolsua.github.io/js/index.html",
+        'Вичерпний довідник з JavaScript, включаючи основи мови, DOM API та ES6+ можливості.',
+      url: 'https://w3schoolsua.github.io/js/index.html',
     },
     {
-      id: "react",
-      title: "React",
+      id: 'react',
+      title: 'React',
       icon: DiReact,
-      color: "text-blue-400",
-      bgColor: "bg-blue-50",
+      color: 'text-blue-400',
+      bgColor: 'bg-blue-50',
       description:
-        "Ресурси з React.js, включаючи хуки, компоненти, стани та життєвий цикл додатку.",
-      url: "https://w3schoolsua.github.io/react/index.html",
+        'Ресурси з React.js, включаючи хуки, компоненти, стани та життєвий цикл додатку.',
+      url: 'https://w3schoolsua.github.io/react/index.html',
     },
     {
-      id: "sql",
-      title: "SQL",
+      id: 'sql',
+      title: 'SQL',
       icon: DiDatabase,
-      color: "text-blue-600",
-      bgColor: "bg-blue-100",
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-100',
       description:
-        "Довідник з мови SQL, включаючи команди, запити та оптимізацію баз даних.",
-      url: "https://w3schoolsua.github.io/sql/index.html",
+        'Довідник з мови SQL, включаючи команди, запити та оптимізацію баз даних.',
+      url: 'https://w3schoolsua.github.io/sql/index.html',
     },
     {
-      id: "django",
-      title: "Django",
+      id: 'django',
+      title: 'Django',
       icon: DiDjango,
-      color: "text-green-500",
-      bgColor: "bg-green-100",
+      color: 'text-green-500',
+      bgColor: 'bg-green-100',
       description:
-        "Документація з Python Django фреймворку для серверної частини веб-додатків.",
-      url: "https://w3schoolsua.github.io/django/index.html",
+        'Документація з Python Django фреймворку для серверної частини веб-додатків.',
+      url: 'https://w3schoolsua.github.io/django/index.html',
     },
   ];
 
   const usefulLinks = [
     {
-      title: "MDN Web Docs",
+      title: 'MDN Web Docs',
       description:
-        "Довідник веб-технологій від Mozilla з детальною документацією та прикладами.",
+        'Довідник веб-технологій від Mozilla з детальною документацією та прикладами.',
       icon: FaBook,
-      url: "https://developer.mozilla.org/",
+      url: 'https://developer.mozilla.org/',
     },
     {
-      title: "DOU.ua",
+      title: 'DOU.ua',
       description:
-        "Українська спільнота розробників з корисними статтями, форумами та навчальними матеріалами.",
-      icon: FaGraduationCap,
-      url: "https://dou.ua/",
+        'Українська спільнота розробників з корисними статтями, форумами та навчальними матеріалами.',
+      icon: FaComments,
+      url: 'https://dou.ua/',
     },
     {
-      title: "DevDocs",
+      title: 'DevDocs',
       description:
-        "Зібрання документації з різних API та мов програмування в одному місці з зручним пошуком.",
+        'Зібрання документації з різних API та мов програмування в одному місці з зручним пошуком.',
       icon: FaCode,
-      url: "https://devdocs.io/",
+      url: 'https://devdocs.io/',
     },
     {
-      title: "freeCodeCamp",
+      title: 'freeCodeCamp',
       description:
-        "Безкоштовна платформа для вивчення програмування з україномовними матеріалами та завданнями.",
+        'Безкоштовна платформа для вивчення програмування з україномовними матеріалами та завданнями.',
       icon: FaLightbulb,
-      url: "https://www.freecodecamp.org/ukrainian/",
+      url: 'https://www.freecodecamp.org/ukrainian/',
     },
     {
-      title: "Prometheus",
+      title: 'Prometheus',
       description:
-        "Українська освітня платформа з безкоштовними курсами з програмування та ІТ від провідних викладачів.",
+        'Українська освітня платформа з безкоштовними курсами з програмування та ІТ від провідних викладачів.',
       icon: FaGraduationCap,
-      url: "https://prometheus.org.ua/",
+      url: 'https://prometheus.org.ua/',
     },
     {
-      title: "DevZone",
+      title: 'DevZone',
       description:
-        "Україномовний ресурс з туторіалами та документацією з програмування для початківців та досвідчених.",
+        'Україномовний ресурс з туторіалами та документацією з програмування для початківців та досвідчених.',
       icon: FaCodeBranch,
-      url: "https://devzone.org.ua/",
+      url: 'https://devzone.org.ua/',
     },
   ];
 
@@ -188,7 +189,7 @@ export default function DirectoriesPage() {
                       href={directory.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center  px-6 py-3 rounded-md text-white bg-amber-600 hover:bg-amber-700 transition-colors shadow-sm"
+                      className="inline-flex items-center  px-6 py-3 rounded-md text-white bg-amber-600 hover:bg-amber-700  shadow-sm"
                     >
                       Відкрити довідник
                       <FaExternalLinkAlt className="ml-2" size={14} />
@@ -222,11 +223,11 @@ export default function DirectoriesPage() {
                 rel="noopener noreferrer"
                 className="bg-gray-50 rounded-lg p-6 flex items-start hover:shadow-md transition-shadow duration-300 group"
               >
-                <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-amber-600 group-hover:text-white ">
                   <link.icon size={20} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg mb-2 text-gray-800 group-hover:text-amber-600 transition-colors">
+                  <h3 className="font-bold text-lg mb-2 text-gray-800 group-hover:text-amber-600 ">
                     {link.title}
                   </h3>
                   <p className="text-gray-600">{link.description}</p>
@@ -249,13 +250,13 @@ export default function DirectoriesPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/tests"
-              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100  shadow-md"
             >
               Пройти тести
             </Link>
             <Link
               to="/articles"
-              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 "
             >
               Читати статті
             </Link>

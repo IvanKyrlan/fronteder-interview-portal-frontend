@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaChevronDown, FaChevronUp, FaTrophy, FaStar } from "react-icons/fa";
-import testService from "../../services/testService";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaChevronDown, FaChevronUp, FaTrophy, FaStar } from 'react-icons/fa';
+import testService from '../../services/testService';
 
 export default function TestProgress({ userProgress }) {
   const [expandedTests, setExpandedTests] = useState({});
@@ -77,10 +77,10 @@ export default function TestProgress({ userProgress }) {
   };
 
   const getProgressColor = (score) => {
-    if (score >= 80) return "bg-gradient-to-r from-green-400 to-green-500";
-    if (score >= 60) return "bg-gradient-to-r from-amber-400 to-amber-500";
-    if (score >= 40) return "bg-gradient-to-r from-orange-400 to-orange-500";
-    return "bg-gradient-to-r from-red-400 to-red-500";
+    if (score >= 80) return 'bg-gradient-to-r from-green-400 to-green-500';
+    if (score >= 60) return 'bg-gradient-to-r from-amber-400 to-amber-500';
+    if (score >= 40) return 'bg-gradient-to-r from-orange-400 to-orange-500';
+    return 'bg-gradient-to-r from-red-400 to-red-500';
   };
 
   if (userProgress.length === 0) {
@@ -91,7 +91,7 @@ export default function TestProgress({ userProgress }) {
           прогрес!
         </p>
         <button
-          onClick={() => navigate("/tests")}
+          onClick={() => navigate('/tests')}
           className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md "
         >
           Перейти до тестів
@@ -118,7 +118,7 @@ export default function TestProgress({ userProgress }) {
               className="rounded-xl bg-white shadow-sm overflow-hidden transition-all hover:shadow-md"
             >
               <div
-                className="p-5 cursor-pointer transition-colors"
+                className="p-5 cursor-pointer "
                 onClick={() => toggleTestDetails(item.test_id)}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -132,10 +132,10 @@ export default function TestProgress({ userProgress }) {
                   <div
                     className={`px-4 py-1 rounded-full text-base  ${
                       item.score >= 80
-                        ? "bg-gradient-to-r from-green-50 to-green-100 text-green-700"
+                        ? 'bg-gradient-to-r from-green-50 to-green-100 text-green-700'
                         : item.score >= 60
-                        ? "bg-gradient-to-r from-amber-50 to-amber-100 text-amber-700"
-                        : "bg-gradient-to-r from-red-50 to-red-100 text-red-700"
+                        ? 'bg-gradient-to-r from-amber-50 to-amber-100 text-amber-700'
+                        : 'bg-gradient-to-r from-red-50 to-red-100 text-red-700'
                     }`}
                   >
                     {item.score}%
@@ -215,10 +215,10 @@ export default function TestProgress({ userProgress }) {
                                 <span
                                   className={`inline-block rounded-full px-3 py-1 ${
                                     attempt.score >= 80
-                                      ? "bg-green-100 text-green-700"
+                                      ? 'bg-green-100 text-green-700'
                                       : attempt.score >= 50
-                                      ? "bg-amber-100 text-amber-700"
-                                      : "bg-red-100 text-red-700"
+                                      ? 'bg-amber-100 text-amber-700'
+                                      : 'bg-red-100 text-red-700'
                                   }`}
                                 >
                                   {attempt.score}%

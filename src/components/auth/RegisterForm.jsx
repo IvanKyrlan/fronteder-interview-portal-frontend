@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "../../store/authSlice";
-import authService from "../../services/authService";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/authSlice';
+import authService from '../../services/authService';
 
 export default function RegisterForm({ onClose }) {
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    password_confirm: "",
+    username: '',
+    email: '',
+    password: '',
+    password_confirm: '',
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -43,21 +43,21 @@ export default function RegisterForm({ onClose }) {
       if (errorData) {
         const newErrors = {};
 
-        if (typeof errorData === "object") {
+        if (typeof errorData === 'object') {
           Object.keys(errorData).forEach((key) => {
             if (Array.isArray(errorData[key])) {
               newErrors[key] = errorData[key][0];
-            } else if (typeof errorData[key] === "string") {
+            } else if (typeof errorData[key] === 'string') {
               newErrors[key] = errorData[key];
             }
           });
-        } else if (typeof errorData === "string") {
+        } else if (typeof errorData === 'string') {
           newErrors.general = errorData;
         }
 
         setErrors(newErrors);
       } else {
-        setErrors({ general: "Сталася помилка при реєстрації" });
+        setErrors({ general: 'Сталася помилка при реєстрації' });
       }
     } finally {
       setLoading(false);
@@ -81,8 +81,8 @@ export default function RegisterForm({ onClose }) {
           onChange={handleChange}
           className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none ${
             errors.username
-              ? "border-red-500"
-              : "border-gray-200 focus:border-amber-600"
+              ? 'border-red-500'
+              : 'border-gray-200 focus:border-amber-600'
           }`}
           placeholder="Введіть ваш логін"
           required
@@ -101,8 +101,8 @@ export default function RegisterForm({ onClose }) {
           onChange={handleChange}
           className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none ${
             errors.email
-              ? "border-red-500"
-              : "border-gray-200 focus:border-amber-600"
+              ? 'border-red-500'
+              : 'border-gray-200 focus:border-amber-600'
           }`}
           placeholder="Введіть ваш email"
           required
@@ -116,14 +116,14 @@ export default function RegisterForm({ onClose }) {
         <label className="block text-gray-700 mb-2">Пароль</label>
         <div className="relative">
           <input
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             name="password"
             value={formData.password}
             onChange={handleChange}
             className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none ${
               errors.password
-                ? "border-red-500"
-                : "border-gray-200 focus:border-amber-600"
+                ? 'border-red-500'
+                : 'border-gray-200 focus:border-amber-600'
             }`}
             placeholder="Введіть пароль"
             required
@@ -181,14 +181,14 @@ export default function RegisterForm({ onClose }) {
         <label className="block text-gray-700 mb-2">Підтвердіть пароль</label>
         <div className="relative">
           <input
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             name="password_confirm"
             value={formData.password_confirm}
             onChange={handleChange}
             className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none ${
               errors.password_confirm
-                ? "border-red-500"
-                : "border-gray-200 focus:border-amber-600"
+                ? 'border-red-500'
+                : 'border-gray-200 focus:border-amber-600'
             }`}
             placeholder="Введіть пароль ще раз"
             required
@@ -201,10 +201,10 @@ export default function RegisterForm({ onClose }) {
 
       <button
         type="submit"
-        className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-4 rounded-lg transition-colors"
+        className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-4 rounded-lg "
         disabled={loading}
       >
-        {loading ? "Обробка..." : "Зареєструватися"}
+        {loading ? 'Обробка...' : 'Зареєструватися'}
       </button>
     </form>
   );

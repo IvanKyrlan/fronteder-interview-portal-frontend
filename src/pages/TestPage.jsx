@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
 import {
   FaHome,
   FaChevronRight,
   FaSpinner,
   FaExclamationTriangle,
   FaArrowLeft,
-} from "react-icons/fa";
-import { useSelector } from "react-redux";
-import useTimer from "../hooks/useTimer";
-import testService from "../services/testService";
-import userService from "../services/userService";
+} from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import useTimer from '../hooks/useTimer';
+import testService from '../services/testService';
+import userService from '../services/userService';
 
-import LeftSidebar from "../components/test/LeftSidebar";
-import InfoContent from "../components/test/InfoContent";
-import TestContent from "../components/test/TestContent";
-import TestResultContent from "../components/test/TestResultContent";
-import Comments from "../components/common/Comments";
+import LeftSidebar from '../components/test/LeftSidebar';
+import InfoContent from '../components/test/InfoContent';
+import TestContent from '../components/test/TestContent';
+import TestResultContent from '../components/test/TestResultContent';
+import Comments from '../components/common/Comments';
 
 const saveTestState = (testId, questions, answers) => {
   const testState = {
@@ -40,7 +40,7 @@ const getTestState = (testId) => {
     }
     return state;
   } catch (e) {
-    console.error("Error parsing test state:", e);
+    console.error('Error parsing test state:', e);
     localStorage.removeItem(`test_state_${testId}`);
     return null;
   }
@@ -58,7 +58,7 @@ export default function TestPage() {
   const [test, setTest] = useState(null);
   const [allTests, setAllTests] = useState([]);
 
-  const [view, setView] = useState("info");
+  const [view, setView] = useState('info');
   const [testScore, setTestScore] = useState(0);
   const [testTotal, setTestTotal] = useState(0);
   const [questions, setQuestions] = useState([]);
@@ -82,25 +82,25 @@ export default function TestPage() {
 
   useEffect(() => {
     if (test) {
-      if (view === "info") {
+      if (view === 'info') {
         document.title = `${test.title} | Frontender - Тест`;
-      } else if (view === "test") {
+      } else if (view === 'test') {
         document.title = `Проходження тесту: ${test.title} | Frontender`;
-      } else if (view === "result") {
+      } else if (view === 'result') {
         document.title = `Результати тесту: ${test.title} | Frontender`;
       }
     } else {
-      document.title = "Тести | Frontender";
+      document.title = 'Тести | Frontender';
     }
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, [test, view]);
 
   const saveProgress = async (correctAnswers, totalQuestions) => {
     if (!isAuthenticated) {
-      console.log("User not authenticated - progress not saved");
+      console.log('User not authenticated - progress not saved');
       return;
     }
 
@@ -116,19 +116,19 @@ export default function TestPage() {
         totalQuestions
       );
     } catch (error) {
-      console.error("Failed to save progress:", error);
+      console.error('Failed to save progress:', error);
     }
   };
 
   const fetchQuestionsFromBackend = async (testId) => {
     try {
-      if (view === "info") {
+      if (view === 'info') {
         testService.clearCurrentTestCache();
       }
 
       console.log(`Fetching questions for test ID: ${testId}`);
       const testData = await testService.getTestWithQuestions(testId);
-      console.log("Received test data:", testData);
+      console.log('Received test data:', testData);
 
       let questionsArray = [];
       if (testData.questions && Array.isArray(testData.questions)) {
@@ -141,8 +141,8 @@ export default function TestPage() {
       }
 
       if (questionsArray.length === 0) {
-        console.error("No questions found in the test data");
-        setError("Не вдалося завантажити питання: питання відсутні");
+        console.error('No questions found in the test data');
+        setError('Не вдалося завантажити питання: питання відсутні');
         return;
       }
 
@@ -151,7 +151,7 @@ export default function TestPage() {
       setQuestions(questionsArray);
       setUserAnswers(new Array(questionsArray.length).fill(null));
 
-      if (view === "test") {
+      if (view === 'test') {
         saveTestState(
           testId,
           questionsArray,
@@ -159,9 +159,9 @@ export default function TestPage() {
         );
       }
     } catch (error) {
-      console.error("Error fetching questions:", error);
+      console.error('Error fetching questions:', error);
       setError(
-        `Не вдалося завантажити питання: ${error.message || "невідома помилка"}`
+        `Не вдалося завантажити питання: ${error.message || 'невідома помилка'}`
       );
     }
   };
@@ -169,24 +169,24 @@ export default function TestPage() {
   useEffect(() => {
     const fetchTests = async () => {
       try {
-        console.log("Fetching all tests");
+        console.log('Fetching all tests');
         const tests = await testService.getTests();
         console.log(`Retrieved ${tests.length} tests`);
         setAllTests(tests);
 
         const currentTest = tests.find((t) => t.id === parseInt(testId));
         if (currentTest) {
-          console.log("Found current test:", currentTest);
+          console.log('Found current test:', currentTest);
           setTest(currentTest);
         } else {
           console.error(`Test with ID ${testId} not found`);
-          setError("Тест не знайдено");
-          navigate("/tests", { replace: true });
+          setError('Тест не знайдено');
+          navigate('/tests', { replace: true });
         }
       } catch (err) {
-        console.error("Error fetching tests:", err);
+        console.error('Error fetching tests:', err);
         setError(
-          `Не вдалося завантажити тести: ${err.message || "невідома помилка"}`
+          `Не вдалося завантажити тести: ${err.message || 'невідома помилка'}`
         );
       } finally {
         setLoading(false);
@@ -203,21 +203,21 @@ export default function TestPage() {
   }, [test]);
 
   useEffect(() => {
-    if (location.pathname.includes("/start")) {
-      setView("test");
+    if (location.pathname.includes('/start')) {
+      setView('test');
       resetTimer();
 
       const savedState = getTestState(testId);
       if (savedState && savedState.questions?.length > 0) {
-        console.log("Restoring test state from localStorage", savedState);
+        console.log('Restoring test state from localStorage', savedState);
         setQuestions(savedState.questions);
         setUserAnswers(
           savedState.answers ||
             new Array(savedState.questions.length).fill(null)
         );
       }
-    } else if (location.pathname.includes("/result")) {
-      setView("result");
+    } else if (location.pathname.includes('/result')) {
+      setView('result');
 
       if (state) {
         if (state.score !== undefined && state.total !== undefined) {
@@ -227,7 +227,7 @@ export default function TestPage() {
 
         if (state.userAnswers && Array.isArray(state.userAnswers)) {
           console.log(
-            "Restoring user answers from navigation state:",
+            'Restoring user answers from navigation state:',
             state.userAnswers
           );
           setFinalUserAnswers(state.userAnswers);
@@ -235,7 +235,7 @@ export default function TestPage() {
 
         if (state.questions && Array.isArray(state.questions)) {
           console.log(
-            "Restoring questions from navigation state:",
+            'Restoring questions from navigation state:',
             state.questions
           );
           setFinalQuestions(state.questions);
@@ -243,13 +243,13 @@ export default function TestPage() {
       } else {
         const savedState = getTestState(testId);
         if (savedState) {
-          console.log("Restoring test result from localStorage", savedState);
+          console.log('Restoring test result from localStorage', savedState);
           setFinalQuestions(savedState.questions);
           setFinalUserAnswers(savedState.answers);
         }
       }
     } else {
-      setView("info");
+      setView('info');
     }
   }, [location.pathname, state, resetTimer, testId]);
 
@@ -270,10 +270,10 @@ export default function TestPage() {
         <div className="bg-white p-8 rounded-lg shadow-sm text-center max-w-md">
           <FaExclamationTriangle className="text-red-500 text-4xl mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Помилка</h2>
-          <p className="text-red-500 mb-6">{error || "Тест не знайдено"}</p>
+          <p className="text-red-500 mb-6">{error || 'Тест не знайдено'}</p>
           <Link
             to="/tests"
-            className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 "
           >
             <FaArrowLeft className="mr-2" />
             Повернутися до списку тестів
@@ -286,14 +286,14 @@ export default function TestPage() {
   const otherTests = allTests.filter((t) => t.id !== parseInt(testId));
 
   const handleBack = () => {
-    navigate("/tests");
+    navigate('/tests');
   };
 
   const handleStartTest = () => {
-    console.log("Starting test:", test.title);
+    console.log('Starting test:', test.title);
     testService.clearCurrentTestCache();
 
-    setView("test");
+    setView('test');
     setCurrentQuestionIndex(0);
     setSelectedAnswer(null);
     setShowResult(false);
@@ -317,7 +317,7 @@ export default function TestPage() {
     const updatedUserAnswers = [...userAnswers];
     updatedUserAnswers[currentQuestionIndex] = answerId;
     setUserAnswers(updatedUserAnswers);
-    console.log("Updated user answers:", updatedUserAnswers);
+    console.log('Updated user answers:', updatedUserAnswers);
     saveTestState(testId, questions, updatedUserAnswers);
   };
 
@@ -363,15 +363,15 @@ export default function TestPage() {
         `Q${
           i + 1
         }: User answered: ${userAnswer}, Correct answer: ${correctAnswer}, Result: ${
-          isAnswerCorrect ? "CORRECT" : "WRONG"
+          isAnswerCorrect ? 'CORRECT' : 'WRONG'
         }`
       );
     }
 
-    console.log("Test complete. Final score:", correctAnswersCount);
-    console.log("Questions count:", questions.length);
-    console.log("User answers to save:", answersToSave);
-    console.log("Questions to save:", questionsToSave);
+    console.log('Test complete. Final score:', correctAnswersCount);
+    console.log('Questions count:', questions.length);
+    console.log('User answers to save:', answersToSave);
+    console.log('Questions to save:', questionsToSave);
 
     setTestScore(correctAnswersCount);
     setTestTotal(questions.length);
@@ -383,7 +383,7 @@ export default function TestPage() {
 
     saveProgress(correctAnswersCount, questions.length);
 
-    setView("result");
+    setView('result');
     navigate(`/tests/${testId}/result`, {
       state: {
         score: correctAnswersCount,
@@ -396,17 +396,17 @@ export default function TestPage() {
   };
 
   const handleBackToTests = () => {
-    navigate("/tests");
+    navigate('/tests');
   };
 
   const questionsToUse =
-    view === "result"
+    view === 'result'
       ? finalQuestions.length > 0
         ? finalQuestions
         : questions
       : questions;
   const answersToUse =
-    view === "result"
+    view === 'result'
       ? finalUserAnswers.length > 0
         ? finalUserAnswers
         : userAnswers
@@ -414,34 +414,34 @@ export default function TestPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {view !== "test" && (
+      {view !== 'test' && (
         <section
           className={`py-20 ${
-            view === "result"
-              ? "bg-gradient-to-r from-amber-400 to-amber-700"
-              : "bg-gradient-to-b from-neutral-800 to-neutral-900"
+            view === 'result'
+              ? 'bg-gradient-to-r from-amber-400 to-amber-700'
+              : 'bg-gradient-to-b from-neutral-800 to-neutral-900'
           } text-white`}
         >
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-6">
-              {view === "result" ? "Результати тесту" : test.title}
+              {view === 'result' ? 'Результати тесту' : test.title}
             </h1>
-            {view === "info" && (
+            {view === 'info' && (
               <p className="text-xl max-w-3xl mx-auto text-gray-300">
                 Перевірте свої знання з {test.title} за допомогою нашого тесту
                 заснованому на реальних питаннях з технічних співбесід. Тест
-                містить{" "}
+                містить{' '}
                 <span className="font-bold text-gray-100">
                   {test.questions}
-                </span>{" "}
-                питань і розрахований на{" "}
-                <span className="font-bold text-gray-100">{test.duration}</span>{" "}
+                </span>{' '}
+                питань і розрахований на{' '}
+                <span className="font-bold text-gray-100">{test.duration}</span>{' '}
                 хвилин.
               </p>
             )}
-            {view === "result" && (
+            {view === 'result' && (
               <p className="text-xl max-w-4xl mx-auto text-white">
-                Ви відповіли на <span className="font-bold">{testScore}</span> з{" "}
+                Ви відповіли на <span className="font-bold">{testScore}</span> з{' '}
                 <span className="font-bold">{testTotal}</span> питань.
                 Дізнайтеся більше про свої результати нижче.
               </p>
@@ -452,33 +452,30 @@ export default function TestPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <nav className="flex items-center py-4 mb-6 text-gray-500 ">
-          <Link
-            to="/"
-            className="flex items-center hover:text-gray-800 transition-colors"
-          >
+          <Link to="/" className="flex items-center hover:text-gray-800 ">
             <FaHome className="mr-1" />
             <span>Головна</span>
           </Link>
           <FaChevronRight className="mx-2" size={12} />
-          <Link to="/tests" className="hover:text-gray-800 transition-colors">
+          <Link to="/tests" className="hover:text-gray-800 ">
             Тести та практика
           </Link>
           <FaChevronRight className="mx-2" size={12} />
           <span className="text-gray-800 font-semibold truncate max-w-md">
             {test.title}
           </span>
-          {view !== "info" && (
+          {view !== 'info' && (
             <>
               <FaChevronRight className="mx-2" size={12} />
               <span className="text-amber-600 ">
-                {view === "test" ? "Проходження тесту" : "Результати"}
+                {view === 'test' ? 'Проходження тесту' : 'Результати'}
               </span>
             </>
           )}
         </nav>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {view !== "test" && (
+          {view !== 'test' && (
             <div className="md:col-span-1">
               <LeftSidebar
                 test={test}
@@ -489,13 +486,13 @@ export default function TestPage() {
           )}
 
           <div
-            className={`${view !== "test" ? "md:col-span-2" : "md:col-span-3"}`}
+            className={`${view !== 'test' ? 'md:col-span-2' : 'md:col-span-3'}`}
           >
-            {view === "info" && (
+            {view === 'info' && (
               <InfoContent test={test} onStartTest={handleStartTest} />
             )}
 
-            {view === "test" && questions.length > 0 && (
+            {view === 'test' && questions.length > 0 && (
               <TestContent
                 questions={questions}
                 currentQuestionIndex={currentQuestionIndex}
@@ -509,7 +506,7 @@ export default function TestPage() {
               />
             )}
 
-            {view === "test" && questions.length === 0 && (
+            {view === 'test' && questions.length === 0 && (
               <div className="bg-white p-8 rounded-lg shadow-sm text-center">
                 <FaExclamationTriangle className="text-red-500 text-4xl mx-auto mb-4" />
                 <p className="text-xl text-red-500 mb-6">
@@ -517,7 +514,7 @@ export default function TestPage() {
                 </p>
                 <button
                   onClick={handleBackToTests}
-                  className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 "
                 >
                   <FaArrowLeft className="mr-2" />
                   Повернутися до списку тестів
@@ -525,7 +522,7 @@ export default function TestPage() {
               </div>
             )}
 
-            {view === "result" && (
+            {view === 'result' && (
               <div>
                 <TestResultContent
                   testScore={testScore}
@@ -538,7 +535,7 @@ export default function TestPage() {
               </div>
             )}
 
-            {view !== "test" && (
+            {view !== 'test' && (
               <div className="mt-10 bg-white rounded-lg p-6 shadow-md">
                 <Comments contentType="tests.test" objectId={test.id} />
               </div>

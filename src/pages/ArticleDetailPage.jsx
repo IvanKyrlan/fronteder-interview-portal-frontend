@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import {
   FaHome,
   FaChevronRight,
@@ -7,12 +7,12 @@ import {
   FaShareAlt,
   FaFacebook,
   FaTelegram,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import ArticleDetail from "../components/article/ArticleDetail";
-import ArticleSidebar from "../components/article/ArticleSidebar";
-import Comments from "../components/common/Comments";
-import articleService from "../services/articleService";
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import ArticleDetail from '../components/article/ArticleDetail';
+import ArticleSidebar from '../components/article/ArticleSidebar';
+import Comments from '../components/common/Comments';
+import articleService from '../services/articleService';
 
 export default function ArticleDetailPage() {
   const { slug } = useParams();
@@ -32,7 +32,7 @@ export default function ArticleDetailPage() {
         document.title = `${data.title} | Frontender - IT Новини`;
       } catch (err) {
         console.error(`Error fetching article ${slug}:`, err);
-        setError("Не вдалося завантажити статтю");
+        setError('Не вдалося завантажити статтю');
       } finally {
         setLoading(false);
       }
@@ -42,7 +42,7 @@ export default function ArticleDetailPage() {
     window.scrollTo(0, 0);
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, [slug]);
 
@@ -66,7 +66,7 @@ export default function ArticleDetailPage() {
       <div className="flex justify-center items-center min-h-screen bg-gray-50">
         <div className="bg-white p-8 rounded-lg shadow-md text-center">
           <div className="text-xl text-red-500 mb-4">
-            {error || "Статтю не знайдено"}
+            {error || 'Статтю не знайдено'}
           </div>
           <Link
             to="/articles"
@@ -80,7 +80,7 @@ export default function ArticleDetailPage() {
     );
   }
 
-  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -97,18 +97,12 @@ export default function ArticleDetailPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <nav className="flex items-center py-4 mb-6 text-gray-600">
-          <Link
-            to="/"
-            className="flex items-center hover:text-gray-800 transition-colors"
-          >
+          <Link to="/" className="flex items-center hover:text-gray-800 ">
             <FaHome className="mr-1" />
             <span>Головна</span>
           </Link>
           <FaChevronRight className="mx-2" size={12} />
-          <Link
-            to="/articles"
-            className="hover:text-gray-800 transition-colors"
-          >
+          <Link to="/articles" className="hover:text-gray-800 ">
             IT Статті
           </Link>
           <FaChevronRight className="mx-2" size={12} />
@@ -126,7 +120,7 @@ export default function ArticleDetailPage() {
                 <div className="flex flex-wrap items-center justify-between">
                   <Link
                     to="/articles"
-                    className="flex items-center text-amber-600 hover:text-amber-700  transition-colors text-md"
+                    className="flex items-center text-amber-600 hover:text-amber-700   text-md"
                   >
                     <FaArrowLeft className="mr-2" />
                     Назад до списку статей
@@ -134,7 +128,7 @@ export default function ArticleDetailPage() {
                   <div className="relative">
                     <button
                       onClick={handleShare}
-                      className="flex items-center text-amber-600 hover:text-amber-700  transition-colors text-md"
+                      className="flex items-center text-amber-600 hover:text-amber-700   text-md"
                     >
                       <FaShareAlt className="mr-2" />
                       Поділитися
@@ -148,7 +142,7 @@ export default function ArticleDetailPage() {
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors"
+                          className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 "
                         >
                           <FaFacebook />
                         </a>
@@ -158,7 +152,7 @@ export default function ArticleDetailPage() {
                           )}&text=${encodeURIComponent(article.title)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition-colors"
+                          className="w-8 h-8 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 "
                         >
                           <FaTelegram />
                         </a>
@@ -168,7 +162,7 @@ export default function ArticleDetailPage() {
                           )}&text=${encodeURIComponent(article.title)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-8 h-8 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
+                          className="w-8 h-8 rounded-full bg-gray-700 text-white flex items-center justify-center hover:bg-gray-800 "
                         >
                           <FaXTwitter />
                         </a>
@@ -201,7 +195,7 @@ export default function ArticleDetailPage() {
                 </p>
                 <Link
                   to="/tests"
-                  className="inline-block bg-white text-amber-600  py-2 px-4 rounded hover:bg-gray-100 transition-colors"
+                  className="inline-block bg-white text-amber-600  py-2 px-4 rounded hover:bg-gray-100 "
                 >
                   Перейти до тестів
                 </Link>

@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaUser, FaEdit, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaUser, FaEdit, FaEnvelope, FaCalendarAlt } from 'react-icons/fa';
 
 const AuthorInfo = ({
   authorName,
@@ -39,7 +39,7 @@ const AuthorInfo = ({
           {canEdit && (
             <button
               onClick={onEditClick}
-              className="text-amber-600 hover:text-amber-700 transition-colors flex items-center mx-auto md:mx-0 text-md"
+              className="text-amber-600 hover:text-amber-700  flex items-center mx-auto md:mx-0 text-md"
             >
               <FaEdit className="mr-1.5" size={14} />
               <span>Редагувати</span>

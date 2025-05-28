@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaGithub,
   FaFacebook,
@@ -7,22 +7,22 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
-} from "react-icons/fa";
-import logo from "../../assets/frontender-logo.svg";
+} from 'react-icons/fa';
+import logo from '../../assets/frontender-logo.svg';
 
 export default function Footer() {
   const sections = [
-    { name: "Головна", link: "/" },
-    { name: "iТ статті", link: "/articles" },
-    { name: "Технічні співбесіди", link: "/interviews" },
-    { name: "Тести та практика", link: "/tests" },
-    { name: "Форум", link: "/forum" },
+    { name: 'Головна', link: '/' },
+    { name: 'ІТ статті', link: '/articles' },
+    { name: 'Технічні співбесіди', link: '/interviews' },
+    { name: 'Тести та практика', link: '/tests' },
+    { name: 'Форум', link: '/forum' },
   ];
 
   const information = [
-    { name: "Про портал", link: "/about" },
-    { name: "Довідники", link: "/directories" },
-    { name: "Контакти", link: "/contacts" },
+    { name: 'Про портал', link: '/about' },
+    { name: 'Довідники', link: '/directories' },
+    { name: 'Контакти', link: '/contacts' },
   ];
 
   return (
@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto pt-16 pb-8 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <Link to="/" className="flex items-center mb-6">
+            <Link to="/" className="flex items-center mb-4">
               <img src={logo} alt="Frontender Logo" className="w-8 h-8" />
               <span className="text-4xl font-bold text-white">rontender</span>
             </Link>
@@ -44,7 +44,7 @@ export default function Footer() {
                 href="https://github.com/IvanKyrlan/fronteder-interview-portal-frontend"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors"
+                className="text-gray-300 hover:text-white "
               >
                 <FaGithub size={22} />
               </a>
@@ -58,7 +58,7 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     to={resource.link}
-                    className="text-gray-300 hover:text-amber-500 transition-colors"
+                    className="text-gray-300 hover:text-amber-500 "
                   >
                     {resource.name}
                   </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <li key={index}>
                   <Link
                     to={section.link}
-                    className="text-gray-300 hover:text-amber-500 transition-colors"
+                    className="text-gray-300 hover:text-amber-500 "
                   >
                     {section.name}
                   </Link>
@@ -90,7 +90,7 @@ export default function Footer() {
                 <FaEnvelope className="text-amber-500 mt-1 mr-3" />
                 <a
                   href="mailto:clg-math@chnu.edu.ua"
-                  className="text-gray-300 hover:text-amber-500 transition-colors"
+                  className="text-gray-300 hover:text-amber-500 "
                 >
                   clg-math@chnu.edu.ua
                 </a>
@@ -99,7 +99,7 @@ export default function Footer() {
                 <FaPhoneAlt className="text-amber-500 mt-1 mr-3" />
                 <a
                   href="tel:+380123456789"
-                  className="text-gray-300 hover:text-amber-500 transition-colors"
+                  className="text-gray-300 hover:text-amber-500 "
                 >
                   (0372) 58-48-80
                 </a>

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import articleService from "../../services/articleService";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import articleService from '../../services/articleService';
 
 export default function ArticleSidebar({ currentArticleId, limit = 3 }) {
   const [articles, setArticles] = useState([]);
@@ -19,8 +19,8 @@ export default function ArticleSidebar({ currentArticleId, limit = 3 }) {
         setArticles(filteredArticles);
         setError(null);
       } catch (err) {
-        console.error("Error fetching related articles:", err);
-        setError("Не вдалося завантажити рекомендовані статті");
+        console.error('Error fetching related articles:', err);
+        setError('Не вдалося завантажити рекомендовані статті');
       } finally {
         setLoading(false);
       }
@@ -62,7 +62,7 @@ export default function ArticleSidebar({ currentArticleId, limit = 3 }) {
                 {article.thumbnail ? (
                   <div className="w-full overflow-hidden rounded-lg mb-3">
                     <div className="relative w-full pt-[56.25%]">
-                      {" "}
+                      {' '}
                       <img
                         src={article.thumbnail}
                         alt={article.title}
@@ -73,7 +73,7 @@ export default function ArticleSidebar({ currentArticleId, limit = 3 }) {
                 ) : (
                   <div className="rounded-lg mb-3">
                     <div className="relative w-full pt-[56.25%] bg-gray-100 rounded-lg">
-                      {" "}
+                      {' '}
                       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
                         <span className="text-gray-400 text-sm">
                           Зображення відсутнє
@@ -83,7 +83,7 @@ export default function ArticleSidebar({ currentArticleId, limit = 3 }) {
                   </div>
                 )}
 
-                <h1 className="text-md font-semibold mb-1 group-hover:text-amber-600 transition-colors duration-300">
+                <h1 className="text-md font-semibold mb-1 group-hover:text-amber-600">
                   {article.title}
                 </h1>
               </div>

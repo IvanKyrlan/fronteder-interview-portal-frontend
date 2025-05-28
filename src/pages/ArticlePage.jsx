@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
-import ArticleList from "../components/article/ArticleList";
-import Pagination from "../components/common/Pagination";
-import articleService from "../services/articleService";
-import { FaBookOpen, FaSync, FaArrowRight } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
+import ArticleList from '../components/article/ArticleList';
+import Pagination from '../components/common/Pagination';
+import articleService from '../services/articleService';
+import { FaBookOpen, FaSync, FaArrowRight } from 'react-icons/fa';
 
 export default function ArticlePage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -11,21 +11,21 @@ export default function ArticlePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const initialFilter = searchParams.get("filter") || "all";
+  const initialFilter = searchParams.get('filter') || 'all';
   const [activeTab, setActiveTab] = useState(initialFilter);
 
-  const itemsPerPage = 10;
-  const initialPage = parseInt(searchParams.get("page")) || 1;
+  const itemsPerPage = 12;
+  const initialPage = parseInt(searchParams.get('page')) || 1;
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [totalPages, setTotalPages] = useState(1);
 
   const navigate = useNavigate();
 
   const filterTypes = {
-    all: "Всі",
-    tasks: "Завдання",
-    news: "Новини",
-    best: "Краще",
+    all: 'Всі',
+    tasks: 'Завдання',
+    news: 'Новини',
+    best: 'Краще',
   };
 
   useEffect(() => {
@@ -35,24 +35,24 @@ export default function ArticlePage() {
         let data;
 
         switch (activeTab) {
-          case "best":
+          case 'best':
             data = await articleService.getFeaturedArticles();
             break;
-          case "tasks":
-            data = await articleService.getArticlesByType("task");
+          case 'tasks':
+            data = await articleService.getArticlesByType('task');
             break;
-          case "news":
-            data = await articleService.getArticlesByType("news");
+          case 'news':
+            data = await articleService.getArticlesByType('news');
             break;
           default:
             data = await articleService.getArticles();
         }
 
         if (data && data.length > 0) {
-          if (activeTab === "tasks") {
-            data = data.filter((article) => article.article_type === "task");
-          } else if (activeTab === "news") {
-            data = data.filter((article) => article.article_type === "news");
+          if (activeTab === 'tasks') {
+            data = data.filter((article) => article.article_type === 'task');
+          } else if (activeTab === 'news') {
+            data = data.filter((article) => article.article_type === 'news');
           }
         }
 
@@ -62,8 +62,8 @@ export default function ArticlePage() {
 
         setError(null);
       } catch (err) {
-        console.error("Error fetching articles:", err);
-        setError("Не вдалося завантажити статті");
+        console.error('Error fetching articles:', err);
+        setError('Не вдалося завантажити статті');
       } finally {
         setLoading(false);
       }
@@ -72,11 +72,11 @@ export default function ArticlePage() {
     fetchArticles();
 
     document.title = `Новини IT технологій та статті - ${
-      filterTypes[activeTab] || "Всі статті"
+      filterTypes[activeTab] || 'Всі статті'
     } | Frontender - підготовка до співбесід`;
 
     setSearchParams({
-      filter: activeTab !== "all" ? activeTab : undefined,
+      filter: activeTab !== 'all' ? activeTab : undefined,
       page: currentPage !== 1 ? currentPage : undefined,
     });
   }, [activeTab, currentPage, setSearchParams]);
@@ -124,13 +124,13 @@ export default function ArticlePage() {
               {Object.entries(filterTypes).map(([key, label]) => (
                 <button
                   key={key}
-                  className={`px-5 py-2 rounded-md transition-colors duration-300 ${
+                  className={`px-5 py-2 rounded-md ${
                     activeTab === key
-                      ? "bg-amber-600 text-white shadow-md"
-                      : "bg-white text-gray-700 border border-gray-200 hover:bg-amber-600 hover:text-white"
+                      ? 'bg-amber-600 text-white shadow-md'
+                      : 'bg-white text-gray-700 border border-gray-200 hover:bg-amber-600 hover:text-white'
                   }`}
                   onClick={() => handleTabChange(key)}
-                  aria-current={activeTab === key ? "page" : undefined}
+                  aria-current={activeTab === key ? 'page' : undefined}
                 >
                   {label}
                 </button>
@@ -150,7 +150,7 @@ export default function ArticlePage() {
               <div className="text-xl text-red-500 mb-6">{error}</div>
               <button
                 onClick={() => handleTabChange(activeTab)}
-                className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors shadow-md"
+                className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700  shadow-md"
               >
                 <FaSync className="mr-2" />
                 Спробувати знову
@@ -161,10 +161,10 @@ export default function ArticlePage() {
               <div className="text-lg text-gray-600 mb-6">
                 {`Немає статей у категорії "${filterTypes[activeTab]}"`}
               </div>
-              {activeTab !== "all" && (
+              {activeTab !== 'all' && (
                 <button
-                  onClick={() => handleTabChange("all")}
-                  className="text-md inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors shadow-md"
+                  onClick={() => handleTabChange('all')}
+                  className="text-md inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700  shadow-md"
                 >
                   Показати всі статті
                 </button>
@@ -196,7 +196,7 @@ export default function ArticlePage() {
           </p>
           <Link
             to="/contacts"
-            className="inline-flex items-center px-8 py-4 bg-white text-amber-600  text-lg rounded-md hover:bg-gray-100 transition-colors shadow-md"
+            className="inline-flex items-center px-8 py-4 bg-white text-amber-600  text-lg rounded-md hover:bg-gray-100  shadow-md"
           >
             Стати автором
             <FaArrowRight className="ml-2" />

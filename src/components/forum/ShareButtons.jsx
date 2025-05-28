@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from "react";
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import {
   FaShare,
   FaCopy,
@@ -6,9 +6,9 @@ import {
   FaFacebook,
   FaTelegram,
   FaLinkedin,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { createPortal } from "react-dom";
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { createPortal } from 'react-dom';
 
 const ShareButtons = ({
   url = window.location.href,
@@ -61,7 +61,7 @@ const ShareButtons = ({
       />
       <div
         style={{
-          position: "absolute",
+          position: 'absolute',
           top: menuPos.top,
           left: menuPos.left,
           minWidth: 230,
@@ -71,7 +71,7 @@ const ShareButtons = ({
       >
         <button
           onClick={handleCopyLink}
-          className="flex items-center p-2 w-full text-left hover:bg-gray-50 rounded-md transition-colors"
+          className="flex items-center p-2 w-full text-left hover:bg-gray-50 rounded-md "
         >
           {isCopied ? (
             <>
@@ -92,7 +92,7 @@ const ShareButtons = ({
           href={socialUrls.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center p-2 hover:bg-gray-50 rounded-md transition-colors"
+          className="flex items-center p-2 hover:bg-gray-50 rounded-md "
         >
           <FaFacebook className="mr-2 text-blue-600" size={18} />
           <span className="text-sm">Facebook</span>
@@ -102,7 +102,7 @@ const ShareButtons = ({
           href={socialUrls.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center p-2 hover:bg-gray-50 rounded-md transition-colors"
+          className="flex items-center p-2 hover:bg-gray-50 rounded-md "
         >
           <FaTelegram className="mr-2 text-blue-400" size={18} />
           <span className="text-sm">Telegram</span>
@@ -112,7 +112,7 @@ const ShareButtons = ({
           href={socialUrls.xtwitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center p-2 hover:bg-gray-50 rounded-md transition-colors"
+          className="flex items-center p-2 hover:bg-gray-50 rounded-md "
         >
           <FaXTwitter className="mr-2 text-gray-700" size={18} />
           <span className="text-sm">X (Twitter)</span>
@@ -122,7 +122,7 @@ const ShareButtons = ({
           href={socialUrls.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center p-2 hover:bg-gray-50 rounded-md transition-colors"
+          className="flex items-center p-2 hover:bg-gray-50 rounded-md "
         >
           <FaLinkedin className="mr-2 text-blue-700" size={18} />
           <span className="text-sm">LinkedIn</span>

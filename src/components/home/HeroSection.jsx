@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaCode,
   FaPuzzlePiece,
@@ -7,22 +7,22 @@ import {
   FaChevronDown,
   FaDatabase,
   FaComments,
-} from "react-icons/fa";
-import heroIllustration from "../../assets/hero-illustration.svg";
-import { SiDjango } from "react-icons/si";
-import { SiJavascript, SiReact } from "react-icons/si";
+} from 'react-icons/fa';
+import heroIllustration from '../../assets/hero-illustration.svg';
+import { SiDjango } from 'react-icons/si';
+import { SiJavascript, SiReact } from 'react-icons/si';
 
 export default function HeroSection() {
   const scrollToNextSection = () => {
     const nextSection = document.querySelector(
-      ".scroll-snap-section:nth-child(2)"
+      '.scroll-snap-section:nth-child(2)'
     );
     if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
+      nextSection.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.scrollTo({
         top: window.innerHeight,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
     }
   };
@@ -140,7 +140,7 @@ export default function HeroSection() {
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center hidden lg:block">
           <button
-            className="flex flex-col items-center text-gray-500 hover:text-amber-600 transition-colors duration-300"
+            className="flex flex-col items-center text-gray-500 hover:text-amber-600"
             onClick={scrollToNextSection}
             aria-label="Прокрутити вниз"
           >
@@ -156,14 +156,14 @@ export default function HeroSection() {
 function Badge({
   icon,
   label,
-  className = "",
-  bg = "bg-white",
-  text = "text-gray-800",
+  className = '',
+  bg = 'bg-white',
+  text = 'text-gray-800',
 }) {
   return (
     <div
       className={`px-4 py-2 rounded-full shadow-lg border border-gray-200 flex items-center gap-2 font-semibold text-xs md:text-base ${bg} ${text} ${className}`}
-      style={{ minWidth: "105px", minHeight: "40px" }}
+      style={{ minWidth: '105px', minHeight: '40px' }}
     >
       {icon}
       {label}

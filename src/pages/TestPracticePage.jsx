@@ -1,28 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
   FaChevronRight,
   FaCheckCircle,
   FaCode,
   FaLaptopCode,
   FaChartLine,
-} from "react-icons/fa";
-import { toast } from "react-toastify";
-import testService from "../services/testService";
-import TestsContainer from "../components/test/TestsContainer";
-import AuthModal from "../components/auth/AuthModal";
+} from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import testService from '../services/testService';
+import TestsContainer from '../components/test/TestsContainer';
+import AuthModal from '../components/auth/AuthModal';
 
 export default function TestPracticePage() {
   const [tests, setTests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const testsSectionRef = useRef(null);
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
-    document.title = "Тести та практика | Frontender - Підготовка до співбесід";
+    document.title = 'Тести та практика | Frontender - Підготовка до співбесід';
 
     const fetchTests = async () => {
       try {
@@ -40,10 +41,10 @@ export default function TestPracticePage() {
         };
 
         const sortedTests = [...data].sort((a, b) => {
-          const titleA = a.title?.toLowerCase() || "";
-          const titleB = b.title?.toLowerCase() || "";
-          const iconA = a.icon?.toLowerCase() || "";
-          const iconB = b.icon?.toLowerCase() || "";
+          const titleA = a.title?.toLowerCase() || '';
+          const titleB = b.title?.toLowerCase() || '';
+          const iconA = a.icon?.toLowerCase() || '';
+          const iconB = b.icon?.toLowerCase() || '';
 
           let priorityA = 100;
           for (const key in priority) {
@@ -66,8 +67,8 @@ export default function TestPracticePage() {
 
         setTests(sortedTests);
       } catch (err) {
-        setError("Не вдалося завантажити тести");
-        console.error("Error fetching tests:", err);
+        setError('Не вдалося завантажити тести');
+        console.error('Error fetching tests:', err);
       } finally {
         setLoading(false);
       }
@@ -77,14 +78,14 @@ export default function TestPracticePage() {
     window.scrollTo(0, 0);
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, []);
 
   const handleRegisterClick = () => {
     if (isAuthenticated) {
-      toast.info("Ви вже зареєстровані", {
-        position: "top-center",
+      toast.info('Ви вже зареєстровані', {
+        position: 'top-center',
         autoClose: 3000,
         icon: ({ theme, type }) => (
           <div className="text-amber-600">
@@ -110,6 +111,12 @@ export default function TestPracticePage() {
     }
   };
 
+  const handleStartTestingClick = () => {
+    if (testsSectionRef.current) {
+      testsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-50">
@@ -128,7 +135,7 @@ export default function TestPracticePage() {
           <div className="text-xl text-red-500 mb-4">{error}</div>
           <button
             onClick={() => window.location.reload()}
-            className="inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 "
           >
             Спробувати знову
           </button>
@@ -150,13 +157,13 @@ export default function TestPracticePage() {
         </div>
       </section>
 
-      <section className="py-12">
+      <section ref={testsSectionRef} className="py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">
             Доступні тести та практичні завдання
           </h2>
 
-          <div className="">
+          <div>
             <TestsContainer tests={tests} />
           </div>
         </div>
@@ -219,27 +226,27 @@ export default function TestPracticePage() {
             {[
               {
                 number: 1,
-                title: "Виберіть тест",
+                title: 'Виберіть тест',
                 description:
-                  "Оберіть технологію, з якої хочете перевірити свої знання, та розпочніть тест.",
+                  'Оберіть технологію, з якої хочете перевірити свої знання, та розпочніть тест.',
               },
               {
                 number: 2,
-                title: "Відповідайте на питання",
+                title: 'Відповідайте на питання',
                 description:
-                  "Дайте відповіді на запитання тесту, обираючи правильні варіанти зі списку.",
+                  'Дайте відповіді на запитання тесту, обираючи правильні варіанти зі списку.',
               },
               {
                 number: 3,
-                title: "Отримайте результат",
+                title: 'Отримайте результат',
                 description:
-                  "Після завершення тесту ви отримаєте детальний аналіз своїх відповідей та бали.",
+                  'Після завершення тесту ви отримаєте детальний аналіз своїх відповідей та бали.',
               },
               {
                 number: 4,
-                title: "Спробуйте практику",
+                title: 'Спробуйте практику',
                 description:
-                  "Переходьте до практичних завдань, щоб закріпити теоретичні знання на практиці.",
+                  'Переходьте до практичних завдань, щоб закріпити теоретичні знання на практиці.',
               },
             ].map((step, index) => (
               <div
@@ -250,7 +257,7 @@ export default function TestPracticePage() {
                   {step.number}
                 </div>
                 <div className="h-16 flex items-center justify-center">
-                  {" "}
+                  {' '}
                   <h3 className="text-xl font-bold text-gray-800 text-center">
                     {step.title}
                   </h3>
@@ -308,7 +315,7 @@ export default function TestPracticePage() {
 
               <button
                 onClick={handleRegisterClick}
-                className="inline-flex text-lg  items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors shadow-md"
+                className="inline-flex text-lg  items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700  shadow-md"
               >
                 Зареєструватися
                 <FaChevronRight className="ml-2" />
@@ -344,19 +351,14 @@ export default function TestPracticePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
-              onClick={() =>
-                window.scrollTo({
-                  top: document.querySelector(".bg-white + .py-12").offsetTop,
-                  behavior: "smooth",
-                })
-              }
-              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              onClick={handleStartTestingClick}
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100  shadow-md"
             >
               Почати тестування
             </button>
             <Link
               to="/interviews"
-              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 "
             >
               Перейти до відео співбесід
             </Link>

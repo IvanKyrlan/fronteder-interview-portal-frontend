@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import TestProgress from "../test/TestProgress";
-import TaskProgress from "../task/TaskProgress";
-import userService from "../../services/userService";
+import React, { useState, useEffect } from 'react';
+import TestProgress from '../test/TestProgress';
+import TaskProgress from '../task/TaskProgress';
+import userService from '../../services/userService';
 import {
   FaChartLine,
   FaTrophy,
@@ -10,14 +10,14 @@ import {
   FaBook,
   FaCode,
   FaLaptopCode,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 export default function ProgressTab() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [userProgress, setUserProgress] = useState([]);
   const [taskProgress, setTaskProgress] = useState([]);
-  const [activeTab, setActiveTab] = useState("test");
+  const [activeTab, setActiveTab] = useState('test');
   const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
@@ -32,8 +32,8 @@ export default function ProgressTab() {
 
         generateRecommendations(progress, taskProgressData);
       } catch (error) {
-        console.error("Failed to load user progress:", error);
-        setError("Не вдалося завантажити дані прогресу");
+        console.error('Failed to load user progress:', error);
+        setError('Не вдалося завантажити дані прогресу');
       } finally {
         setLoading(false);
       }
@@ -50,10 +50,10 @@ export default function ProgressTab() {
 
       if (lowScoreTests.length > 0) {
         newRecommendations.push({
-          type: "test_retry",
-          title: "Повторіть тести з низьким результатом",
+          type: 'test_retry',
+          title: 'Повторіть тести з низьким результатом',
           description: `У вас ${lowScoreTests.length} ${
-            lowScoreTests.length === 1 ? "тест" : "тестів"
+            lowScoreTests.length === 1 ? 'тест' : 'тестів'
           } з результатом нижче 60%. Спробуйте пройти їх ще раз для покращення результату.`,
           tests: lowScoreTests,
           icon: <FaRegLightbulb className="text-amber-500" />,
@@ -62,19 +62,19 @@ export default function ProgressTab() {
 
       if (testProgress.length < 5) {
         newRecommendations.push({
-          type: "test_new",
-          title: "Пройдіть більше тестів",
+          type: 'test_new',
+          title: 'Пройдіть більше тестів',
           description:
-            "Спробуйте пройти більше тестів для повного охоплення тем і кращої підготовки до співбесід.",
+            'Спробуйте пройти більше тестів для повного охоплення тем і кращої підготовки до співбесід.',
           icon: <FaBook className="text-blue-500" />,
         });
       }
     } else {
       newRecommendations.push({
-        type: "test_start",
-        title: "Почніть з теоретичних тестів",
+        type: 'test_start',
+        title: 'Почніть з теоретичних тестів',
         description:
-          "Пройдіть декілька тестів, щоб перевірити свої теоретичні знання перед виконанням практичних завдань.",
+          'Пройдіть декілька тестів, щоб перевірити свої теоретичні знання перед виконанням практичних завдань.',
         icon: <FaGraduationCap className="text-green-500" />,
       });
     }
@@ -86,10 +86,10 @@ export default function ProgressTab() {
 
       if (lowCompletionTasks.length > 0) {
         newRecommendations.push({
-          type: "task_continue",
-          title: "Виконайте більше практичних завдань",
+          type: 'task_continue',
+          title: 'Виконайте більше практичних завдань',
           description: `У ${lowCompletionTasks.length} ${
-            lowCompletionTasks.length === 1 ? "категорії" : "категоріях"
+            lowCompletionTasks.length === 1 ? 'категорії' : 'категоріях'
           } ви виконали менше половини завдань. Продовжуйте практику для закріплення навичок.`,
           tasks: lowCompletionTasks,
           icon: <FaCode className="text-purple-500" />,
@@ -104,12 +104,12 @@ export default function ProgressTab() {
 
       if (almostCompleteTasks.length > 0) {
         newRecommendations.push({
-          type: "task_finish",
-          title: "Завершіть виконання завдань",
+          type: 'task_finish',
+          title: 'Завершіть виконання завдань',
           description: `Ви майже завершили завдання у ${
             almostCompleteTasks.length
           } ${
-            almostCompleteTasks.length === 1 ? "категорії" : "категоріях"
+            almostCompleteTasks.length === 1 ? 'категорії' : 'категоріях'
           }. Залишилося зовсім трохи!`,
           tasks: almostCompleteTasks,
           icon: <FaTrophy className="text-amber-500" />,
@@ -117,10 +117,10 @@ export default function ProgressTab() {
       }
     } else {
       newRecommendations.push({
-        type: "task_start",
-        title: "Почніть практичні завдання",
+        type: 'task_start',
+        title: 'Почніть практичні завдання',
         description:
-          "Виконання практичних завдань допоможе закріпити теоретичні знання та підготуватися до технічних завдань на співбесіді.",
+          'Виконання практичних завдань допоможе закріпити теоретичні знання та підготуватися до технічних завдань на співбесіді.',
         icon: <FaLaptopCode className="text-amber-600" />,
       });
     }
@@ -134,8 +134,8 @@ export default function ProgressTab() {
 
     if (highScoreTests.length >= 3 && completeTaskCategories.length >= 3) {
       newRecommendations.push({
-        type: "advanced",
-        title: "Відмінний прогрес!",
+        type: 'advanced',
+        title: 'Відмінний прогрес!',
         description:
           "Ви показуєте хороші результати. Спробуйте пройти інтерв'ю та подивіться наші відео з розбором типових співбесід.",
         icon: <FaTrophy className="text-amber-600" />,
@@ -198,7 +198,7 @@ export default function ProgressTab() {
             </p>
             <a
               href="/tests"
-              className="inline-flex items-center bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition-colors"
+              className="inline-flex items-center bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 "
             >
               Перейти до тестів <FaChartLine className="ml-2" />
             </a>
@@ -225,7 +225,7 @@ export default function ProgressTab() {
               {recommendations.map((rec, index) => (
                 <div
                   key={index}
-                  className="p-3 rounded-md bg-gray-50 border-l-3 border-amber-300 hover:bg-amber-50 transition-colors"
+                  className="p-3 rounded-md bg-gray-50 border-l-3 border-amber-300 hover:bg-amber-50 "
                 >
                   <div className="flex items-center">
                     <div className="mt-0.5 mr-3 text-3xl flex-shrink-0">
@@ -235,13 +235,13 @@ export default function ProgressTab() {
                       <h4 className=" text-gray-800 mb-1">{rec.title}</h4>
                       <p className="text-gray-600 text-md">{rec.description}</p>
 
-                      {rec.type === "test_retry" && rec.tests && (
+                      {rec.type === 'test_retry' && rec.tests && (
                         <div className="mt-2 flex flex-wrap gap-2 text-md">
                           {rec.tests.slice(0, 3).map((test, i) => (
                             <a
                               key={i}
                               href={`/tests/${test.test_id}`}
-                              className=" bg-white rounded-full p-2 text-gray-700 hover:text-amber-600 transition-colors border border-gray-200"
+                              className=" bg-white rounded-full p-2 text-gray-700 hover:text-amber-600  border border-gray-200"
                             >
                               {test.test_title} ({test.score}%)
                             </a>
@@ -254,13 +254,13 @@ export default function ProgressTab() {
                         </div>
                       )}
 
-                      {rec.type === "task_continue" && rec.tasks && (
+                      {rec.type === 'task_continue' && rec.tasks && (
                         <div className="mt-2 flex flex-wrap gap-2">
                           {rec.tasks.slice(0, 3).map((task, i) => (
                             <a
                               key={i}
                               href={`/tests/${task.test}/tasks`}
-                              className="text-xs bg-white rounded-full px-2 py-1 text-gray-700 hover:text-amber-600 transition-colors border border-gray-200"
+                              className="text-xs bg-white rounded-full px-2 py-1 text-gray-700 hover:text-amber-600  border border-gray-200"
                             >
                               {task.test_title} (
                               {Math.round(
@@ -288,12 +288,12 @@ export default function ProgressTab() {
       <div className="mb-4 border-b border-gray-200">
         <div className="flex flex-wrap text-lg">
           <button
-            className={`px-4 py-2  text-md mr-2 -mb-px rounded-t focus:outline-none transition-colors ${
-              activeTab === "test"
-                ? "text-amber-600 border-b-2 border-amber-600 bg-white"
-                : "text-gray-600 hover:text-amber-600"
+            className={`px-4 py-2  text-md mr-2 -mb-px rounded-t focus:outline-none  ${
+              activeTab === 'test'
+                ? 'text-amber-600 border-b-2 border-amber-600 bg-white'
+                : 'text-gray-600 hover:text-amber-600'
             }`}
-            onClick={() => setActiveTab("test")}
+            onClick={() => setActiveTab('test')}
           >
             <span className="flex items-center">
               <FaBook className="mr-2" />
@@ -301,12 +301,12 @@ export default function ProgressTab() {
             </span>
           </button>
           <button
-            className={`px-4 py-2  text-md -mb-px rounded-t focus:outline-none transition-colors ${
-              activeTab === "task"
-                ? "text-amber-600 border-b-2 border-amber-600 bg-white"
-                : "text-gray-600 hover:text-amber-600"
+            className={`px-4 py-2  text-md -mb-px rounded-t focus:outline-none  ${
+              activeTab === 'task'
+                ? 'text-amber-600 border-b-2 border-amber-600 bg-white'
+                : 'text-gray-600 hover:text-amber-600'
             }`}
-            onClick={() => setActiveTab("task")}
+            onClick={() => setActiveTab('task')}
           >
             <span className="flex items-center">
               <FaLaptopCode className="mr-2" />
@@ -317,7 +317,7 @@ export default function ProgressTab() {
       </div>
 
       <div className="bg-white rounded-lg p-4">
-        {activeTab === "test" ? (
+        {activeTab === 'test' ? (
           <TestProgress userProgress={userProgress} />
         ) : (
           <TaskProgress

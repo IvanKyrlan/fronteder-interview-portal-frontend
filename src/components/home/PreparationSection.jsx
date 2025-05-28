@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaBookOpen,
   FaCode,
@@ -7,51 +7,51 @@ import {
   FaUsers,
   FaQuestion,
   FaClipboardCheck,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 export default function PreparationSection() {
   const steps = [
     {
       icon: <FaBookOpen className="text-3xl" />,
-      title: "Вивчіть основи",
+      title: 'Вивчіть основи',
       description:
-        "Почніть з HTML, CSS та JavaScript — це фундамент, на якому будується frontend-розробка.",
-      color: "from-orange-500 to-amber-500",
+        'Почніть з HTML, CSS та JavaScript — це фундамент, на якому будується frontend-розробка.',
+      color: 'from-orange-500 to-amber-500',
     },
     {
       icon: <FaCode className="text-3xl" />,
-      title: "Засвойте фреймворки",
+      title: 'Засвойте фреймворки',
       description:
-        "Вивчіть популярні фреймворки, такі як React, Vue або Angular — вони часто вимагаються на співбесідах.",
-      color: "from-blue-500 to-blue-400",
+        'Вивчіть популярні фреймворки, такі як React, Vue або Angular — вони часто вимагаються на співбесідах.',
+      color: 'from-blue-500 to-blue-400',
     },
     {
       icon: <FaLaptop className="text-3xl" />,
-      title: "Створюйте проекти",
+      title: 'Створюйте проекти',
       description:
-        "Практика — ключ до успіху. Створюйте власні проекти для закріплення навичок та формування портфоліо.",
-      color: "from-green-500 to-green-400",
+        'Практика — ключ до успіху. Створюйте власні проекти для закріплення навичок та формування портфоліо.',
+      color: 'from-green-500 to-green-400',
     },
     {
       icon: <FaUsers className="text-3xl" />,
-      title: "Спілкуйтеся з колегами",
+      title: 'Спілкуйтеся з колегами',
       description:
-        "Беріть участь у професійних спільнотах, відвідуйте мітапи та вебінари для розширення знань.",
-      color: "from-purple-500 to-purple-400",
+        'Беріть участь у професійних спільнотах, відвідуйте мітапи та вебінари для розширення знань.',
+      color: 'from-purple-500 to-purple-400',
     },
     {
       icon: <FaQuestion className="text-3xl" />,
-      title: "Вирішуйте задачі",
+      title: 'Вирішуйте задачі',
       description:
-        "Розв'язуйте алгоритмічні задачі та практичні завдання на нашому порталі для підготовки до технічних інтерв'ю.",
-      color: "from-red-500 to-red-400",
+        "Розв'язуйте алгоритмічні задачі та практичні завдання для підготовки до технічних інтерв'ю.",
+      color: 'from-red-500 to-red-400',
     },
     {
       icon: <FaClipboardCheck className="text-3xl" />,
-      title: "Проходьте тести",
+      title: 'Проходьте тести',
       description:
-        "Регулярно тестуйте свої знання для виявлення прогалин, які потрібно заповнити перед справжньою співбесідою.",
-      color: "from-amber-500 to-yellow-400",
+        'Регулярно тестуйте свої знання для виявлення прогалин, які потрібно заповнити перед справжньою співбесідою.',
+      color: 'from-amber-500 to-yellow-400',
     },
   ];
 

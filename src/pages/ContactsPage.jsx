@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 import {
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
-  FaGithub,
   FaPaperPlane,
   FaSyncAlt,
   FaCheck,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 export default function ContactsPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
     agreement: false,
   });
 
@@ -26,12 +26,12 @@ export default function ContactsPage() {
   });
 
   useEffect(() => {
-    document.title = "Контакти | Frontender - Підготовка до співбесід";
+    document.title = 'Контакти | Frontender - Підготовка до співбесід';
 
     window.scrollTo(0, 0);
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, []);
 
@@ -39,39 +39,58 @@ export default function ContactsPage() {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setFormStatus({ ...formStatus, loading: true, error: null });
 
-    setFormStatus({ ...formStatus, loading: true });
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
 
-    setTimeout(() => {
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: true,
-        error: null,
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-        agreement: false,
-      });
-
-      setTimeout(() => {
-        setFormStatus((prev) => ({
-          ...prev,
-          submitted: false,
+    emailjs
+      .send(
+        'service_3qwujrv',
+        'template_95zog5d',
+        templateParams,
+        'qC5RZCUAxKKqq4MNX'
+      )
+      .then((result) => {
+        setFormStatus({
+          submitted: true,
+          loading: false,
+          success: true,
+          error: null,
+        });
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          agreement: false,
+        });
+        setTimeout(() => {
+          setFormStatus((prev) => ({
+            ...prev,
+            submitted: false,
+            success: false,
+          }));
+        }, 5000);
+      })
+      .catch((error) => {
+        setFormStatus({
+          submitted: true,
+          loading: false,
           success: false,
-        }));
-      }, 5000);
-    }, 1500);
+          error: 'Не вдалося надіслати повідомлення. Спробуйте ще раз.',
+        });
+      });
   };
 
   return (
@@ -80,7 +99,7 @@ export default function ContactsPage() {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Контакти</h1>
           <p className="text-xl max-w-4xl mx-auto text-gray-300">
-            Зв'яжіться з нами, щоб отримати додаткову інформацію, залишити
+            Зв&apos;яжіться з нами, щоб отримати додаткову інформацію, залишити
             відгук або запропонувати співпрацю. Ми завжди відкриті до
             спілкування!
           </p>
@@ -107,7 +126,7 @@ export default function ContactsPage() {
                       </h3>
                       <a
                         href="mailto:clg-math@chnu.edu.ua"
-                        className="text-amber-600 hover:text-amber-700 transition-colors"
+                        className="text-amber-600 hover:text-amber-700 "
                       >
                         clg-math@chnu.edu.ua
                       </a>
@@ -124,7 +143,7 @@ export default function ContactsPage() {
                       </h3>
                       <a
                         href="tel:+380123456789"
-                        className="text-amber-600 hover:text-amber-700 transition-colors"
+                        className="text-amber-600 hover:text-amber-700 "
                       >
                         (0372) 58-48-80
                       </a>
@@ -164,7 +183,7 @@ export default function ContactsPage() {
                         Повідомлення надіслано!
                       </h3>
                       <p>
-                        Дякуємо за ваше звернення. Ми зв'яжемося з вами
+                        Дякуємо за ваше звернення. Ми зв&apos;яжемося з вами
                         якнайшвидше.
                       </p>
                     </div>
@@ -177,7 +196,7 @@ export default function ContactsPage() {
                           htmlFor="name"
                           className="block text-gray-700 mb-2"
                         >
-                          Ваше ім'я
+                          Ваше ім&apos;я
                         </label>
                         <input
                           type="text"
@@ -186,7 +205,7 @@ export default function ContactsPage() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
                           placeholder="Введіть ваше ім'я"
                         />
                       </div>
@@ -204,7 +223,7 @@ export default function ContactsPage() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
                           placeholder="Введіть ваш email"
                         />
                       </div>
@@ -224,7 +243,7 @@ export default function ContactsPage() {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
                         placeholder="Тема вашого повідомлення"
                       />
                     </div>
@@ -243,7 +262,7 @@ export default function ContactsPage() {
                         onChange={handleChange}
                         required
                         rows="6"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500"
                         placeholder="Ваше повідомлення..."
                       ></textarea>
                     </div>
@@ -262,22 +281,28 @@ export default function ContactsPage() {
                       </div>
                       <div className="ml-3 text-sm ">
                         <label htmlFor="agreement" className="text-gray-600">
-                          Я погоджуюсь з{" "}
+                          Я погоджуюсь з{' '}
                           <a
                             href="/#"
                             className="text-amber-600 hover:text-amber-700 underline-none"
                           >
                             політикою конфіденційності
-                          </a>{" "}
+                          </a>{' '}
                           та даю згоду на обробку моїх персональних даних
                         </label>
                       </div>
                     </div>
 
+                    {formStatus.error && (
+                      <div className="text-red-600 mb-2">
+                        {formStatus.error}
+                      </div>
+                    )}
+
                     <div>
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base  rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors"
+                        className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base rounded-md text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 "
                         disabled={formStatus.loading}
                       >
                         {formStatus.loading ? (
@@ -297,30 +322,6 @@ export default function ContactsPage() {
                 )}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gradient-to-b from-amber-500 to-amber-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
-          <h2 className="text-4xl font-bold mb-4 w-full text-center">
-            Зробіть свій внесок у розвиток проекту
-          </h2>
-          <p className="text-lg text-gray-100 mb-8 w-full text-center">
-            Допоможіть зробити портал кращим! Ви можете долучитися до покращення
-            платформи: оновлюйте код, додавайте новий контент, пропонуйте ідеї
-            або вдосконалюйте існуючі розділи. Разом ми зможемо створити ще
-            ефективніше середовище для підготовки до Frontend співбесід.
-          </p>
-          <div className="w-full flex justify-center mt-8">
-            <a
-              href="https://github.com/IvanKyrlan/fronteder-interview-portal-frontend"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-24 h-24 rounded-full bg-white text-neutral-800 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-colors shadow-lg"
-            >
-              <FaGithub size={48} />
-            </a>
           </div>
         </div>
       </section>

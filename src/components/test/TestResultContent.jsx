@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   FaCheck,
   FaTimes,
@@ -9,9 +9,9 @@ import {
   FaChevronRight,
   FaAward,
   FaExclamationCircle,
-} from "react-icons/fa";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+} from 'react-icons/fa';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function TestResultContent({
   testScore,
@@ -25,8 +25,8 @@ export default function TestResultContent({
   const [percentage, setPercentage] = useState(0);
 
   useEffect(() => {
-    console.log("TestResultContent - Questions:", questions);
-    console.log("TestResultContent - User Answers:", userAnswers);
+    console.log('TestResultContent - Questions:', questions);
+    console.log('TestResultContent - User Answers:', userAnswers);
   }, [questions, userAnswers]);
 
   useEffect(() => {
@@ -42,26 +42,26 @@ export default function TestResultContent({
   };
 
   const renderQuestionText = (text) => {
-    if (!text || !text.includes("```")) {
+    if (!text || !text.includes('```')) {
       return <p className="whitespace-pre-line">{text}</p>;
     }
 
-    const parts = text.split("```");
+    const parts = text.split('```');
     return parts.map((part, index) => {
       if (index % 2 === 1) {
         const languageMatch = part.match(/^(\w+)\n/);
-        const language = languageMatch ? languageMatch[1] : "javascript";
-        const code = languageMatch ? part.replace(/^\w+\n/, "") : part;
+        const language = languageMatch ? languageMatch[1] : 'javascript';
+        const code = languageMatch ? part.replace(/^\w+\n/, '') : part;
 
         return (
           <SyntaxHighlighter
             language={language}
             style={atomDark}
             customStyle={{
-              fontSize: "16px",
-              borderRadius: "8px",
-              margin: "16px 0",
-              padding: "16px",
+              fontSize: '16px',
+              borderRadius: '8px',
+              margin: '16px 0',
+              padding: '16px',
             }}
             key={index}
           >
@@ -87,7 +87,7 @@ export default function TestResultContent({
         </div>
         <button
           onClick={onBackToTests}
-          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md transition-colors"
+          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md "
         >
           До списку тестів
         </button>
@@ -101,7 +101,7 @@ export default function TestResultContent({
     }
     if (question.options && Array.isArray(question.options)) {
       return question.options.map((option) =>
-        typeof option === "object" ? option.text : option
+        typeof option === 'object' ? option.text : option
       );
     }
     return [];
@@ -115,7 +115,7 @@ export default function TestResultContent({
             <div className="w-36 h-36 rounded-full flex items-center justify-center mx-auto mb-2 border-8 border-gray-100">
               <div
                 className={`w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-3xl
-                  ${isPassed ? "bg-green-500" : "bg-amber-600"}`}
+                  ${isPassed ? 'bg-green-500' : 'bg-amber-600'}`}
               >
                 {percentage}%
               </div>
@@ -135,7 +135,7 @@ export default function TestResultContent({
           </div>
 
           <div className="text-6xl font-bold mb-4">
-            <span className={isPassed ? "text-green-500" : "text-amber-600"}>
+            <span className={isPassed ? 'text-green-500' : 'text-amber-600'}>
               {testScore}
             </span>
             <span className="text-gray-300">/{testTotal}</span>
@@ -151,8 +151,8 @@ export default function TestResultContent({
 
           <p className="text-gray-600 mb-4 ">
             {isPassed
-              ? "Вітаємо з успішним проходженням тесту! Ви продемонстрували хороші знання з теми."
-              : "Не засмучуйтесь! Кожна спроба - це крок до покращення ваших знань."}
+              ? 'Вітаємо з успішним проходженням тесту! Ви продемонстрували хороші знання з теми.'
+              : 'Не засмучуйтесь! Кожна спроба - це крок до покращення ваших знань.'}
           </p>
         </div>
 
@@ -179,21 +179,21 @@ export default function TestResultContent({
         <div className="flex flex-wrap justify-center gap-4">
           <button
             onClick={onRetakeTest}
-            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md  flex items-center"
           >
             <FaRedo className="mr-2" />
             Пройти ще раз
           </button>
           <button
             onClick={onBackToTests}
-            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white  shadow-md transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white  shadow-md  flex items-center"
           >
             <FaList className="mr-2" />
             До списку тестів
           </button>
           <button
             onClick={toggleShowAnswers}
-            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white  shadow-md transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white  shadow-md  flex items-center"
           >
             {showAnswers ? (
               <>
@@ -228,7 +228,7 @@ export default function TestResultContent({
               );
 
               const questionText =
-                question.question || question.text || "Питання недоступне";
+                question.question || question.text || 'Питання недоступне';
 
               return (
                 <div
@@ -238,8 +238,8 @@ export default function TestResultContent({
                   <div
                     className={`p-4 flex items-center border-l-4 ${
                       isUserAnswerCorrect
-                        ? "border-green-500 bg-green-50"
-                        : "border-red-500 bg-red-50"
+                        ? 'border-green-500 bg-green-50'
+                        : 'border-red-500 bg-red-50'
                     }`}
                   >
                     <div className="text-lg font-semibold text-gray-800 mr-3">
@@ -247,7 +247,7 @@ export default function TestResultContent({
                     </div>
                     <div
                       className={`flex items-center ${
-                        isUserAnswerCorrect ? "text-green-600" : "text-red-600"
+                        isUserAnswerCorrect ? 'text-green-600' : 'text-red-600'
                       }`}
                     >
                       {isUserAnswerCorrect ? (
@@ -256,7 +256,7 @@ export default function TestResultContent({
                         <FaTimes className="mr-2" size={18} />
                       )}
                       <span className="">
-                        {isUserAnswerCorrect ? "Правильно!" : "Неправильно!"}
+                        {isUserAnswerCorrect ? 'Правильно!' : 'Неправильно!'}
                       </span>
                     </div>
                   </div>
@@ -278,10 +278,10 @@ export default function TestResultContent({
                               key={aIndex}
                               className={`p-4 border-2 rounded-md ${
                                 isCorrectAnswer
-                                  ? "border-green-500 bg-green-50"
+                                  ? 'border-green-500 bg-green-50'
                                   : isUserChoice && !isCorrectAnswer
-                                  ? "border-red-500 bg-red-50"
-                                  : "border-gray-200"
+                                  ? 'border-red-500 bg-red-50'
+                                  : 'border-gray-200'
                               }`}
                             >
                               <div className="flex items-center ">
@@ -290,19 +290,19 @@ export default function TestResultContent({
                                     className={`w-6 h-6 rounded-full border-2 ${
                                       isUserChoice
                                         ? isCorrectAnswer
-                                          ? "border-green-500"
-                                          : "border-red-500"
+                                          ? 'border-green-500'
+                                          : 'border-red-500'
                                         : isCorrectAnswer
-                                        ? "border-green-500"
-                                        : "border-gray-300"
+                                        ? 'border-green-500'
+                                        : 'border-gray-300'
                                     } flex items-center justify-center`}
                                   >
                                     {isUserChoice && (
                                       <div
                                         className={`w-4 h-4 rounded-full ${
                                           isCorrectAnswer
-                                            ? "bg-green-500"
-                                            : "bg-red-500"
+                                            ? 'bg-green-500'
+                                            : 'bg-red-500'
                                         }`}
                                       ></div>
                                     )}
@@ -338,7 +338,7 @@ export default function TestResultContent({
           <div className="mt-8 text-center">
             <button
               onClick={onRetakeTest}
-              className="px-8 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md transition-colors"
+              className="px-8 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  shadow-md "
             >
               Спробувати ще раз
             </button>

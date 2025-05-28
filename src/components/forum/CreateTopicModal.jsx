@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FaTimes,
   FaPaperPlane,
@@ -7,9 +7,9 @@ import {
   FaCheck,
   FaEye,
   FaPencilAlt,
-} from "react-icons/fa";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+} from 'react-icons/fa';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const CreateTopicModal = ({
   isOpen,
@@ -19,50 +19,50 @@ const CreateTopicModal = ({
   initialData = null,
   isEditMode = false,
 }) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [category, setCategory] = useState('');
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showCodeEditor, setShowCodeEditor] = useState(false);
-  const [code, setCode] = useState("");
-  const [codeLanguage, setCodeLanguage] = useState("javascript");
+  const [code, setCode] = useState('');
+  const [codeLanguage, setCodeLanguage] = useState('javascript');
   const [previewMode, setPreviewMode] = useState(false);
 
   const modalRef = useRef(null);
   const contentRef = useRef(null);
 
   const availableLanguages = [
-    { id: "javascript", name: "JavaScript" },
-    { id: "html", name: "HTML" },
-    { id: "css", name: "CSS" },
-    { id: "python", name: "Python" },
-    { id: "jsx", name: "React/JSX" },
-    { id: "sql", name: "SQL" },
-    { id: "bash", name: "Bash" },
-    { id: "json", name: "JSON" },
+    { id: 'javascript', name: 'JavaScript' },
+    { id: 'html', name: 'HTML' },
+    { id: 'css', name: 'CSS' },
+    { id: 'python', name: 'Python' },
+    { id: 'jsx', name: 'React/JSX' },
+    { id: 'sql', name: 'SQL' },
+    { id: 'bash', name: 'Bash' },
+    { id: 'json', name: 'JSON' },
   ];
 
   useEffect(() => {
     if (isOpen) {
       if (initialData && isEditMode) {
-        setTitle(initialData.title || "");
-        setContent(initialData.content || "");
-        setCategory(initialData.category || "");
+        setTitle(initialData.title || '');
+        setContent(initialData.content || '');
+        setCategory(initialData.category || '');
       } else {
-        setTitle("");
-        setContent("");
+        setTitle('');
+        setContent('');
 
         if (categories && categories.length > 0) {
           const defaultCategory = categories[0];
-          setCategory(defaultCategory?.id || "");
+          setCategory(defaultCategory?.id || '');
         }
       }
 
       setErrors({});
       setShowCodeEditor(false);
-      setCode("");
-      setCodeLanguage("javascript");
+      setCode('');
+      setCodeLanguage('javascript');
       setPreviewMode(false);
     }
   }, [isOpen, categories, initialData, isEditMode]);
@@ -75,19 +75,19 @@ const CreateTopicModal = ({
     };
 
     const handleEscape = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === 'Escape') onClose();
     };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "";
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 
@@ -95,15 +95,15 @@ const CreateTopicModal = ({
     const newErrors = {};
     if (!title.trim()) newErrors.title = "Заголовок теми обов'язковий";
     else if (title.length < 5)
-      newErrors.title = "Заголовок повинен містити щонайменше 5 символів";
+      newErrors.title = 'Заголовок повинен містити щонайменше 5 символів';
     else if (title.length > 100)
-      newErrors.title = "Заголовок не повинен перевищувати 100 символів";
+      newErrors.title = 'Заголовок не повинен перевищувати 100 символів';
 
     if (!content.trim()) newErrors.content = "Вміст теми обов'язковий";
     else if (content.length < 10)
-      newErrors.content = "Вміст повинен містити щонайменше 10 символів";
+      newErrors.content = 'Вміст повинен містити щонайменше 10 символів';
 
-    if (!category) newErrors.category = "Виберіть категорію";
+    if (!category) newErrors.category = 'Виберіть категорію';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -117,7 +117,7 @@ const CreateTopicModal = ({
 
     setContent(newContent);
     setShowCodeEditor(false);
-    setCode("");
+    setCode('');
 
     if (contentRef.current) {
       contentRef.current.focus();
@@ -135,7 +135,7 @@ const CreateTopicModal = ({
 
     setIsSubmitting(true);
 
-    const hasCode = content.includes("```");
+    const hasCode = content.includes('```');
 
     const topicData = {
       title,
@@ -155,22 +155,22 @@ const CreateTopicModal = ({
       const errorMessage =
         error.response?.data?.message ||
         error.response?.data?.detail ||
-        "Помилка при " + (isEditMode ? "оновленні" : "створенні") + " теми";
+        'Помилка при ' + (isEditMode ? 'оновленні' : 'створенні') + ' теми';
       setErrors({ submit: errorMessage });
     }
   };
 
   const renderContent = (text) => {
-    if (!text || !text.includes("```")) {
+    if (!text || !text.includes('```')) {
       return <p className="whitespace-pre-line">{text}</p>;
     }
 
-    const parts = text.split("```");
+    const parts = text.split('```');
     return parts.map((part, index) => {
       if (index % 2 === 1) {
         const languageMatch = part.match(/^(\w+)\n/);
-        const language = languageMatch ? languageMatch[1] : "javascript";
-        const code = languageMatch ? part.replace(/^\w+\n/, "") : part;
+        const language = languageMatch ? languageMatch[1] : 'javascript';
+        const code = languageMatch ? part.replace(/^\w+\n/, '') : part;
 
         return (
           <SyntaxHighlighter
@@ -178,10 +178,10 @@ const CreateTopicModal = ({
             language={language}
             style={oneLight}
             customStyle={{
-              marginTop: "10px",
-              marginBottom: "10px",
-              borderRadius: "6px",
-              fontSize: "14px",
+              marginTop: '10px',
+              marginBottom: '10px',
+              borderRadius: '6px',
+              fontSize: '14px',
             }}
           >
             {code.trim()}
@@ -207,11 +207,11 @@ const CreateTopicModal = ({
       >
         <div className="px-5 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
           <h2 className="text-xl font-semibold text-gray-800">
-            {isEditMode ? "Редагування теми" : "Створення нової теми"}
+            {isEditMode ? 'Редагування теми' : 'Створення нової теми'}
           </h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
+            className="text-gray-500 hover:text-gray-700 "
             aria-label="Закрити"
           >
             <FaTimes size={18} />
@@ -220,7 +220,7 @@ const CreateTopicModal = ({
 
         <div
           className="p-5 overflow-y-auto"
-          style={{ maxHeight: "calc(90vh - 120px)" }}
+          style={{ maxHeight: 'calc(90vh - 120px)' }}
         >
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -235,15 +235,15 @@ const CreateTopicModal = ({
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 ${
-                  errors.title ? "border-red-500" : "border-gray-300"
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500 ${
+                  errors.title ? 'border-red-500' : 'border-gray-300'
                 } text-md`}
                 placeholder="Введіть заголовок теми"
                 disabled={isSubmitting}
               />
               {errors.title && (
                 <p className="text-red-500 text-md mt-1 flex items-center">
-                  <FaExclamationTriangle className="mr-1" size={10} />{" "}
+                  <FaExclamationTriangle className="mr-1" size={10} />{' '}
                   {errors.title}
                 </p>
               )}
@@ -260,8 +260,8 @@ const CreateTopicModal = ({
                 id="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500 ${
-                  errors.category ? "border-red-500" : "border-gray-300"
+                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500 ${
+                  errors.category ? 'border-red-500' : 'border-gray-300'
                 } text-md`}
                 disabled={isSubmitting}
               >
@@ -276,7 +276,7 @@ const CreateTopicModal = ({
               </select>
               {errors.category && (
                 <p className="text-red-500 text-md mt-1 flex items-center">
-                  <FaExclamationTriangle className="mr-1" size={10} />{" "}
+                  <FaExclamationTriangle className="mr-1" size={10} />{' '}
                   {errors.category}
                 </p>
               )}
@@ -307,9 +307,9 @@ const CreateTopicModal = ({
                     onClick={() => setPreviewMode(!previewMode)}
                     className={`flex items-center text-md px-2 py-1 rounded ${
                       previewMode
-                        ? "bg-amber-50 text-amber-700"
-                        : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                    } transition-colors`}
+                        ? 'bg-amber-50 text-amber-700'
+                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                    } `}
                     disabled={isSubmitting}
                   >
                     {previewMode ? (
@@ -340,8 +340,8 @@ const CreateTopicModal = ({
                     ref={contentRef}
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 ${
-                      errors.content ? "border-red-500" : "border-gray-300"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500 ${
+                      errors.content ? 'border-red-500' : 'border-gray-300'
                     } `}
                     rows="12"
                     placeholder="Опишіть вашу тему детально. Використовуйте кнопку 'Додати код' для вставки блоку коду."
@@ -352,7 +352,7 @@ const CreateTopicModal = ({
 
               {errors.content && (
                 <p className="text-red-500 text-md mt-1 flex items-center">
-                  <FaExclamationTriangle className="mr-1" size={10} />{" "}
+                  <FaExclamationTriangle className="mr-1" size={10} />{' '}
                   {errors.content}
                 </p>
               )}
@@ -376,7 +376,7 @@ const CreateTopicModal = ({
                       id="codeLanguage"
                       value={codeLanguage}
                       onChange={(e) => setCodeLanguage(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500"
                     >
                       {availableLanguages.map((lang) => (
                         <option key={lang.id} value={lang.id}>
@@ -397,7 +397,7 @@ const CreateTopicModal = ({
                       id="codeContent"
                       value={code}
                       onChange={(e) => setCode(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 font-mono"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500 font-mono"
                       rows="10"
                       placeholder="Введіть ваш код тут..."
                     ></textarea>
@@ -407,7 +407,7 @@ const CreateTopicModal = ({
                     <button
                       type="button"
                       onClick={() => setShowCodeEditor(false)}
-                      className="px-4 py-2 text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors text-md"
+                      className="px-4 py-2 text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50  text-md"
                     >
                       Скасувати
                     </button>
@@ -428,7 +428,7 @@ const CreateTopicModal = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="px-4 py-2 text-gray-700 border border-gray-200 rounded-md mr-3 hover:bg-gray-50 transition-colors text-md"
+                className="px-4 py-2 text-gray-700 border border-gray-200 rounded-md mr-3 hover:bg-gray-50  text-md"
                 disabled={isSubmitting}
               >
                 Скасувати
@@ -441,12 +441,12 @@ const CreateTopicModal = ({
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-3"></div>
-                    {isEditMode ? "Оновлення..." : "Створення..."}
+                    {isEditMode ? 'Оновлення...' : 'Створення...'}
                   </>
                 ) : (
                   <>
                     <FaPaperPlane className="mr-2" size={12} />
-                    {isEditMode ? "Оновити тему" : "Створити тему"}
+                    {isEditMode ? 'Оновити тему' : 'Створити тему'}
                   </>
                 )}
               </button>

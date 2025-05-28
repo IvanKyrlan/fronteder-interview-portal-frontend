@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   FaCheck,
   FaTimes,
@@ -13,14 +13,14 @@ import {
   FaEyeSlash,
   FaExclamationCircle,
   FaRegFileCode,
-} from "react-icons/fa";
-import CodeMirror from "@uiw/react-codemirror";
-import { javascript } from "@codemirror/lang-javascript";
-import { html } from "@codemirror/lang-html";
-import { css } from "@codemirror/lang-css";
-import { sql } from "@codemirror/lang-sql";
-import { python } from "@codemirror/lang-python";
-import { vscodeDark } from "@uiw/codemirror-theme-vscode";
+} from 'react-icons/fa';
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { html } from '@codemirror/lang-html';
+import { css } from '@codemirror/lang-css';
+import { sql } from '@codemirror/lang-sql';
+import { python } from '@codemirror/lang-python';
+import { vscodeDark } from '@uiw/codemirror-theme-vscode';
 
 export default function TaskResultContent({
   completedTasks,
@@ -33,7 +33,7 @@ export default function TaskResultContent({
 }) {
   const [showSolutions, setShowSolutions] = useState(false);
   const [percentage, setPercentage] = useState(0);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState('all');
   const [activeSolutionIndexes, setActiveSolutionIndexes] = useState({});
 
   useEffect(() => {
@@ -68,11 +68,11 @@ export default function TaskResultContent({
   }, [tasks]);
 
   const normalizeNewlines = (inputCode) => {
-    if (!inputCode) return "";
+    if (!inputCode) return '';
     return inputCode
-      .replace(/\\n/g, "\n")
-      .replace(/\r\n/g, "\n")
-      .replace(/\r/g, "\n");
+      .replace(/\\n/g, '\n')
+      .replace(/\r\n/g, '\n')
+      .replace(/\r/g, '\n');
   };
 
   const isPassed = percentage >= 80;
@@ -81,21 +81,21 @@ export default function TaskResultContent({
     if (testType) {
       const testTypeLower = testType.toLowerCase();
 
-      if (testTypeLower.includes("html")) {
+      if (testTypeLower.includes('html')) {
         return html();
-      } else if (testTypeLower.includes("css")) {
+      } else if (testTypeLower.includes('css')) {
         return css();
       } else if (
-        testTypeLower.includes("javascript") ||
-        testTypeLower.includes("js") ||
-        testTypeLower.includes("react")
+        testTypeLower.includes('javascript') ||
+        testTypeLower.includes('js') ||
+        testTypeLower.includes('react')
       ) {
         return javascript();
-      } else if (testTypeLower.includes("sql")) {
+      } else if (testTypeLower.includes('sql')) {
         return sql();
       } else if (
-        testTypeLower.includes("python") ||
-        testTypeLower.includes("django")
+        testTypeLower.includes('python') ||
+        testTypeLower.includes('django')
       ) {
         return python();
       }
@@ -103,24 +103,24 @@ export default function TaskResultContent({
 
     if (!code) return javascript();
 
-    if (code.includes("<html") || code.includes("<!DOCTYPE")) {
+    if (code.includes('<html') || code.includes('<!DOCTYPE')) {
       return html();
     } else if (
-      code.includes("{") &&
-      code.includes(":") &&
-      !code.includes("function") &&
-      !code.includes("def ")
+      code.includes('{') &&
+      code.includes(':') &&
+      !code.includes('function') &&
+      !code.includes('def ')
     ) {
       return css();
     } else if (
-      code.includes("def ") ||
-      code.includes("import ") ||
-      (code.includes("class ") && code.includes(":"))
+      code.includes('def ') ||
+      code.includes('import ') ||
+      (code.includes('class ') && code.includes(':'))
     ) {
       return python();
     } else if (
-      code.toUpperCase().includes("SELECT ") ||
-      code.toUpperCase().includes("CREATE TABLE")
+      code.toUpperCase().includes('SELECT ') ||
+      code.toUpperCase().includes('CREATE TABLE')
     ) {
       return sql();
     } else {
@@ -166,11 +166,11 @@ export default function TaskResultContent({
   const filteredTasks = tasks.filter((task, index) => {
     const userSolution = userSolutions[index];
 
-    if (filter === "completed") {
+    if (filter === 'completed') {
       return userSolution && userSolution.is_correct === true;
     }
 
-    if (filter === "incomplete") {
+    if (filter === 'incomplete') {
       return !userSolution || userSolution.is_correct !== true;
     }
 
@@ -186,7 +186,7 @@ export default function TaskResultContent({
         </div>
         <button
           onClick={onBackToTests}
-          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white   transition-colors"
+          className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white   "
         >
           До списку тестів
         </button>
@@ -202,7 +202,7 @@ export default function TaskResultContent({
             <div className="w-36 h-36 rounded-full flex items-center justify-center mx-auto mb-2 border-8 border-gray-100">
               <div
                 className={`w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-3xl
-                  ${isPassed ? "bg-green-500" : "bg-amber-600"}`}
+                  ${isPassed ? 'bg-green-500' : 'bg-amber-600'}`}
               >
                 {percentage}%
               </div>
@@ -222,7 +222,7 @@ export default function TaskResultContent({
           </div>
 
           <div className="text-6xl font-bold mb-4">
-            <span className={isPassed ? "text-green-500" : "text-amber-600"}>
+            <span className={isPassed ? 'text-green-500' : 'text-amber-600'}>
               {completedTasks}
             </span>
             <span className="text-gray-300">/{totalTasks}</span>
@@ -231,18 +231,18 @@ export default function TaskResultContent({
           <div className="text-xl mb-2 ">
             <span
               className={`font-bold ${
-                isPassed ? "text-green-500" : "text-amber-600"
+                isPassed ? 'text-green-500' : 'text-amber-600'
               }`}
             >
               {percentage}%
-            </span>{" "}
-            - {isPassed ? "Відмінний результат!" : "Є над чим попрацювати"}
+            </span>{' '}
+            - {isPassed ? 'Відмінний результат!' : 'Є над чим попрацювати'}
           </div>
 
           <p className="text-gray-600 mb-4 ">
             {isPassed
-              ? "Вітаємо! Ви успішно виконали більшість практичних завдань. Продовжуйте вдосконалювати свої навички!"
-              : "Практика - шлях до досконалості. Спробуйте повторити завдання, які викликали труднощі."}
+              ? 'Вітаємо! Ви успішно виконали більшість практичних завдань. Продовжуйте вдосконалювати свої навички!'
+              : 'Практика - шлях до досконалості. Спробуйте повторити завдання, які викликали труднощі.'}
           </p>
         </div>
 
@@ -270,10 +270,10 @@ export default function TaskResultContent({
           </ul>
         </div>
 
-        <div className="flex flex-wrap justify-center space-x-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           <button
             onClick={onRetakeTasks}
-            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white  transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-amber-600 hover:bg-amber-700 text-white   flex items-center"
           >
             <FaRedo className="mr-2" />
             Почати знову
@@ -281,7 +281,7 @@ export default function TaskResultContent({
 
           <button
             onClick={onBackToTests}
-            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white   transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-gray-600 hover:bg-gray-700 text-white    flex items-center"
           >
             <FaList className="mr-2" />
             Пройти тест
@@ -289,7 +289,7 @@ export default function TaskResultContent({
 
           <button
             onClick={() => setShowSolutions(!showSolutions)}
-            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white   transition-colors flex items-center"
+            className="px-6 py-3 rounded-md bg-blue-600 hover:bg-blue-700 text-white    flex items-center"
           >
             {showSolutions ? (
               <>
@@ -314,31 +314,31 @@ export default function TaskResultContent({
             </h3>
             <div className="flex space-x-2 ">
               <button
-                onClick={() => setFilter("all")}
+                onClick={() => setFilter('all')}
                 className={`px-3 py-1 rounded-md flex items-center ${
-                  filter === "all"
-                    ? "bg-amber-600 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  filter === 'all'
+                    ? 'bg-amber-600 text-white'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
                 <FaFilter className="mr-1" size={12} /> Всі
               </button>
               <button
-                onClick={() => setFilter("completed")}
+                onClick={() => setFilter('completed')}
                 className={`px-3 py-1 rounded-md flex items-center ${
-                  filter === "completed"
-                    ? "bg-green-600 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  filter === 'completed'
+                    ? 'bg-green-600 text-white'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
                 <FaCheck className="mr-1" size={12} /> Виконані
               </button>
               <button
-                onClick={() => setFilter("incomplete")}
+                onClick={() => setFilter('incomplete')}
                 className={`px-3 py-1 rounded-md flex items-center ${
-                  filter === "incomplete"
-                    ? "bg-red-600 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  filter === 'incomplete'
+                    ? 'bg-red-600 text-white'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
               >
                 <FaTimes className="mr-1" size={12} /> Невиконані
@@ -367,24 +367,24 @@ export default function TaskResultContent({
               const currentSolutionIndex =
                 activeSolutionIndexes[taskIndex] || 0;
 
-              let solutionCode = "";
+              let solutionCode = '';
               if (activeSolution) {
                 if (
                   activeSolution.code &&
-                  typeof activeSolution.code === "string"
+                  typeof activeSolution.code === 'string'
                 ) {
                   solutionCode = activeSolution.code;
                 } else if (
                   activeSolution.solution_code &&
-                  typeof activeSolution.solution_code === "string"
+                  typeof activeSolution.solution_code === 'string'
                 ) {
                   solutionCode = activeSolution.solution_code;
                 }
               }
 
               const solutionHint = activeSolution
-                ? activeSolution.hint || ""
-                : "";
+                ? activeSolution.hint || ''
+                : '';
 
               const isPrimarySolution =
                 activeSolution && activeSolution.is_primary === true;
@@ -392,8 +392,8 @@ export default function TaskResultContent({
               return (
                 <div
                   key={taskIndex}
-                  className={` p-6 rounded-lg border-l-4 text-lg ${
-                    isCorrect ? "border-green-500" : "border-red-500"
+                  className={` p-6 rounded-lg border-2 text-md ${
+                    isCorrect ? 'border-green-500' : 'border-red-500'
                   }`}
                 >
                   <div className="mb-4 flex items-center">
@@ -401,7 +401,7 @@ export default function TaskResultContent({
                       <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-3">
                         <FaRegFileCode
                           className={
-                            isCorrect ? "text-green-500" : "text-red-500"
+                            isCorrect ? 'text-green-500' : 'text-red-500'
                           }
                           size={20}
                         />
@@ -412,7 +412,7 @@ export default function TaskResultContent({
                     </div>
                     <div
                       className={`flex items-center ${
-                        isCorrect ? "text-green-500" : "text-red-600"
+                        isCorrect ? 'text-green-500' : 'text-red-600'
                       }`}
                     >
                       {isCorrect ? (
@@ -421,13 +421,13 @@ export default function TaskResultContent({
                         <FaTimes className="mr-1" size={16} />
                       )}
                       <span className="">
-                        {isCorrect ? "Виконано" : "Не виконано"}
+                        {isCorrect ? 'Виконано' : 'Не виконано'}
                       </span>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <h4 className="text-xl font-bold mb-2 text-gray-800">
+                    <h4 className="text-lg font-bold mb-2 text-gray-800">
                       {task.title}
                     </h4>
                     <p className="text-gray-700 mb-4">{task.description}</p>
@@ -456,15 +456,15 @@ export default function TaskResultContent({
                         <FaCode
                           className={
                             isCorrect
-                              ? "text-green-500 mr-2"
-                              : "text-red-500 mr-2"
+                              ? 'text-green-500 mr-2'
+                              : 'text-red-500 mr-2'
                           }
                         />
                         Ваш код
                       </h5>
                       <div
                         className={`rounded-lg overflow-hidden border-2 ${
-                          isCorrect ? "border-green-400" : "border-red-400"
+                          isCorrect ? 'border-green-400' : 'border-red-400'
                         }`}
                       >
                         <CodeMirror
@@ -493,7 +493,7 @@ export default function TaskResultContent({
                           {hasMutlipleSolutions && (
                             <button
                               onClick={() => cycleToNextSolution(taskIndex)}
-                              className="ml-4 flex items-center text-amber-600 hover:text-amber-700 transition-colors"
+                              className="ml-4 flex items-center text-amber-600 hover:text-amber-700 "
                             >
                               <FaExchangeAlt className="mr-2" size={14} />
                               {solutionsCount > 2 && (
@@ -502,8 +502,8 @@ export default function TaskResultContent({
                                 }/${solutionsCount}`}</span>
                               )}
                               {isPrimarySolution
-                                ? "Інші рішення"
-                                : "Основне рішення"}
+                                ? 'Інші рішення'
+                                : 'Основне рішення'}
                             </button>
                           )}
                         </div>
@@ -536,7 +536,7 @@ export default function TaskResultContent({
           <div className="mt-8 text-center">
             <button
               onClick={onRetakeTasks}
-              className="px-8 py-4 rounded-md bg-amber-600 hover:bg-amber-700 text-white   transition-colors"
+              className="px-8 py-4 rounded-md bg-amber-600 hover:bg-amber-700 text-white   "
             >
               Спробувати ще раз
             </button>

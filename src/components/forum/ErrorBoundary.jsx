@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
   FaExclamationTriangle,
   FaHome,
   FaArrowLeft,
   FaSync,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 class ForumErrorBoundary extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class ForumErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error("Forum component error:", error, errorInfo);
+    console.error('Forum component error:', error, errorInfo);
     this.setState({ error, errorInfo });
   }
 
@@ -48,7 +48,7 @@ class ForumErrorBoundary extends Component {
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <button
                   onClick={this.handleReload}
-                  className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors flex items-center justify-center"
+                  className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700  flex items-center justify-center"
                 >
                   <FaSync className="mr-2" />
                   Оновити сторінку
@@ -56,7 +56,7 @@ class ForumErrorBoundary extends Component {
 
                 <Link
                   to="/forum"
-                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors flex items-center justify-center"
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50  flex items-center justify-center"
                 >
                   <FaArrowLeft className="mr-2" />
                   Повернутися до форуму
@@ -64,14 +64,14 @@ class ForumErrorBoundary extends Component {
 
                 <Link
                   to="/"
-                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors flex items-center justify-center"
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50  flex items-center justify-center"
                 >
                   <FaHome className="mr-2" />
                   На головну
                 </Link>
               </div>
 
-              {process.env.NODE_ENV === "development" && this.state.error && (
+              {process.env.NODE_ENV === 'development' && this.state.error && (
                 <div className="mt-8 p-4 bg-gray-100 rounded-md text-left">
                   <p className="font-bold text-red-500">Помилка:</p>
                   <pre className="mt-2 text-sm overflow-auto whitespace-pre-wrap">

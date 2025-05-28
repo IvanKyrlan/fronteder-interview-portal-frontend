@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   FaPlay,
   FaFilter,
@@ -9,11 +9,11 @@ import {
   FaVideo,
   FaChevronDown,
   FaArrowRight,
-} from "react-icons/fa";
-import interviewVideoService from "../services/interviewVideoService";
-import LiteYouTubeEmbed from "../components/interview/LiteYouTubeEmbed";
-import { Link } from "react-router-dom";
-import ArticleSidebar from "../components/article/ArticleSidebar";
+} from 'react-icons/fa';
+import interviewVideoService from '../services/interviewVideoService';
+import LiteYouTubeEmbed from '../components/interview/LiteYouTubeEmbed';
+import { Link } from 'react-router-dom';
+import ArticleSidebar from '../components/article/ArticleSidebar';
 
 export default function InterviewVideosPage() {
   const [videos, setVideos] = useState([]);
@@ -21,13 +21,13 @@ export default function InterviewVideosPage() {
   const [error, setError] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [filters, setFilters] = useState({
-    category: "",
-    level: "",
+    category: '',
+    level: '',
   });
 
   useEffect(() => {
     document.title =
-      "Технічні співбесіди | Frontender - Підготовка до співбесід";
+      'Технічні співбесіди | Frontender - Підготовка до співбесід';
 
     const fetchVideos = async () => {
       setLoading(true);
@@ -43,8 +43,8 @@ export default function InterviewVideosPage() {
           setSelectedVideo(data[0]);
         }
       } catch (err) {
-        setError("Не вдалося завантажити відео співбесід");
-        console.error("Error fetching videos:", err);
+        setError('Не вдалося завантажити відео співбесід');
+        console.error('Error fetching videos:', err);
       } finally {
         setLoading(false);
       }
@@ -53,7 +53,7 @@ export default function InterviewVideosPage() {
     fetchVideos();
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, [filters, selectedVideo]);
 
@@ -66,23 +66,23 @@ export default function InterviewVideosPage() {
 
   const getLevelBadgeClass = (level) => {
     const classes = {
-      junior: "bg-green-100 text-green-800",
-      middle: "bg-blue-100 text-blue-800",
-      senior: "bg-purple-100 text-purple-800",
+      junior: 'bg-green-100 text-green-800',
+      middle: 'bg-blue-100 text-blue-800',
+      senior: 'bg-purple-100 text-purple-800',
     };
-    return classes[level] || "bg-gray-100 text-gray-800";
+    return classes[level] || 'bg-gray-100 text-gray-800';
   };
 
   const getCategoryBadgeClass = (category) => {
     const classes = {
-      frontend: "bg-yellow-100 text-yellow-800",
-      backend: "bg-blue-100 text-blue-800",
-      fullstack: "bg-indigo-100 text-indigo-800",
-      devops: "bg-gray-100 text-gray-800",
-      mobile: "bg-green-100 text-green-800",
-      qa: "bg-red-100 text-red-800",
+      frontend: 'bg-yellow-100 text-yellow-800',
+      backend: 'bg-blue-100 text-blue-800',
+      fullstack: 'bg-indigo-100 text-indigo-800',
+      devops: 'bg-gray-100 text-gray-800',
+      mobile: 'bg-green-100 text-green-800',
+      qa: 'bg-red-100 text-red-800',
     };
-    return classes[category] || "bg-gray-100 text-gray-800";
+    return classes[category] || 'bg-gray-100 text-gray-800';
   };
 
   if (loading && !videos.length) {
@@ -133,7 +133,7 @@ export default function InterviewVideosPage() {
                 <select
                   value={filters.category}
                   onChange={(e) =>
-                    handleFilterChange("category", e.target.value)
+                    handleFilterChange('category', e.target.value)
                   }
                   className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent  text-gray-700"
                 >
@@ -148,7 +148,7 @@ export default function InterviewVideosPage() {
 
                 <select
                   value={filters.level}
-                  onChange={(e) => handleFilterChange("level", e.target.value)}
+                  onChange={(e) => handleFilterChange('level', e.target.value)}
                   className="rounded-md px-3 py-2 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent  text-gray-700"
                 >
                   <option value="">Всі рівні</option>
@@ -188,11 +188,11 @@ export default function InterviewVideosPage() {
                             selectedVideo.level
                           )}`}
                         >
-                          {selectedVideo.level === "junior"
-                            ? "Junior"
-                            : selectedVideo.level === "middle"
-                            ? "Middle"
-                            : "Senior"}
+                          {selectedVideo.level === 'junior'
+                            ? 'Junior'
+                            : selectedVideo.level === 'middle'
+                            ? 'Middle'
+                            : 'Senior'}
                         </span>
 
                         <span
@@ -212,7 +212,7 @@ export default function InterviewVideosPage() {
                         href={`https://www.youtube.com/watch?v=${selectedVideo.youtube_id}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-amber-600 hover:text-amber-700  transition-colors"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-700  "
                       >
                         <FaYoutube className="mr-2 text-xl" />
                         Дивитися на YouTube
@@ -276,7 +276,7 @@ export default function InterviewVideosPage() {
                     <div className="mt-6 pt-4 border-t border-gray-100">
                       <Link
                         to="/tests"
-                        className="inline-flex items-center text-amber-600 hover:text-amber-700  transition-colors"
+                        className="inline-flex items-center text-amber-600 hover:text-amber-700  "
                       >
                         Пройти тести для підготовки до співбесіди
                         <FaArrowRight className="ml-2" />
@@ -307,10 +307,10 @@ export default function InterviewVideosPage() {
                   {videos.map((video) => (
                     <div
                       key={video.id}
-                      className={`p-4 cursor-pointer hover:bg-amber-50 transition-colors ${
+                      className={`p-4 cursor-pointer hover:bg-amber-50  ${
                         selectedVideo?.id === video.id
-                          ? "bg-amber-50 border-l-4 border-amber-500"
-                          : "border-l-4 border-transparent"
+                          ? 'bg-amber-50 border-l-4 border-amber-500'
+                          : 'border-l-4 border-transparent'
                       }`}
                       onClick={() => setSelectedVideo(video)}
                     >
@@ -364,7 +364,7 @@ export default function InterviewVideosPage() {
                         Відео за обраними фільтрами не знайдено
                       </p>
                       <button
-                        onClick={() => setFilters({ category: "", level: "" })}
+                        onClick={() => setFilters({ category: '', level: '' })}
                         className="text-amber-600 hover:text-amber-700 "
                       >
                         Скинути фільтри
@@ -384,12 +384,12 @@ export default function InterviewVideosPage() {
                       href="https://www.frontendmentor.io/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50 transition-colors group"
+                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50  group"
                     >
-                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 transition-colors">
+                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 ">
                         <FaExternalLinkAlt className="text-amber-700 text-md" />
                       </div>
-                      <span className="text-gray-700 group-hover:text-amber-700 transition-colors">
+                      <span className="text-gray-700 group-hover:text-amber-700 ">
                         Frontend Mentor - Практичні завдання
                       </span>
                     </a>
@@ -399,12 +399,12 @@ export default function InterviewVideosPage() {
                       href="https://leetcode.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50 transition-colors group"
+                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50  group"
                     >
-                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 transition-colors">
+                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 ">
                         <FaExternalLinkAlt className="text-amber-700 text-md" />
                       </div>
-                      <span className="text-gray-700 group-hover:text-amber-700 transition-colors">
+                      <span className="text-gray-700 group-hover:text-amber-700 ">
                         LeetCode - Алгоритмічні задачі
                       </span>
                     </a>
@@ -414,12 +414,12 @@ export default function InterviewVideosPage() {
                       href="https://www.hackerrank.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50 transition-colors group"
+                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50  group"
                     >
-                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 transition-colors">
+                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 ">
                         <FaExternalLinkAlt className="text-amber-700 text-md" />
                       </div>
-                      <span className="text-gray-700 group-hover:text-amber-700 transition-colors">
+                      <span className="text-gray-700 group-hover:text-amber-700 ">
                         HackerRank - Завдання з програмування
                       </span>
                     </a>
@@ -427,12 +427,12 @@ export default function InterviewVideosPage() {
                   <li>
                     <Link
                       to="/directories"
-                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50 transition-colors group"
+                      className="flex items-center py-2 px-3 rounded-md hover:bg-amber-50  group"
                     >
-                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 transition-colors">
+                      <div className="bg-amber-100 p-2 rounded-full mr-3 group-hover:bg-amber-200 ">
                         <FaExternalLinkAlt className="text-amber-700 text-md" />
                       </div>
-                      <span className="text-gray-700 group-hover:text-amber-700 transition-colors">
+                      <span className="text-gray-700 group-hover:text-amber-700 ">
                         Довідники
                       </span>
                     </Link>
@@ -474,13 +474,13 @@ export default function InterviewVideosPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/tests"
-              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100  shadow-md"
             >
               Пройти тести
             </Link>
             <Link
               to="/articles"
-              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 "
             >
               Читати статті
             </Link>

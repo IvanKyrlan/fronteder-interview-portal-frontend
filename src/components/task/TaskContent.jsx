@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   FaCheck,
   FaTimes,
@@ -10,15 +10,15 @@ import {
   FaFlag,
   FaPlayCircle,
   FaRegFileCode,
-} from "react-icons/fa";
-import CodeMirror from "@uiw/react-codemirror";
-import { html } from "@codemirror/lang-html";
-import { css } from "@codemirror/lang-css";
-import { javascript } from "@codemirror/lang-javascript";
-import { sql } from "@codemirror/lang-sql";
-import { python } from "@codemirror/lang-python";
-import { vscodeDark } from "@uiw/codemirror-theme-vscode";
-import { toast } from "react-toastify";
+} from 'react-icons/fa';
+import CodeMirror from '@uiw/react-codemirror';
+import { html } from '@codemirror/lang-html';
+import { css } from '@codemirror/lang-css';
+import { javascript } from '@codemirror/lang-javascript';
+import { sql } from '@codemirror/lang-sql';
+import { python } from '@codemirror/lang-python';
+import { vscodeDark } from '@uiw/codemirror-theme-vscode';
+import { toast } from 'react-toastify';
 
 export default function TaskContent({
   task,
@@ -31,7 +31,7 @@ export default function TaskContent({
   totalTasks,
   testType,
 }) {
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState('');
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [editorLanguage, setEditorLanguage] = useState(null);
@@ -54,7 +54,7 @@ export default function TaskContent({
       task.solutions.length > 0
     ) {
       solutions = task.solutions;
-      console.log("Found solutions in task.solutions:", task.solutions.length);
+      console.log('Found solutions in task.solutions:', task.solutions.length);
     } else if (
       result &&
       result.is_correct &&
@@ -63,18 +63,18 @@ export default function TaskContent({
     ) {
       solutions = result.solutions;
       console.log(
-        "Found solutions in result.solutions:",
+        'Found solutions in result.solutions:',
         result.solutions.length
       );
     } else if (task.solution) {
-      console.log("Using single task.solution");
+      console.log('Using single task.solution');
       solutions = [task.solution];
     } else if (result && result.is_correct && result.solution) {
-      console.log("Using single result.solution");
+      console.log('Using single result.solution');
       solutions = [result.solution];
     }
 
-    console.log("Found solutions:", {
+    console.log('Found solutions:', {
       count: solutions.length,
       hasSolutions: solutions.length > 0,
       firstSolution:
@@ -90,12 +90,12 @@ export default function TaskContent({
   }, [task, result]);
 
   const normalizeNewlines = (inputCode) => {
-    if (!inputCode) return "";
+    if (!inputCode) return '';
 
     return inputCode
-      .replace(/\\n/g, "\n")
-      .replace(/\r\n/g, "\n")
-      .replace(/\r/g, "\n");
+      .replace(/\\n/g, '\n')
+      .replace(/\r\n/g, '\n')
+      .replace(/\r/g, '\n');
   };
 
   useEffect(() => {
@@ -127,21 +127,21 @@ export default function TaskContent({
 
     const testTypeLower = type.toLowerCase();
 
-    if (testTypeLower.includes("html")) {
+    if (testTypeLower.includes('html')) {
       setEditorLanguage(() => html());
-    } else if (testTypeLower.includes("css")) {
+    } else if (testTypeLower.includes('css')) {
       setEditorLanguage(() => css());
     } else if (
-      testTypeLower.includes("javascript") ||
-      testTypeLower.includes("js") ||
-      testTypeLower.includes("react")
+      testTypeLower.includes('javascript') ||
+      testTypeLower.includes('js') ||
+      testTypeLower.includes('react')
     ) {
       setEditorLanguage(() => javascript());
-    } else if (testTypeLower.includes("sql")) {
+    } else if (testTypeLower.includes('sql')) {
       setEditorLanguage(() => sql());
     } else if (
-      testTypeLower.includes("python") ||
-      testTypeLower.includes("django")
+      testTypeLower.includes('python') ||
+      testTypeLower.includes('django')
     ) {
       setEditorLanguage(() => python());
     } else {
@@ -156,26 +156,26 @@ export default function TaskContent({
     }
 
     if (
-      codeToDetect.includes("<!DOCTYPE html>") ||
-      codeToDetect.includes("<html")
+      codeToDetect.includes('<!DOCTYPE html>') ||
+      codeToDetect.includes('<html')
     ) {
       setEditorLanguage(() => html());
     } else if (
-      codeToDetect.includes("{") &&
-      codeToDetect.includes(":") &&
-      !codeToDetect.includes("function") &&
-      !codeToDetect.includes("def ")
+      codeToDetect.includes('{') &&
+      codeToDetect.includes(':') &&
+      !codeToDetect.includes('function') &&
+      !codeToDetect.includes('def ')
     ) {
       setEditorLanguage(() => css());
     } else if (
-      codeToDetect.includes("def ") ||
-      codeToDetected.includes("import ") ||
-      (codeToDetect.includes("class ") && codeToDetect.includes(":"))
+      codeToDetect.includes('def ') ||
+      codeToDetected.includes('import ') ||
+      (codeToDetect.includes('class ') && codeToDetect.includes(':'))
     ) {
       setEditorLanguage(() => python());
     } else if (
-      codeToDetect.toUpperCase().includes("SELECT ") ||
-      codeToDetect.toUpperCase().includes("CREATE TABLE")
+      codeToDetect.toUpperCase().includes('SELECT ') ||
+      codeToDetect.toUpperCase().includes('CREATE TABLE')
     ) {
       setEditorLanguage(() => sql());
     } else {
@@ -197,7 +197,7 @@ export default function TaskContent({
     if (onSubmit && code) {
       if (!isCodeModified) {
         toast.warning(
-          "Ви не змінили початковий код. Будь ласка, вирішіть завдання."
+          'Ви не змінили початковий код. Будь ласка, вирішіть завдання.'
         );
         return;
       }
@@ -225,7 +225,7 @@ export default function TaskContent({
 
   const cycleToNextSolution = () => {
     if (availableSolutions.length <= 1) {
-      console.log("Cannot cycle: no multiple solutions");
+      console.log('Cannot cycle: no multiple solutions');
       return;
     }
 
@@ -237,18 +237,18 @@ export default function TaskContent({
   // Функція для визначення стилів кнопки залежно від результату
   const getButtonStyles = () => {
     if (loading) {
-      return "px-8 py-3 rounded-lg bg-amber-600 text-white font-bold text-lg flex items-center transition-colors opacity-70 cursor-not-allowed";
+      return 'px-8 py-3 rounded-lg bg-amber-600 text-white font-bold text-lg flex items-center  opacity-70 cursor-not-allowed';
     }
 
     if (result && hasSubmitted) {
       if (result.is_correct) {
-        return "px-8 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold text-lg flex items-center transition-colors";
+        return 'px-8 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold text-lg flex items-center ';
       } else {
-        return "px-8 py-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-lg flex items-center transition-colors";
+        return 'px-8 py-3 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-lg flex items-center ';
       }
     }
 
-    return "px-8 py-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg flex items-center transition-colors";
+    return 'px-8 py-3 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-lg flex items-center ';
   };
 
   // Функція для визначення тексту кнопки залежно від результату
@@ -300,8 +300,8 @@ export default function TaskContent({
   }
 
   let currentSolution = null;
-  let solutionCode = "";
-  let solutionHint = "";
+  let solutionCode = '';
+  let solutionHint = '';
 
   if (availableSolutions.length > 0) {
     if (showSolution) {
@@ -317,20 +317,20 @@ export default function TaskContent({
     }
 
     if (currentSolution) {
-      solutionCode = "";
-      if (typeof currentSolution === "object") {
-        if (currentSolution.code && typeof currentSolution.code === "string") {
+      solutionCode = '';
+      if (typeof currentSolution === 'object') {
+        if (currentSolution.code && typeof currentSolution.code === 'string') {
           solutionCode = currentSolution.code;
         } else if (
           currentSolution.solution_code &&
-          typeof currentSolution.solution_code === "string"
+          typeof currentSolution.solution_code === 'string'
         ) {
           solutionCode = currentSolution.solution_code;
         }
       }
-      solutionHint = currentSolution.hint || "";
+      solutionHint = currentSolution.hint || '';
 
-      console.log("Using solution:", {
+      console.log('Using solution:', {
         hasCode: !!currentSolution.code,
         hasSolutionCode: !!currentSolution.solution_code,
         codeLength: solutionCode.length,
@@ -338,8 +338,8 @@ export default function TaskContent({
       });
     }
   } else if (result && result.solution) {
-    solutionCode = result.solution.solution_code || result.solution.code || "";
-    solutionHint = result.solution.hint || "";
+    solutionCode = result.solution.solution_code || result.solution.code || '';
+    solutionHint = result.solution.hint || '';
   }
 
   const formattedInitialCode = normalizeNewlines(task.initial_code);
@@ -364,7 +364,7 @@ export default function TaskContent({
             <FaCode size={18} />
           </div>
           <div>
-            Завдання{" "}
+            Завдання{' '}
             <span className="text-amber-600">{currentTaskIndex + 1}</span>
             <span className="mx-2">з</span>
             {totalTasks}
@@ -372,7 +372,7 @@ export default function TaskContent({
           {result && (
             <div
               className={`ml-4 flex items-center ${
-                result.is_correct ? "text-green-500" : "text-red-500"
+                result.is_correct ? 'text-green-500' : 'text-red-500'
               }`}
             >
               {result.is_correct ? (
@@ -380,7 +380,7 @@ export default function TaskContent({
               ) : (
                 <FaTimes className="mr-1" size={20} />
               )}
-              <span>{result.is_correct ? "Правильно!" : "Неправильно!"}</span>
+              <span>{result.is_correct ? 'Правильно!' : 'Неправильно!'}</span>
             </div>
           )}
         </div>
@@ -389,10 +389,10 @@ export default function TaskContent({
           <button
             onClick={onPrevTask}
             disabled={currentTaskIndex === 0}
-            className={`px-3 py-2 rounded-md text-white  flex items-center transition-colors ${
+            className={`px-3 py-2 rounded-md text-white  flex items-center  ${
               currentTaskIndex === 0
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-gray-600 hover:bg-gray-700"
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'bg-gray-600 hover:bg-gray-700'
             }`}
           >
             <FaArrowLeft className="mr-2" size={12} /> Попереднє
@@ -400,7 +400,7 @@ export default function TaskContent({
 
           <button
             onClick={onNextTask}
-            className="px-3 py-2 rounded-md bg-gray-600 hover:bg-gray-700 text-white  flex items-center  transition-colors"
+            className="px-3 py-2 rounded-md bg-gray-600 hover:bg-gray-700 text-white  flex items-center  "
           >
             {isLastTask ? (
               <>
@@ -418,13 +418,13 @@ export default function TaskContent({
           <button
             onClick={toggleSolution}
             disabled={!showSolutionEnabled || !solutionCode}
-            className={`px-3 py-2 rounded-md text-white  transition-colors ${
+            className={`px-3 py-2 rounded-md text-white   ${
               !showSolutionEnabled || !solutionCode
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-amber-600 hover:bg-amber-700"
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'bg-amber-600 hover:bg-amber-700'
             }`}
           >
-            {showSolution ? "Сховати рішення" : "Показати рішення"}
+            {showSolution ? 'Сховати рішення' : 'Показати рішення'}
           </button>
         </div>
       </div>
@@ -441,10 +441,10 @@ export default function TaskContent({
             <div>
               <button
                 onClick={() => setShowHint(!showHint)}
-                className="flex items-center text-amber-600 hover:text-amber-700  transition-colors"
+                className="flex items-center text-amber-600 hover:text-amber-700  "
               >
-                <FaLightbulb className="mr-2" />{" "}
-                {showHint ? "Сховати підказку" : "Показати підказку"}
+                <FaLightbulb className="mr-2" />{' '}
+                {showHint ? 'Сховати підказку' : 'Показати підказку'}
               </button>
 
               {showHint && (
@@ -462,13 +462,13 @@ export default function TaskContent({
             <div className="flex items-center">
               <FaCode className="text-amber-600 mr-2" size={24} />
               <span className="text-lg font-bold text-gray-800">
-                {showSolution ? "Правильне рішення" : "Початковий код"}
+                {showSolution ? 'Правильне рішення' : 'Початковий код'}
               </span>
 
               {showSolution && hasMutlipleSolutions && (
                 <button
                   onClick={cycleToNextSolution}
-                  className="ml-4 flex items-center text-amber-600 hover:text-amber-700 transition-colors"
+                  className="ml-4 flex items-center text-amber-600 hover:text-amber-700 "
                 >
                   <FaExchangeAlt className="mr-2" size={14} />
                   {solutionsCount > 2 && (
@@ -476,7 +476,7 @@ export default function TaskContent({
                       activeSolutionIndex + 1
                     }/${solutionsCount}`}</span>
                   )}
-                  {isPrimarySolution ? "Інші рішення" : "Основне рішення"}
+                  {isPrimarySolution ? 'Інші рішення' : 'Основне рішення'}
                 </button>
               )}
             </div>

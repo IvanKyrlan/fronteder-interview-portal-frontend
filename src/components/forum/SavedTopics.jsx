@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaBookmark, FaExclamationTriangle, FaSpinner } from "react-icons/fa";
-import forumService from "../../services/forumService";
-import { formatDateLocale } from "../../utils/dateUtils";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FaBookmark, FaExclamationTriangle, FaSpinner } from 'react-icons/fa';
+import forumService from '../../services/forumService';
+import { formatDateLocale } from '../../utils/dateUtils';
 
 const SavedTopics = ({ refreshTrigger = 0 }) => {
   const [savedTopics, setSavedTopics] = useState([]);
@@ -17,8 +17,8 @@ const SavedTopics = ({ refreshTrigger = 0 }) => {
         setSavedTopics(data);
         setError(null);
       } catch (err) {
-        console.error("Error fetching bookmarks:", err);
-        setError("Не вдалося завантажити збережені теми");
+        console.error('Error fetching bookmarks:', err);
+        setError('Не вдалося завантажити збережені теми');
       } finally {
         setLoading(false);
       }
@@ -84,7 +84,7 @@ const SavedTopics = ({ refreshTrigger = 0 }) => {
           >
             <Link
               to={`/forum/topics/${topic.id}`}
-              className="block hover:text-amber-600 transition-colors"
+              className="block hover:text-amber-600 "
             >
               <h4 className=" text-gray-800 mb-1 line-clamp-2">
                 {topic.title}

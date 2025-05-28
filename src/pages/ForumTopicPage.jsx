@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { FaArrowLeft, FaExclamationTriangle } from "react-icons/fa";
-import { toast } from "react-toastify";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { FaArrowLeft, FaExclamationTriangle } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
-import TopicContent from "../components/forum/TopicContent";
-import CommentEditor from "../components/forum/CommentEditor";
-import CommentItem from "../components/forum/CommentItem";
-import AuthorInfo from "../components/forum/AuthorInfo";
-import CreateTopicModal from "../components/forum/CreateTopicModal";
+import TopicContent from '../components/forum/TopicContent';
+import CommentEditor from '../components/forum/CommentEditor';
+import CommentItem from '../components/forum/CommentItem';
+import AuthorInfo from '../components/forum/AuthorInfo';
+import CreateTopicModal from '../components/forum/CreateTopicModal';
 
-import forumService from "../services/forumService";
-import commentService from "../services/commentService";
-import useForum from "../hooks/useForum";
-import { handleError } from "../utils/formatUtils";
+import forumService from '../services/forumService';
+import commentService from '../services/commentService';
+import useForum from '../hooks/useForum';
+import { handleError } from '../utils/formatUtils';
 
 const ForumTopicPage = () => {
   const { topicId } = useParams();
@@ -30,7 +30,7 @@ const ForumTopicPage = () => {
   const [userLiked, setUserLiked] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  const [commentText, setCommentText] = useState("");
+  const [commentText, setCommentText] = useState('');
   const [submittingComment, setSubmittingComment] = useState(false);
 
   const commentInputRef = useRef(null);
@@ -44,7 +44,7 @@ const ForumTopicPage = () => {
         document.title = `${topicData.title} | Frontender - Підготовка до співбесід`;
 
         const commentsData = await commentService.getComments(
-          "forum.forumtopic",
+          'forum.forumtopic',
           topicId
         );
 
@@ -55,7 +55,7 @@ const ForumTopicPage = () => {
 
             setUserLiked(topicData.user_has_liked || false);
           } catch (e) {
-            console.error("Error getting user preferences:", e);
+            console.error('Error getting user preferences:', e);
           }
         }
 
@@ -64,7 +64,7 @@ const ForumTopicPage = () => {
         setLikeCount(topicData.likes_count || 0);
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching topic:", err);
+        console.error('Error fetching topic:', err);
         setError(handleError(err));
         setLoading(false);
       }
@@ -73,13 +73,13 @@ const ForumTopicPage = () => {
     fetchTopicData();
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, [topicId, isAuthenticated]);
 
   const handleToggleBookmark = async () => {
     if (!isAuthenticated) {
-      toast.warning("Для додавання в закладки необхідно увійти в систему");
+      toast.warning('Для додавання в закладки необхідно увійти в систему');
       return;
     }
 
@@ -89,7 +89,7 @@ const ForumTopicPage = () => {
 
   const handleToggleLike = async () => {
     if (!isAuthenticated) {
-      toast.warning("Для оцінки теми необхідно увійти в систему");
+      toast.warning('Для оцінки теми необхідно увійти в систему');
       return;
     }
 
@@ -102,7 +102,7 @@ const ForumTopicPage = () => {
 
   const handleEditClick = () => {
     if (!isAuthenticated || !user || user.username !== topic?.author_name) {
-      toast.warning("У вас немає прав для редагування цієї теми");
+      toast.warning('У вас немає прав для редагування цієї теми');
       return;
     }
 
@@ -118,8 +118,8 @@ const ForumTopicPage = () => {
           const categoryData = await forumService.getCategories();
           setAllCategories(categoryData);
         } catch (error) {
-          console.error("Error loading categories for edit:", error);
-          toast.error("Не вдалося завантажити категорії");
+          console.error('Error loading categories for edit:', error);
+          toast.error('Не вдалося завантажити категорії');
         }
       };
 
@@ -133,19 +133,19 @@ const ForumTopicPage = () => {
       setTopic(updatedTopic);
       setIsEditModalOpen(false);
     } catch (error) {
-      console.error("Error updating topic:", error);
-      toast.error("Не вдалося оновити тему");
+      console.error('Error updating topic:', error);
+      toast.error('Не вдалося оновити тему');
     }
   };
 
   const handleSubmitComment = async () => {
     if (!isAuthenticated) {
-      toast.warning("Для додавання коментарів необхідно увійти в систему");
+      toast.warning('Для додавання коментарів необхідно увійти в систему');
       return;
     }
 
     if (!commentText.trim()) {
-      toast.warning("Коментар не може бути порожнім");
+      toast.warning('Коментар не може бути порожнім');
       return;
     }
 
@@ -155,26 +155,26 @@ const ForumTopicPage = () => {
       const newComment = {
         content: commentText,
         author_name: user.username,
-        content_type: "forum.forumtopic",
+        content_type: 'forum.forumtopic',
         object_id: topicId,
         data_processing_agreed: true,
-        has_code: commentText.includes("```"),
+        has_code: commentText.includes('```'),
       };
 
       const createdComment = await commentService.createComment(newComment);
       setComments([createdComment, ...comments]);
 
-      if (topic && typeof topic.comments_count !== "undefined") {
+      if (topic && typeof topic.comments_count !== 'undefined') {
         setTopic({
           ...topic,
           comments_count: (topic.comments_count || 0) + 1,
         });
       }
 
-      setCommentText("");
-      toast.success("Коментар успішно додано");
+      setCommentText('');
+      toast.success('Коментар успішно додано');
     } catch (error) {
-      console.error("Error creating comment:", error);
+      console.error('Error creating comment:', error);
       toast.error(handleError(error));
     } finally {
       setSubmittingComment(false);
@@ -198,11 +198,11 @@ const ForumTopicPage = () => {
         <div className="bg-white p-6 rounded-lg shadow-sm text-center max-w-md w-full">
           <FaExclamationTriangle className="text-red-500 text-3xl mx-auto mb-3" />
           <div className="text-lg text-red-500 mb-4 ">
-            {error || "Тему не знайдено"}
+            {error || 'Тему не знайдено'}
           </div>
           <Link
             to="/forum"
-            className="inline-flex items-center text-amber-600 hover:text-amber-700  transition-colors"
+            className="inline-flex items-center text-amber-600 hover:text-amber-700  "
           >
             <FaArrowLeft className="mr-2" size={14} />
             Повернутися до списку тем
@@ -276,7 +276,7 @@ const ForumTopicPage = () => {
             </div>
           ) : (
             <div className="space-y-5 w-full">
-              {" "}
+              {' '}
               {comments.map((comment) => (
                 <CommentItem key={comment.id} comment={comment} />
               ))}
@@ -287,7 +287,7 @@ const ForumTopicPage = () => {
         <div className="flex justify-between mb-8">
           <Link
             to="/forum"
-            className="flex items-center text-amber-600 hover:text-amber-700  transition-colors text-md"
+            className="flex items-center text-amber-600 hover:text-amber-700   text-md"
           >
             <FaArrowLeft className="mr-2" size={14} />
             Повернутися до списку тем

@@ -1,5 +1,5 @@
-import React from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
@@ -13,7 +13,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     let endPage = Math.min(totalPages - 1, currentPage + 2);
 
     if (startPage > 2) {
-      pageNumbers.push("...");
+      pageNumbers.push('...');
     }
 
     for (let i = startPage; i <= endPage; i++) {
@@ -21,7 +21,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     }
 
     if (endPage < totalPages - 1) {
-      pageNumbers.push("...");
+      pageNumbers.push('...');
     }
 
     if (totalPages > 1) {
@@ -38,8 +38,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         disabled={currentPage === 1}
         className={`w-12 h-12 rounded-full flex items-center justify-center mr-2 ${
           currentPage === 1
-            ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-            : "bg-gray-100 text-gray-700 hover:bg-amber-100 hover:text-amber-600 transition-colors"
+            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            : 'bg-gray-100 text-gray-700 hover:bg-amber-100 hover:text-amber-600 '
         }`}
         aria-label="Попередня сторінка"
       >
@@ -50,20 +50,20 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         <button
           key={index}
           onClick={() => {
-            if (pageNumber !== "...") {
+            if (pageNumber !== '...') {
               onPageChange(pageNumber);
             }
           }}
-          disabled={pageNumber === "..."}
+          disabled={pageNumber === '...'}
           className={`w-12 h-12 rounded-full flex items-center justify-center mx-1 ${
             pageNumber === currentPage
-              ? "bg-amber-600 text-white font-bold"
-              : pageNumber === "..."
-              ? "bg-gray-100 text-gray-500 cursor-default"
-              : "bg-gray-100 text-gray-700 hover:bg-amber-100 hover:text-amber-600 transition-colors"
+              ? 'bg-amber-600 text-white font-bold'
+              : pageNumber === '...'
+              ? 'bg-gray-100 text-gray-500 cursor-default'
+              : 'bg-gray-100 text-gray-700 hover:bg-amber-100 hover:text-amber-600 '
           }`}
           aria-label={
-            pageNumber === "..." ? "Пропуск" : `Сторінка ${pageNumber}`
+            pageNumber === '...' ? 'Пропуск' : `Сторінка ${pageNumber}`
           }
         >
           {pageNumber}
@@ -75,8 +75,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         disabled={currentPage === totalPages}
         className={`w-12 h-12 rounded-full flex items-center justify-center ml-2 ${
           currentPage === totalPages
-            ? "bg-gray-200 text-gray-400 cursor-not-allowed"
-            : "bg-gray-100 text-gray-700 hover:bg-amber-100 hover:text-amber-600 transition-colors"
+            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            : 'bg-gray-100 text-gray-700 hover:bg-amber-100 hover:text-amber-600 '
         }`}
         aria-label="Наступна сторінка"
       >

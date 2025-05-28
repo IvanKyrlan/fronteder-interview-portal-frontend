@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
 import {
   FaHome,
   FaChevronRight,
@@ -7,12 +7,12 @@ import {
   FaSpinner,
   FaExclamationTriangle,
   FaArrowLeft,
-} from "react-icons/fa";
-import { useSelector } from "react-redux";
-import taskService from "../services/taskService";
-import testService from "../services/testService";
-import TaskContent from "../components/task/TaskContent";
-import TaskResultContent from "../components/task/TaskResultContent";
+} from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import taskService from '../services/taskService';
+import testService from '../services/testService';
+import TaskContent from '../components/task/TaskContent';
+import TaskResultContent from '../components/task/TaskResultContent';
 
 const saveTaskSessionState = (testId, tasks, solutions) => {
   const sessionState = {
@@ -36,7 +36,7 @@ const getTaskSessionState = (testId) => {
     }
     return state;
   } catch (e) {
-    console.error("Error parsing task session state:", e);
+    console.error('Error parsing task session state:', e);
     localStorage.removeItem(`task_session_${testId}`);
     return null;
   }
@@ -67,7 +67,7 @@ export default function TaskPage() {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
   const [progress, setProgress] = useState(null);
-  const [view, setView] = useState("tasks");
+  const [view, setView] = useState('tasks');
   const [userSolutions, setUserSolutions] = useState([]);
   const [allTasksCompleted, setAllTasksCompleted] = useState(false);
   const [testLanguage, setTestLanguage] = useState(null);
@@ -76,17 +76,17 @@ export default function TaskPage() {
 
   useEffect(() => {
     if (test) {
-      if (view === "tasks") {
+      if (view === 'tasks') {
         document.title = `${test.title} | Frontender - Практичні завдання`;
-      } else if (view === "result") {
+      } else if (view === 'result') {
         document.title = `Результати практики: ${test.title} | Frontender`;
       }
     } else {
-      document.title = "Практичні завдання | Frontender";
+      document.title = 'Практичні завдання | Frontender';
     }
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, [test, view]);
 
@@ -103,44 +103,44 @@ export default function TaskPage() {
           setTestLanguage(language);
         }
       } catch (err) {
-        setError("Не вдалося завантажити тест");
+        setError('Не вдалося завантажити тест');
       }
     };
     fetchTest();
   }, [testId, language]);
 
   const getLanguageFromTest = (testData) => {
-    if (!testData) return "javascript";
+    if (!testData) return 'javascript';
 
-    const title = testData.title ? testData.title.toLowerCase() : "";
-    const icon = testData.icon ? testData.icon.toLowerCase() : "";
+    const title = testData.title ? testData.title.toLowerCase() : '';
+    const icon = testData.icon ? testData.icon.toLowerCase() : '';
 
-    if (title.includes("html") || icon.includes("html")) return "html";
-    if (title.includes("css") || icon.includes("css")) return "css";
+    if (title.includes('html') || icon.includes('html')) return 'html';
+    if (title.includes('css') || icon.includes('css')) return 'css';
     if (
-      title.includes("javascript") ||
-      title.includes("js") ||
-      icon.includes("js") ||
-      icon.includes("javascript")
+      title.includes('javascript') ||
+      title.includes('js') ||
+      icon.includes('js') ||
+      icon.includes('javascript')
     )
-      return "javascript";
-    if (title.includes("react") || icon.includes("react")) return "javascript";
+      return 'javascript';
+    if (title.includes('react') || icon.includes('react')) return 'javascript';
     if (
-      title.includes("sql") ||
-      title.includes("база даних") ||
-      icon.includes("database") ||
-      icon.includes("sql")
+      title.includes('sql') ||
+      title.includes('база даних') ||
+      icon.includes('database') ||
+      icon.includes('sql')
     )
-      return "sql";
+      return 'sql';
     if (
-      title.includes("python") ||
-      title.includes("django") ||
-      icon.includes("python") ||
-      icon.includes("django")
+      title.includes('python') ||
+      title.includes('django') ||
+      icon.includes('python') ||
+      icon.includes('django')
     )
-      return "python";
+      return 'python';
 
-    return "javascript";
+    return 'javascript';
   };
 
   useEffect(() => {
@@ -171,7 +171,7 @@ export default function TaskPage() {
 
         setLoading(false);
       } catch (err) {
-        setError("Не вдалося завантажити завдання");
+        setError('Не вдалося завантажити завдання');
         setLoading(false);
       }
     };
@@ -202,7 +202,7 @@ export default function TaskPage() {
       const completedCount = countCompletedTasks(userSolutions);
       setSessionCompletedTasks(completedCount);
 
-      console.log("Session completed tasks updated:", {
+      console.log('Session completed tasks updated:', {
         count: completedCount,
         solutions: userSolutions.map((s) => s?.is_correct || false),
       });
@@ -210,8 +210,8 @@ export default function TaskPage() {
   }, [userSolutions]);
 
   useEffect(() => {
-    if (location.pathname.includes("/result")) {
-      setView("result");
+    if (location.pathname.includes('/result')) {
+      setView('result');
 
       if (location.state && location.state.userSolutions) {
         const solutions = location.state.userSolutions;
@@ -244,7 +244,7 @@ export default function TaskPage() {
         }
       }
     } else {
-      setView("tasks");
+      setView('tasks');
     }
   }, [
     location.pathname,
@@ -297,7 +297,7 @@ export default function TaskPage() {
     } catch (err) {
       setResult({
         is_correct: false,
-        hint: "Сталася помилка при відправці рішення.",
+        hint: 'Сталася помилка при відправці рішення.',
       });
     } finally {
       setSubmitting(false);
@@ -325,13 +325,13 @@ export default function TaskPage() {
   const showResults = () => {
     const completedCount = countCompletedTasks(userSolutions);
 
-    console.log("Showing results:", {
+    console.log('Showing results:', {
       calculatedCompletedTasks: completedCount,
       serverProgress: progress?.completed_tasks,
       userSolutions: userSolutions.map((s) => s?.is_correct || false),
     });
 
-    setView("result");
+    setView('result');
     navigate(`/tests/${testId}/tasks/result`, {
       state: {
         completedTasks: completedCount,
@@ -353,13 +353,13 @@ export default function TaskPage() {
       setResult(null);
       setSessionStarted(false);
 
-      setView("tasks");
+      setView('tasks');
       navigate(`/tests/${testId}/tasks`, {
         state: { language: testLanguage },
         replace: true,
       });
     } catch (err) {
-      console.error("Error restarting tasks:", err);
+      console.error('Error restarting tasks:', err);
     }
   };
 
@@ -382,10 +382,10 @@ export default function TaskPage() {
         <div className="bg-white p-8 rounded-lg shadow-md text-center max-w-md">
           <FaExclamationTriangle className="text-red-500 text-4xl mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Помилка</h2>
-          <p className="text-red-500 mb-6">{error || "Завдання не знайдено"}</p>
+          <p className="text-red-500 mb-6">{error || 'Завдання не знайдено'}</p>
           <Link
             to="/tests"
-            className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 "
           >
             <FaArrowLeft className="mr-2" />
             Повернутися до списку тестів
@@ -410,7 +410,7 @@ export default function TaskPage() {
             </p>
             <Link
               to="/tests"
-              className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-amber-600 text-white rounded-md hover:bg-amber-700 "
             >
               <FaArrowLeft className="mr-2" />
               Повернутися до списку тестів
@@ -427,19 +427,19 @@ export default function TaskPage() {
     <div className="bg-gray-50 min-h-screen">
       <section
         className={`py-20 ${
-          view === "result"
-            ? "bg-gradient-to-r from-amber-400 to-amber-700"
-            : "bg-gradient-to-b from-neutral-800 to-neutral-900"
+          view === 'result'
+            ? 'bg-gradient-to-r from-amber-400 to-amber-700'
+            : 'bg-gradient-to-b from-neutral-800 to-neutral-900'
         } text-white`}
       >
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">
-            {view === "result"
-              ? "Результати практичних завдань"
-              : "Практичні завдання"}
+            {view === 'result'
+              ? 'Результати практичних завдань'
+              : 'Практичні завдання'}
           </h1>
           <p className="text-xl max-w-3xl mx-auto text-gray-50">
-            {view === "result"
+            {view === 'result'
               ? `Ви успішно виконали ${sessionCompletedTasks} з ${tasks.length} завдань по ${test.title}`
               : `Перевірте свої практичні навички розробки з ${test.title}. Виконайте завдання та отримайте миттєвий зворотній зв'язок.`}
           </p>
@@ -448,35 +448,29 @@ export default function TaskPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <nav className="flex items-center py-4 mb-6 text-gray-600 ">
-          <Link
-            to="/"
-            className="flex items-center hover:text-gray-800 transition-colors"
-          >
+          <Link to="/" className="flex items-center hover:text-gray-800 ">
             <FaHome className="mr-1" />
             <span>Головна</span>
           </Link>
           <FaChevronRight className="mx-2" size={12} />
-          <Link to="/tests/" className="hover:text-gray-800 transition-colors">
+          <Link to="/tests/" className="hover:text-gray-800 ">
             Тести та практика
           </Link>
           <FaChevronRight className="mx-2" size={12} />
-          <Link
-            to={`/tests/${test.id}`}
-            className="hover:text-gray-800 transition-colors"
-          >
+          <Link to={`/tests/${test.id}`} className="hover:text-gray-800 ">
             <span className="max-w-md font-semibold">{test.title}</span>
           </Link>
           <FaChevronRight className="mx-2" size={12} />
           <span
             className={` ${
-              view === "result" ? "text-amber-600" : "text-amber-600"
+              view === 'result' ? 'text-amber-600' : 'text-amber-600'
             }`}
           >
-            {view === "tasks" ? "Практика" : "Результати"}
+            {view === 'tasks' ? 'Практика' : 'Результати'}
           </span>
         </nav>
 
-        {view === "tasks" && (
+        {view === 'tasks' && (
           <TaskContent
             task={currentTask}
             onSubmit={handleSubmitSolution}
@@ -490,7 +484,7 @@ export default function TaskPage() {
           />
         )}
 
-        {view === "result" && (
+        {view === 'result' && (
           <TaskResultContent
             completedTasks={sessionCompletedTasks}
             totalTasks={tasks.length}

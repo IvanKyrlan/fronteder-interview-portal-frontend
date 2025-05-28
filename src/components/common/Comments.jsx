@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { FaUser, FaReply, FaExclamationCircle } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import commentService from "../../services/commentService";
+import React, { useState, useEffect } from 'react';
+import { FaUser, FaReply, FaExclamationCircle } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import commentService from '../../services/commentService';
 
 const CommentForm = ({
   onSubmit,
@@ -11,9 +11,9 @@ const CommentForm = ({
   onCancel = null,
 }) => {
   const { isAuthenticated, user } = useSelector((state) => state.auth);
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [authorName, setAuthorName] = useState(
-    isAuthenticated ? user?.username || "" : ""
+    isAuthenticated ? user?.username || '' : ''
   );
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState({});
@@ -24,9 +24,9 @@ const CommentForm = ({
     setErrors({});
 
     const newErrors = {};
-    if (!comment.trim()) newErrors.comment = "Коментар не може бути порожнім";
+    if (!comment.trim()) newErrors.comment = 'Коментар не може бути порожнім';
     if (!authorName.trim()) newErrors.authorName = "Ім'я не може бути порожнім";
-    if (!agreed) newErrors.agreed = "Ви повинні погодитись на обробку даних";
+    if (!agreed) newErrors.agreed = 'Ви повинні погодитись на обробку даних';
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -40,8 +40,8 @@ const CommentForm = ({
       parent: replyTo,
     });
 
-    setComment("");
-    if (!isAuthenticated) setAuthorName("");
+    setComment('');
+    if (!isAuthenticated) setAuthorName('');
     setAgreed(false);
   };
 
@@ -52,7 +52,7 @@ const CommentForm = ({
   };
 
   return (
-    <div className={`rounded-lg ${isReply ? "ml-4 md:ml-12 mt-4" : "mb-6"}`}>
+    <div className={`rounded-lg ${isReply ? 'ml-4 md:ml-12 mt-4' : 'mb-6'}`}>
       {isReply && (
         <div className="text-sm text-gray-500 mb-3 px-3 pt-3">
           Відповідь на коментар
@@ -62,10 +62,10 @@ const CommentForm = ({
       <form onSubmit={handleSubmit} className="">
         <div className="mb-2">
           <textarea
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 ${
-              errors.comment ? "border-red-500 bg-red-50" : "border-gray-300"
+            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500 ${
+              errors.comment ? 'border-red-500 bg-red-50' : 'border-gray-300'
             } rounded-t-lg transition-all duration-300 ease-in-out ${
-              isFocused ? "h-32 md:h-24" : "h-24 md:h-16"
+              isFocused ? 'h-32 md:h-24' : 'h-24 md:h-16'
             } outline-none text-base`}
             placeholder="Введіть тут коментар..."
             value={comment}
@@ -89,10 +89,10 @@ const CommentForm = ({
             </div>
             <input
               type="text"
-              className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 ${
+              className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500 ${
                 errors.authorName
-                  ? "border-amber-600 bg-red-50"
-                  : "border-gray-300"
+                  ? 'border-amber-600 bg-red-50'
+                  : 'border-gray-300'
               } rounded-b-lg focus:outline-none text-base text-gray-500`}
               placeholder="Вкажіть ваше ім'я"
               value={authorName}
@@ -111,7 +111,7 @@ const CommentForm = ({
           <div className="flex items-center mt-3 sm:mt-0 sm:ml-auto">
             <input
               type="checkbox"
-              id={isReply ? `data-agree-reply-${replyTo}` : "data-agree"}
+              id={isReply ? `data-agree-reply-${replyTo}` : 'data-agree'}
               className="w-4 h-4 mt-1 sm:mt-0 bg-white border border-gray-400 rounded 
               checked:bg-white checked:border-gray-400 hover:bg-gray-100 
               focus:ring-0 focus:outline-none flex-shrink-0"
@@ -119,10 +119,10 @@ const CommentForm = ({
               onChange={(e) => setAgreed(e.target.checked)}
             />
             <label
-              htmlFor={isReply ? `data-agree-reply-${replyTo}` : "data-agree"}
+              htmlFor={isReply ? `data-agree-reply-${replyTo}` : 'data-agree'}
               className="ml-3 text-sm text-gray-500"
             >
-              Я погоджуюся на{" "}
+              Я погоджуюся на{' '}
               <a
                 href="#"
                 className="text-amber-600 hover:text-amber-700 underline-none"
@@ -179,7 +179,7 @@ const CommentItem = ({ comment, contentType, objectId, onNewComment }) => {
       onNewComment(newComment);
       setShowReplyForm(false);
     } catch (error) {
-      console.error("Error posting reply:", error);
+      console.error('Error posting reply:', error);
     }
   };
 
@@ -262,8 +262,8 @@ const Comments = ({ contentType, objectId }) => {
         setCommentCount(calculateTotalComments(data));
         setError(null);
       } catch (err) {
-        console.error("Error fetching comments:", err);
-        setError("Не вдалося завантажити коментарі");
+        console.error('Error fetching comments:', err);
+        setError('Не вдалося завантажити коментарі');
       } finally {
         setLoading(false);
       }
@@ -309,9 +309,9 @@ const Comments = ({ contentType, objectId }) => {
       }
 
       setCommentCount((prev) => prev + 1);
-      toast.success("Коментар успішно додано");
+      toast.success('Коментар успішно додано');
     } catch (error) {
-      toast.error("Помилка додавання коментаря:", error);
+      toast.error('Помилка додавання коментаря:', error);
     }
   };
 

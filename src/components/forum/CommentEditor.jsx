@@ -1,30 +1,30 @@
-import React, { useState, useRef } from "react";
-import { FaReply, FaCode, FaCheck, FaEye, FaPencilAlt } from "react-icons/fa";
+import React, { useState, useRef } from 'react';
+import { FaReply, FaCode, FaCheck, FaEye, FaPencilAlt } from 'react-icons/fa';
 
 const CommentEditor = ({
   value,
   onChange,
   onSubmit,
   isSubmitting = false,
-  placeholder = "Введіть ваш коментар...",
-  submitLabel = "Відповісти",
+  placeholder = 'Введіть ваш коментар...',
+  submitLabel = 'Відповісти',
 }) => {
   const [showCodeEditor, setShowCodeEditor] = useState(false);
-  const [code, setCode] = useState("");
-  const [codeLanguage, setCodeLanguage] = useState("javascript");
+  const [code, setCode] = useState('');
+  const [codeLanguage, setCodeLanguage] = useState('javascript');
   const [previewMode, setPreviewMode] = useState(false);
 
   const textareaRef = useRef(null);
 
   const availableLanguages = [
-    { id: "javascript", name: "JavaScript" },
-    { id: "html", name: "HTML" },
-    { id: "css", name: "CSS" },
-    { id: "python", name: "Python" },
-    { id: "jsx", name: "React/JSX" },
-    { id: "sql", name: "SQL" },
+    { id: 'javascript', name: 'JavaScript' },
+    { id: 'html', name: 'HTML' },
+    { id: 'css', name: 'CSS' },
+    { id: 'python', name: 'Python' },
+    { id: 'jsx', name: 'React/JSX' },
+    { id: 'sql', name: 'SQL' },
     // { id: "bash", name: "Bash" },
-    { id: "json", name: "JSON" },
+    { id: 'json', name: 'JSON' },
   ];
 
   const handleSubmit = (e) => {
@@ -40,7 +40,7 @@ const CommentEditor = ({
 
     onChange(newText);
     setShowCodeEditor(false);
-    setCode("");
+    setCode('');
 
     if (textareaRef.current) {
       textareaRef.current.focus();
@@ -49,16 +49,16 @@ const CommentEditor = ({
   };
 
   const renderContent = (text) => {
-    if (!text || !text.includes("```")) {
+    if (!text || !text.includes('```')) {
       return <p className="whitespace-pre-line">{text}</p>;
     }
 
-    const parts = text.split("```");
+    const parts = text.split('```');
     return parts.map((part, index) => {
       if (index % 2 === 1) {
         const languageMatch = part.match(/^(\w+)\n/);
-        const language = languageMatch ? languageMatch[1] : "javascript";
-        const code = languageMatch ? part.replace(/^\w+\n/, "") : part;
+        const language = languageMatch ? languageMatch[1] : 'javascript';
+        const code = languageMatch ? part.replace(/^\w+\n/, '') : part;
 
         return (
           <div
@@ -85,7 +85,7 @@ const CommentEditor = ({
           <button
             type="button"
             onClick={() => setShowCodeEditor(true)}
-            className="mr-4 flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+            className="mr-4 flex items-center text-blue-600 hover:text-blue-800 "
             disabled={isSubmitting}
           >
             <FaCode className="mr-1.5" size={14} />
@@ -96,13 +96,13 @@ const CommentEditor = ({
             onClick={() => setPreviewMode(!previewMode)}
             className={`flex items-center px-3 py-1 rounded ${
               previewMode
-                ? "bg-amber-50 text-amber-700"
-                : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-            } transition-colors`}
+                ? 'bg-amber-50 text-amber-700'
+                : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+            } `}
             title={
               previewMode
-                ? "Перемкнутись до режиму редагування"
-                : "Перемкнутись до режиму перегляду"
+                ? 'Перемкнутись до режиму редагування'
+                : 'Перемкнутись до режиму перегляду'
             }
           >
             {previewMode ? (
@@ -128,7 +128,7 @@ const CommentEditor = ({
             ref={textareaRef}
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500"
             rows="4"
             placeholder={placeholder}
             disabled={isSubmitting}
@@ -174,7 +174,7 @@ const CommentEditor = ({
                 id="codeLanguage"
                 value={codeLanguage}
                 onChange={(e) => setCodeLanguage(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500"
               >
                 {availableLanguages.map((lang) => (
                   <option key={lang.id} value={lang.id}>
@@ -195,7 +195,7 @@ const CommentEditor = ({
                 id="codeContent"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500 font-mono"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500 font-mono"
                 rows="10"
                 placeholder="Введіть ваш код тут..."
               ></textarea>
@@ -205,7 +205,7 @@ const CommentEditor = ({
               <button
                 type="button"
                 onClick={() => setShowCodeEditor(false)}
-                className="px-4 py-2 text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors text-md"
+                className="px-4 py-2 text-gray-700 border border-gray-200 rounded-md hover:bg-gray-50  text-md"
               >
                 Скасувати
               </button>

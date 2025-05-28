@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { FaEdit, FaSave, FaTimes } from "react-icons/fa";
-import { updateProfile } from "../../store/authSlice";
-import authService from "../../services/authService";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { FaEdit, FaSave, FaTimes } from 'react-icons/fa';
+import { updateProfile } from '../../store/authSlice';
+import authService from '../../services/authService';
 
 export default function ProfileInfoTab({ onMessage }) {
   const { user } = useSelector((state) => state.auth);
@@ -10,8 +10,8 @@ export default function ProfileInfoTab({ onMessage }) {
 
   const [editMode, setEditMode] = useState(false);
   const [profileData, setProfileData] = useState({
-    username: user?.username || "",
-    email: user?.email || "",
+    username: user?.username || '',
+    email: user?.email || '',
   });
 
   const handleProfileChange = (e) => {
@@ -25,11 +25,11 @@ export default function ProfileInfoTab({ onMessage }) {
       const updatedUser = await authService.updateUserProfile(profileData);
       dispatch(updateProfile(updatedUser));
       setEditMode(false);
-      onMessage({ text: "Профіль успішно оновлено", type: "success" });
+      onMessage({ text: 'Профіль успішно оновлено', type: 'success' });
     } catch (error) {
       onMessage({
-        text: error.response?.data?.message || "Помилка при оновленні профілю",
-        type: "error",
+        text: error.response?.data?.message || 'Помилка при оновленні профілю',
+        type: 'error',
       });
     }
   };
@@ -37,8 +37,8 @@ export default function ProfileInfoTab({ onMessage }) {
   const handleCancelEdit = () => {
     setEditMode(false);
     setProfileData({
-      username: user?.username || "",
-      email: user?.email || "",
+      username: user?.username || '',
+      email: user?.email || '',
     });
   };
 
@@ -64,7 +64,7 @@ export default function ProfileInfoTab({ onMessage }) {
               name="username"
               value={profileData.username}
               onChange={handleProfileChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
               disabled={!editMode}
             />
           </div>
@@ -75,7 +75,7 @@ export default function ProfileInfoTab({ onMessage }) {
               name="email"
               value={profileData.email}
               onChange={handleProfileChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
               disabled={!editMode}
             />
           </div>

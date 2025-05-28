@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
-import articleService from "../../services/articleService";
-import { formatDateLocale } from "../../utils/dateUtils";
-import Pagination from "../common/Pagination";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+import articleService from '../../services/articleService';
+import { formatDateLocale } from '../../utils/dateUtils';
+import Pagination from '../common/Pagination';
 
 export default function LatestArticlesSection() {
   const [articles, setArticles] = useState([]);
@@ -24,8 +24,8 @@ export default function LatestArticlesSection() {
         setArticles(data);
         setError(null);
       } catch (err) {
-        console.error("Error fetching articles for homepage:", err);
-        setError("Не вдалося завантажити статті");
+        console.error('Error fetching articles for homepage:', err);
+        setError('Не вдалося завантажити статті');
       } finally {
         setLoading(false);
       }
@@ -37,8 +37,8 @@ export default function LatestArticlesSection() {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
     document
-      .querySelector(".latest-articles-section")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      .querySelector('.latest-articles-section')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const getCurrentArticles = () => {
@@ -48,9 +48,9 @@ export default function LatestArticlesSection() {
   };
 
   const getArticleTypeStyles = (type) => {
-    return type === "task"
-      ? "bg-blue-100 text-blue-800"
-      : "bg-green-100 text-green-800";
+    return type === 'task'
+      ? 'bg-blue-100 text-blue-800'
+      : 'bg-green-100 text-green-800';
   };
 
   return (
@@ -131,7 +131,7 @@ export default function LatestArticlesSection() {
                     )}
 
                     <div className="p-6 flex flex-col flex-grow text-lg">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-amber-600 transition-colors">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-amber-600 ">
                         {article.title}
                       </h3>
 
@@ -172,7 +172,7 @@ export default function LatestArticlesSection() {
         <div className="text-center mt-12">
           <Link
             to="/articles"
-            className="inline-flex items-center text-lg  text-amber-600 hover:text-amber-700 transition-colors"
+            className="inline-flex items-center text-lg  text-amber-600 hover:text-amber-700 "
           >
             Переглянути всі статті
             <FaArrowRight className="ml-2" />

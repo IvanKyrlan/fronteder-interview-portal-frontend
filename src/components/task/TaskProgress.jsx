@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   FaChevronDown,
   FaChevronUp,
   FaCode,
   FaCheckCircle,
-} from "react-icons/fa";
-import taskService from "../../services/taskService";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+} from 'react-icons/fa';
+import taskService from '../../services/taskService';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function TaskProgress({ taskProgress, userProgress }) {
   const [expandedTests, setExpandedTests] = useState({});
@@ -56,7 +56,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
   };
 
   const getTestTitle = (testId) => {
-    if (!testId) return "Невідомий тест";
+    if (!testId) return 'Невідомий тест';
 
     const taskProg = taskProgress.find(
       (t) => t.test === testId || t.test_id === testId
@@ -68,31 +68,31 @@ export default function TaskProgress({ taskProgress, userProgress }) {
       : null;
     if (userProg) return userProg.test_title;
 
-    return "Невідомий тест";
+    return 'Невідомий тест';
   };
 
   const getLanguageFromTest = (test) => {
-    if (!test) return "javascript";
+    if (!test) return 'javascript';
 
     const title = test.toLowerCase();
 
-    if (title.includes("html")) return "html";
-    if (title.includes("css")) return "css";
-    if (title.includes("javascript") || title.includes("js"))
-      return "javascript";
-    if (title.includes("react")) return "javascript";
-    if (title.includes("sql") || title.includes("база даних")) return "sql";
-    if (title.includes("python") || title.includes("django")) return "python";
+    if (title.includes('html')) return 'html';
+    if (title.includes('css')) return 'css';
+    if (title.includes('javascript') || title.includes('js'))
+      return 'javascript';
+    if (title.includes('react')) return 'javascript';
+    if (title.includes('sql') || title.includes('база даних')) return 'sql';
+    if (title.includes('python') || title.includes('django')) return 'python';
 
-    return "javascript";
+    return 'javascript';
   };
 
   const getProgressColor = (percentage) => {
-    if (percentage >= 80) return "bg-gradient-to-r from-green-400 to-green-500";
-    if (percentage >= 60) return "bg-gradient-to-r from-amber-400 to-amber-500";
+    if (percentage >= 80) return 'bg-gradient-to-r from-green-400 to-green-500';
+    if (percentage >= 60) return 'bg-gradient-to-r from-amber-400 to-amber-500';
     if (percentage >= 40)
-      return "bg-gradient-to-r from-orange-400 to-orange-500";
-    return "bg-gradient-to-r from-red-400 to-red-500";
+      return 'bg-gradient-to-r from-orange-400 to-orange-500';
+    return 'bg-gradient-to-r from-red-400 to-red-500';
   };
 
   if (!taskProgress || taskProgress.length === 0) {
@@ -103,7 +103,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
           завдання, щоб бачити свій прогрес!
         </p>
         <button
-          onClick={() => navigate("/tests")}
+          onClick={() => navigate('/tests')}
           className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-md "
         >
           Перейти до завдань
@@ -140,7 +140,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
               className="rounded-xl bg-white shadow-sm overflow-hidden transition-all hover:shadow-md"
             >
               <div
-                className="p-5 cursor-pointer transition-colors"
+                className="p-5 cursor-pointer "
                 onClick={() => toggleTestDetails(taskProg.test)}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -154,10 +154,10 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                   <div
                     className={`px-4 py-1 rounded-full text-base  ${
                       completionPercentage >= 80
-                        ? "bg-gradient-to-r from-green-50 to-green-100 text-green-700"
+                        ? 'bg-gradient-to-r from-green-50 to-green-100 text-green-700'
                         : completionPercentage >= 60
-                        ? "bg-gradient-to-r from-amber-50 to-amber-100 text-amber-700"
-                        : "bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700"
+                        ? 'bg-gradient-to-r from-amber-50 to-amber-100 text-amber-700'
+                        : 'bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700'
                     }`}
                   >
                     {completionPercentage}%
@@ -167,7 +167,7 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                 <div className="mb-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-700 ">
-                      {taskProg.completed_tasks} / {taskProg.total_tasks}{" "}
+                      {taskProg.completed_tasks} / {taskProg.total_tasks}{' '}
                       завдань виконано
                     </span>
                   </div>
@@ -236,8 +236,8 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                               <div
                                 className={`p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 ${
                                   latestAttempt.is_correct
-                                    ? "bg-gradient-to-r from-green-50 to-green-100"
-                                    : ""
+                                    ? 'bg-gradient-to-r from-green-50 to-green-100'
+                                    : ''
                                 }`}
                                 onClick={() => toggleTaskDetails(taskId)}
                               >
@@ -245,8 +245,8 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                   <span
                                     className={` text-lg ${
                                       latestAttempt.is_correct
-                                        ? "text-green-700"
-                                        : "text-gray-800"
+                                        ? 'text-green-700'
+                                        : 'text-gray-800'
                                     }`}
                                   >
                                     {latestAttempt.task_title}
@@ -254,20 +254,20 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                   <div
                                     className={`mt-1 ${
                                       latestAttempt.is_correct
-                                        ? "text-green-600"
-                                        : "text-amber-600"
+                                        ? 'text-green-600'
+                                        : 'text-amber-600'
                                     } `}
                                   >
                                     {latestAttempt.is_correct
-                                      ? "Виконано успішно"
-                                      : "Потребує доопрацювання"}
+                                      ? 'Виконано успішно'
+                                      : 'Потребує доопрацювання'}
                                   </div>
                                 </div>
                                 <div
                                   className={
                                     latestAttempt.is_correct
-                                      ? "text-green-500"
-                                      : "text-amber-500"
+                                      ? 'text-green-500'
+                                      : 'text-amber-500'
                                   }
                                 >
                                   {isTaskExpanded ? (
@@ -291,14 +291,14 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                           language={language}
                                           style={atomDark}
                                           customStyle={{
-                                            fontSize: "16px",
-                                            height: "auto",
+                                            fontSize: '16px',
+                                            height: 'auto',
                                             margin: 0,
-                                            borderRadius: "0.5rem",
+                                            borderRadius: '0.5rem',
                                           }}
                                         >
                                           {latestAttempt.submitted_code ||
-                                            "// Немає коду"}
+                                            '// Немає коду'}
                                         </SyntaxHighlighter>
                                       </div>
                                     </div>
@@ -313,8 +313,8 @@ export default function TaskProgress({ taskProgress, userProgress }) {
                                       className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-md hover:from-amber-600 hover:to-amber-700 transition-all shadow-sm "
                                     >
                                       {latestAttempt.is_correct
-                                        ? "Переглянути завдання"
-                                        : "Спробувати знову"}
+                                        ? 'Переглянути завдання'
+                                        : 'Спробувати знову'}
                                     </button>
                                   </div>
                                 </div>

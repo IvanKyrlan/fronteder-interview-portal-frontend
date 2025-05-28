@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FaPlus, FaSearch, FaFilter, FaTimes } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaPlus, FaSearch, FaFilter, FaTimes } from 'react-icons/fa';
 
 const ForumActionBar = ({
   onCreateTopic,
@@ -14,7 +14,7 @@ const ForumActionBar = ({
 
   const handleCreateClick = () => {
     if (!isAuthenticated) {
-      alert("Для створення теми необхідно увійти в систему");
+      alert('Для створення теми необхідно увійти в систему');
       return;
     }
     onCreateTopic();
@@ -26,7 +26,7 @@ const ForumActionBar = ({
   };
 
   const handleClearSearch = () => {
-    onSearchChange("");
+    onSearchChange('');
     onSearch({ preventDefault: () => {} });
   };
 
@@ -40,10 +40,10 @@ const ForumActionBar = ({
   };
 
   const sortOptions = {
-    newest: "Найновіші",
-    oldest: "Найстаріші",
-    popular: "Популярні",
-    discussed: "Обговорювані",
+    newest: 'Найновіші',
+    oldest: 'Найстаріші',
+    popular: 'Популярні',
+    discussed: 'Обговорювані',
   };
 
   return (
@@ -67,13 +67,13 @@ const ForumActionBar = ({
               placeholder="Пошук у форумі..."
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors resize-none placeholder-gray-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  resize-none placeholder-gray-500"
             />
             {searchTerm && (
               <button
                 type="button"
                 onClick={handleClearSearch}
-                className="absolute right-10 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute right-10 text-gray-400 hover:text-gray-600 "
                 aria-label="Очистити пошук"
               >
                 <FaTimes size={18} />
@@ -81,7 +81,7 @@ const ForumActionBar = ({
             )}
             <button
               type="submit"
-              className="absolute right-3 text-gray-400 hover:text-amber-600 transition-colors"
+              className="absolute right-3 text-gray-400 hover:text-amber-600 "
               aria-label="Пошук"
             >
               <FaSearch size={18} />

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { FaKey } from "react-icons/fa";
-import authService from "../../services/authService";
+import React, { useState } from 'react';
+import { FaKey } from 'react-icons/fa';
+import authService from '../../services/authService';
 
 export default function PasswordTab({ onMessage }) {
   const [passwordData, setPasswordData] = useState({
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
   });
 
   const handlePasswordChange = (e) => {
@@ -18,7 +18,7 @@ export default function PasswordTab({ onMessage }) {
     e.preventDefault();
 
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      onMessage({ text: "Нові паролі не співпадають", type: "error" });
+      onMessage({ text: 'Нові паролі не співпадають', type: 'error' });
       return;
     }
 
@@ -29,16 +29,16 @@ export default function PasswordTab({ onMessage }) {
       );
 
       setPasswordData({
-        currentPassword: "",
-        newPassword: "",
-        confirmPassword: "",
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: '',
       });
 
-      onMessage({ text: "Пароль успішно змінено", type: "success" });
+      onMessage({ text: 'Пароль успішно змінено', type: 'success' });
     } catch (error) {
       onMessage({
-        text: error.response?.data?.message || "Помилка при зміні пароля",
-        type: "error",
+        text: error.response?.data?.message || 'Помилка при зміні пароля',
+        type: 'error',
       });
     }
   };
@@ -55,7 +55,7 @@ export default function PasswordTab({ onMessage }) {
               name="currentPassword"
               value={passwordData.currentPassword}
               onChange={handlePasswordChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
               required
             />
           </div>
@@ -67,7 +67,7 @@ export default function PasswordTab({ onMessage }) {
               name="newPassword"
               value={passwordData.newPassword}
               onChange={handlePasswordChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
               required
             />
           </div>
@@ -81,7 +81,7 @@ export default function PasswordTab({ onMessage }) {
               name="confirmPassword"
               value={passwordData.confirmPassword}
               onChange={handlePasswordChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-colors placeholder-gray-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none  placeholder-gray-500"
               required
             />
           </div>

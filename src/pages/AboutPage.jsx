@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
   FaGraduationCap,
   FaLaptopCode,
@@ -17,28 +17,28 @@ import {
   FaGithub,
   FaLinkedin,
   FaEnvelope,
-} from "react-icons/fa";
-import { toast } from "react-toastify";
-import authorPhoto from "../assets/author-photo.jpg";
-import missionIllustration from "../assets/mission-illustration.jpg";
+} from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import authorPhoto from '../assets/author-photo.jpg';
+import missionIllustration from '../assets/mission-illustration.jpg';
 
 export default function AboutPage() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Про портал | Frontender - Підготовка до співбесід";
+    document.title = 'Про портал | Frontender - Підготовка до співбесід';
     window.scrollTo(0, 0);
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, []);
 
   const handleRegisterClick = (e) => {
     if (isAuthenticated) {
       e.preventDefault();
-      toast.info("Ви вже зареєстровані", {
-        position: "top-center",
+      toast.info('Ви вже зареєстровані', {
+        position: 'top-center',
         autoClose: 3000,
         icon: ({ theme, type }) => (
           <div className="text-amber-600">
@@ -86,7 +86,7 @@ export default function AboutPage() {
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
-                      "https://placehold.co/400x400/gray/white?text=Author+Photo";
+                      'https://placehold.co/400x400/gray/white?text=Author+Photo';
                   }}
                 />
               </div>
@@ -97,7 +97,7 @@ export default function AboutPage() {
                 Про автора
               </h2>
               <p className="text-lg text-gray-600 mb-4">
-                Веб-портал «Frontender» було створено студентом 4 курсу{" "}
+                Веб-портал «Frontender» було створено студентом 4 курсу{' '}
                 <strong>Кирланом Іваном</strong> в рамках дипломної
                 кваліфікаційної роботи для здобуття ступеня Бакалавр по
                 спеціальності Системний Аналіз.
@@ -112,7 +112,7 @@ export default function AboutPage() {
                   href="https://github.com/IvanKyrlan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-800  hover:text-amber-600 transition-colors"
+                  className="flex items-center text-gray-800  hover:text-amber-600 "
                 >
                   <FaGithub className="mr-2" size={20} />
                   GitHub
@@ -121,14 +121,14 @@ export default function AboutPage() {
                   href="https://www.linkedin.com/in/ivan-kyrlan-356203365/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-gray-800  hover:text-amber-600 transition-colors"
+                  className="flex items-center text-gray-800  hover:text-amber-600 "
                 >
                   <FaLinkedin className="mr-2" size={20} />
                   LinkedIn
                 </a>
                 <a
                   href="mailto:ivan.kyrlan2004@gmail.com"
-                  className="flex items-center text-gray-800  hover:text-amber-600 transition-colors"
+                  className="flex items-center text-gray-800  hover:text-amber-600 "
                 >
                   <FaEnvelope className="mr-2" size={20} />
                   Email
@@ -160,13 +160,13 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4 items-center text-lg">
                 <Link
                   to="/tests"
-                  className="bg-amber-600 text-white py-3 px-6 rounded-md hover:bg-amber-700 transition-colors"
+                  className="bg-amber-600 text-white py-3 px-6 rounded-md hover:bg-amber-700 "
                 >
                   Почати навчання
                 </Link>
                 <Link
                   to="/articles"
-                  className="bg-white text-gray-800 border-2 border-gray-200 py-3 px-6 rounded-md hover:border-amber-600 hover:text-amber-600 transition-colors"
+                  className="bg-white text-gray-800 border-2 border-gray-200 py-3 px-6 rounded-md hover:border-amber-600 hover:text-amber-600 "
                 >
                   Переглянути статті
                 </Link>
@@ -180,7 +180,7 @@ export default function AboutPage() {
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
-                    "https://placehold.co/600x400/orange/white?text=Frontender+Mission";
+                    'https://placehold.co/600x400/orange/white?text=Frontender+Mission';
                 }}
               />
             </div>
@@ -203,8 +203,9 @@ export default function AboutPage() {
                 Практичні завдання
               </h3>
               <p className="text-gray-600">
-                Розв'язуйте реальні практичні завдання з HTML, CSS, JavaScript
-                та React, які часто зустрічаються на технічних співбесідах.
+                Розв'язуйте реальні практичні завдання з HTML, CSS, JavaScript,
+                React, SQL та Django які часто зустрічаються на технічних
+                співбесідах.
               </p>
             </div>
 
@@ -216,8 +217,8 @@ export default function AboutPage() {
                 Теоретичні тести
               </h3>
               <p className="text-gray-600">
-                Перевірте свої знання через інтерактивні тести, які охоплюють
-                всі ключові теми Frontend розробки від основ до просунутих
+                Перевірте свої знання через теоретичні тести, які охоплюють всі
+                ключові теми Frontend розробки від основ до просунутих
                 концепцій.
               </p>
             </div>
@@ -341,14 +342,14 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/tests"
-              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100 transition-colors shadow-md"
+              className="bg-white text-amber-600  text-lg py-4 px-8 rounded-md hover:bg-gray-100  shadow-md"
             >
               Почати підготовку
             </Link>
             <Link
               to="/register"
               onClick={handleRegisterClick}
-              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 transition-colors"
+              className="bg-transparent text-white border-2 border-white  text-lg py-4 px-8 rounded-md hover:bg-white hover:text-amber-600 "
             >
               Зареєструватися
             </Link>
