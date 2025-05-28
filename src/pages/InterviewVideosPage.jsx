@@ -170,7 +170,7 @@ export default function InterviewVideosPage() {
                       title={selectedVideo.title}
                     />
 
-                    <div className="bg-white p-6 text-lg">
+                    <div className="bg-white p-6 text-md">
                       <div className="flex justify-between items-start mb-4">
                         <h2 className="text-2xl font-bold text-gray-800">
                           {selectedVideo.title}
@@ -220,7 +220,7 @@ export default function InterviewVideosPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white p-6 rounded-lg shadow-md mt-6 text-lg">
+                  <div className="bg-white p-6 rounded-lg shadow-md mt-6 text-md">
                     <div className="flex items-center mb-6 border-b border-gray-100 pb-3">
                       <FaInfoCircle className="text-amber-600 mr-2 text-xl" />
                       <h3 className="text-2xl font-bold text-gray-800">
@@ -334,7 +334,7 @@ export default function InterviewVideosPage() {
                         </div>
 
                         <div className="ml-3 flex-grow">
-                          <h4 className=" text-lg line-clamp-3 group-hover:text-amber-600">
+                          <h4 className=" text-md line-clamp-3 group-hover:text-amber-600">
                             {video.title}
                           </h4>
                           <div className="flex mt-1 space-x-1">
