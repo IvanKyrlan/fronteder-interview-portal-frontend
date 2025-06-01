@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import ForumHeader from "../components/forum/ForumHeader";
-import ForumActionBar from "../components/forum/ForumActionBar";
-import ForumCategories from "../components/forum/ForumCategories";
-import TopicsList from "../components/forum/TopicsList";
-import CreateTopicModal from "../components/forum/CreateTopicModal";
-import Pagination from "../components/common/Pagination";
-import EmptyState from "../components/forum/EmptyState";
-import SavedTopics from "../components/forum/SavedTopics";
+import ForumHeader from '../components/forum/ForumHeader';
+import ForumActionBar from '../components/forum/ForumActionBar';
+import ForumCategories from '../components/forum/ForumCategories';
+import TopicsList from '../components/forum/TopicsList';
+import CreateTopicModal from '../components/forum/CreateTopicModal';
+import Pagination from '../components/common/Pagination';
+import SavedTopics from '../components/forum/SavedTopics';
 
-import forumService from "../services/forumService";
-import useForum from "../hooks/useForum";
+import forumService from '../services/forumService';
+import useForum from '../hooks/useForum';
 
 const ForumPage = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -29,19 +28,19 @@ const ForumPage = () => {
   const [error, setError] = useState(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
-  const initialCategory = searchParams.get("category") || "all";
-  const initialSearch = searchParams.get("search") || "";
-  const initialSort = searchParams.get("sort") || "newest";
-  const initialPage = parseInt(searchParams.get("page") || "1", 10);
+  const initialCategory = searchParams.get('category') || 'all';
+  const initialSearch = searchParams.get('search') || '';
+  const initialSort = searchParams.get('sort') || 'newest';
+  const initialPage = parseInt(searchParams.get('page') || '1', 10);
 
   const [activeCategory, setActiveCategory] = useState(
-    initialCategory === "undefined" ? "all" : initialCategory
+    initialCategory === 'undefined' ? 'all' : initialCategory
   );
   const [searchTerm, setSearchTerm] = useState(
-    initialSearch === "undefined" ? "" : initialSearch
+    initialSearch === 'undefined' ? '' : initialSearch
   );
   const [sortBy, setSortBy] = useState(
-    initialSort === "undefined" ? "newest" : initialSort
+    initialSort === 'undefined' ? 'newest' : initialSort
   );
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [totalTopics, setTotalTopics] = useState(0);
@@ -52,20 +51,20 @@ const ForumPage = () => {
 
   useEffect(() => {
     const hasUndefinedParams =
-      activeCategory === "undefined" ||
-      searchTerm === "undefined" ||
-      sortBy === "undefined";
+      activeCategory === 'undefined' ||
+      searchTerm === 'undefined' ||
+      sortBy === 'undefined';
 
     if (hasUndefinedParams) {
       setSearchParams({
-        category: activeCategory !== "undefined" ? activeCategory : "all",
-        search: searchTerm !== "undefined" ? searchTerm : undefined,
-        sort: sortBy !== "undefined" ? sortBy : "newest",
+        category: activeCategory !== 'undefined' ? activeCategory : 'all',
+        search: searchTerm !== 'undefined' ? searchTerm : undefined,
+        sort: sortBy !== 'undefined' ? sortBy : 'newest',
       });
 
-      if (activeCategory === "undefined") setActiveCategory("all");
-      if (searchTerm === "undefined") setSearchTerm("");
-      if (sortBy === "undefined") setSortBy("newest");
+      if (activeCategory === 'undefined') setActiveCategory('all');
+      if (searchTerm === 'undefined') setSearchTerm('');
+      if (sortBy === 'undefined') setSortBy('newest');
     }
   }, [activeCategory, searchTerm, sortBy, setSearchParams]);
 
@@ -76,7 +75,7 @@ const ForumPage = () => {
 
       const counts = { all: data.length };
       categories.forEach((cat) => {
-        if (cat.id !== "all") {
+        if (cat.id !== 'all') {
           counts[cat.id] = data.filter(
             (topic) => topic.category === cat.id
           ).length;
@@ -84,7 +83,7 @@ const ForumPage = () => {
       });
       setCategoryCounts(counts);
     } catch (err) {
-      console.error("Error fetching all topics:", err);
+      console.error('Error fetching all topics:', err);
     }
   }, [categories]);
 
@@ -92,10 +91,10 @@ const ForumPage = () => {
     setLoading(true);
     try {
       const params = {};
-      if (activeCategory !== "all" && activeCategory !== "undefined") {
+      if (activeCategory !== 'all' && activeCategory !== 'undefined') {
         params.category = activeCategory;
       }
-      if (searchTerm && searchTerm !== "undefined") {
+      if (searchTerm && searchTerm !== 'undefined') {
         params.search = searchTerm;
       }
 
@@ -106,8 +105,8 @@ const ForumPage = () => {
       setTotalTopics(data.length);
       setError(null);
     } catch (err) {
-      console.error("Error fetching topics:", err);
-      setError("Не вдалося завантажити теми");
+      console.error('Error fetching topics:', err);
+      setError('Не вдалося завантажити теми');
     } finally {
       setLoading(false);
     }
@@ -120,18 +119,18 @@ const ForumPage = () => {
   }, [categories, fetchAllTopics]);
 
   useEffect(() => {
-    document.title = "Форум | Frontender - Підготовка до співбесід";
+    document.title = 'Форум | Frontender - Підготовка до співбесід';
 
     if (
-      activeCategory !== "undefined" &&
-      searchTerm !== "undefined" &&
-      sortBy !== "undefined"
+      activeCategory !== 'undefined' &&
+      searchTerm !== 'undefined' &&
+      sortBy !== 'undefined'
     ) {
       fetchTopics();
     }
 
     return () => {
-      document.title = "Frontender";
+      document.title = 'Frontender';
     };
   }, [fetchTopics, activeCategory, searchTerm, sortBy]);
 
@@ -148,15 +147,15 @@ const ForumPage = () => {
     const params = {};
     if (
       activeCategory &&
-      activeCategory !== "all" &&
-      activeCategory !== "undefined"
+      activeCategory !== 'all' &&
+      activeCategory !== 'undefined'
     ) {
       params.category = activeCategory;
     }
-    if (searchTerm && searchTerm !== "undefined") {
+    if (searchTerm && searchTerm !== 'undefined') {
       params.search = searchTerm;
     }
-    if (sortBy && sortBy !== "newest" && sortBy !== "undefined") {
+    if (sortBy && sortBy !== 'newest' && sortBy !== 'undefined') {
       params.sort = sortBy;
     }
     if (currentPage && currentPage !== 1) {
@@ -198,8 +197,8 @@ const ForumPage = () => {
   };
 
   const handleResetFilters = () => {
-    setSearchTerm("");
-    setActiveCategory("all");
+    setSearchTerm('');
+    setActiveCategory('all');
     setCurrentPage(1);
   };
 
@@ -218,7 +217,7 @@ const ForumPage = () => {
 
       navigate(`/forum/topics/${createdTopic.id}`);
     } catch (error) {
-      console.error("Error handling topic creation:", error);
+      console.error('Error handling topic creation:', error);
     }
   };
 
@@ -284,7 +283,7 @@ const ForumPage = () => {
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
         onSubmit={handleTopicCreated}
-        categories={categories.filter((c) => c.id !== "all")}
+        categories={categories.filter((c) => c.id !== 'all')}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaEdit, FaEnvelope, FaCalendarAlt } from 'react-icons/fa';
+import { FaUser, FaEdit, FaEnvelope } from 'react-icons/fa';
 
 const AuthorInfo = ({
   authorName,

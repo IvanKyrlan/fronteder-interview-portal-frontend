@@ -10,7 +10,6 @@ import {
 import { useSelector } from 'react-redux';
 import useTimer from '../hooks/useTimer';
 import testService from '../services/testService';
-import userService from '../services/userService';
 
 import LeftSidebar from '../components/test/LeftSidebar';
 import InfoContent from '../components/test/InfoContent';

@@ -97,6 +97,7 @@ export default function HeroSection() {
                 src={heroIllustration}
                 alt="Головна Ілюстрація"
                 className="w-[120%] h-[120%] max-w-none object-contain drop-shadow-2xl"
+                rel="preload"
               />
 
               <Badge
