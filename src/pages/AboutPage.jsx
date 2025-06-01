@@ -83,6 +83,7 @@ export default function AboutPage() {
                   src={authorPhoto}
                   alt="Фото автора"
                   className="w-full h-full object-cover"
+                  rel="preload"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src =
@@ -177,6 +178,7 @@ export default function AboutPage() {
                 src={missionIllustration}
                 alt="Місія Frontender"
                 className="max-w-full h-auto rounded-lg shadow-lg"
+                rel="preload"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src =
